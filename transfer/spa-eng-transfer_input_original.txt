@@ -1,0 +1,2 @@
+^El<det><def><m><pl>/The<det><def><m><pl>/$ ^perro<n><m><pl>/dog<n><m><pl>/$ ^de<pr>/of<pr>/from<pr>/$ ^el<det><def><m><sg>/the<det><def><m><sg>/$ ^chico<n><m><sg>/boy<n><sg>/$ ^correr<vblex><pri><p3><pl>/run<vblex><pri><p3><pl>/$ ^rápido<adj><m><sg>/fast<adj><sint><m><sg>/$^.<sent>/.<sent>/$^.<sent>/.<sent>/$[][
+]

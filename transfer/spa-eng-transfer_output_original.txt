@@ -1,0 +1,2 @@
+^Det_nom<SN><m><pl>{^the<det><def><3>$ ^dog<n><3>$}$ ^de<PREP>{^of<pr>$}$ ^det_nom<SN><m><sg>{^the<det><def><3>$ ^boy<n><3>$}$ ^verbcj<SV><vblex><pri><p3><pl>{^run<vblex><pres>$}$ ^adj<SA><m><sg>{^fast<adj><sint>$}$^punt<sent>{^.<sent>$}$^punt<sent>{^.<sent>$}$[][
+]

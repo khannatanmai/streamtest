@@ -1,0 +1,2 @@
+^El<det><def><m><pl><sf:Los>/The<det><def><m><pl><sf:Los>/$ ^perro<n><m><pl><sf:perros>/dog<n><m><pl><sf:perros>/$ ^de<pr><sf:del>/of<pr><sf:del>/from<pr><sf:del>/$ ^el<det><def><m><sg><sf:del>/the<det><def><m><sg><sf:del>/$ ^chico<n><m><sg><sf:chico>/boy<n><sg><sf:chico>/$ ^correr<vblex><pri><p3><pl><sf:corren>/run<vblex><pri><p3><pl><sf:corren>/$ ^rápido<adj><m><sg><sf:rápido>/fast<adj><sint><m><sg><sf:rápido>/$^.<sent><sf:.>/.<sent><sf:.>/$^.<sent><sf:.>/.<sent><sf:.>/$[][
+]
