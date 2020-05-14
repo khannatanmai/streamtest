@@ -1,0 +1,1 @@
+lt-proc -g ../../apertium-eng-spa/spa-eng.autogen.bin < spa-eng-gener-input_original.txt 

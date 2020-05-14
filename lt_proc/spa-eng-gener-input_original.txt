@@ -1,0 +1,2 @@
+^The<det><def><pl>$ ^dog<n><pl>$ ^of<pr>$ ^the<det><def><sg>$ ^boy<n><sg>$ ^run<vblex><pres>$ ^fast<adj><sint>$^.<sent>$^.<sent>$[][
+]
