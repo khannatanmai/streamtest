@@ -1,0 +1,1 @@
+^hola<prn><pro>/hello<prn><pro><sg>$ ^hola<prn><pro>/hello<prn><pro><sg>$ ^blah<vblex><cni>/xyz<vblex><cni><uv>$ ^tt<prn><pro><a>/ttx<prn><pro><a>$ ^lo<prn><pro><p3><nt>/lo<prn><pro><p3><nt>$ ^aba# sd<vblex><cd>/pasar# bien<vblex><cd>$ 

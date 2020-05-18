@@ -1,7 +1,7 @@
 #!/bin/sh
 
 PREFIX=/Users/khannatanmai/Documents/GSoC/repo/main
-language_pairs=(cat-ita)
+language_pairs=(cat-ita eng-spa)
 
 #xxx-yyy-transfer_input_original.txt -> input to transfer without secondary tags
 #xxx-yyy-transfer_input_new.txt -> input to transfer without secondary tags

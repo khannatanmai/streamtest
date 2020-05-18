@@ -1,0 +1,7 @@
+piss# off<vblex><sep>:cabrear<vblex>
+make# angry<vblex><sep>:cabrear<vblex>
+get# angry<vblex>:cabrear<vblex>
+get# angry<vblex>:cabrearse<vblex><pron>
+make# angry<vblex><sep>:enfadarse<vblex><pron>
+noteworthy<adj>:digno# de mención<adj>
+pickled mussel<n>:mejillón# en escabeche<n><m>

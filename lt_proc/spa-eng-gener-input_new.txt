@@ -1,2 +1,2 @@
-^The<det><def><pl><sf:Los>$ ^dog<n><pl><sf:perros>$ ^of<pr><sf:del>$ ^the<det><def><sg><sf:del>$ ^boy<n><sg><sf:chico>$ ^run<vblex><pres><sf:corren>$ ^fast<adj><sint><sf:rápido>$^.<sent><sf:.>$^.<sent><sf:.>$[][
+^Stroke<n><sg><sf:$$4#saba$sa><id:2#:$># of genius$ ^The<det><def><pl><sf:Los>$ ^dog<n><pl><sf:perros\#\$\:>$ ^of<pr><sf:del>$ ^the<det><def><sg><sf:del>$ ^boy<n><sg><sf:chico>$ ^run<vblex><pres><sf:corren>$ ^fast<adj><sint><sf:rápido>$^.<sent><sf:.>$^.<sent><sf:.>$[][
 ]

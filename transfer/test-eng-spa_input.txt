@@ -1,0 +1,1 @@
+^el<det><def><m><sg><sf:#the\$><id\$:1>/the<det><def><m><sg><sf:#the\$><id\$:1>$ ^ello<det><dem><m><sg><sf:his#><id@:2>/his<det><dem><m><sg><sf:his#><id@:2>$ ^amarillo<adj><sg><sf#:yellow><id:3#>/yellow<adj><sg><sf#:yellow><id:3#>$ ^pelota# qw er id<n><sg><sf:ball# xy ab sfd><id:4>/ball# xy ab sfd<n><sg><sf:ball# xy ab sfd><id:4>$

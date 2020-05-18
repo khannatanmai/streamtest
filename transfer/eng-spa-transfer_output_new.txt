@@ -1,0 +1,3 @@
+^Nom_to_inf<SN><UNDET><sg><inf>{^xyz<n><4><sf:adasd># a vv$  ^para<pr><sf:to>$  ^abc<vblex><5><sf:yada>+he<prn><enc><sg><sf:blah><id:2># hg kg$}$  
+
+^nom_to_inf<SN><UNDET><sg><inf>{^xyz<n><4><sf:adasd>$  ^para<pr><sf:to>$  ^abc<vblex><5><sf:yada>+he<prn><enc><sg><sf:blah><id:2>$}$  
