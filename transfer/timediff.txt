@@ -1,0 +1,23 @@
+ENG-SPA
+
+Before Modification:
+real	0m16.428s
+user	0m36.068s
+sys	0m5.757s
+
+After Modification:
+real	0m15.109s
+user	0m36.484s
+sys	0m5.706s
+
+ENG-KIR
+
+Before Modification:
+real	0m8.408s
+user	0m17.929s
+sys	0m1.560s
+
+After Modification:
+real	0m7.291s
+user	0m18.100s
+sys	0m1.517s

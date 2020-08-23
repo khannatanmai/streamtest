@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+<p><b>Apertium Par de Lengua Nueva *HOWTO</b>
+</p><p>Este *HOWTO el documento describirá cómo para empezar un par de lengua nuevo para el sistema de traducción automática del Apertium de arañazo.  Puedes comprobar la lista <a href="/wiki/List_of_language_pairs" title="List of language pairs">de pares de lengua</a> que ya ha sido empezado.
+</p><p>No asume cualquier conocimiento de lingüísticas, o traducción automática por encima del nivel de ser capaz de distinguir sustantivos de verbos (y preposiciones etc.)
+</p>
+<h2><span class="mw-headline" id="Introduction">Introducción</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=1" title="Edit section: Introduction">edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Apertium es, como probablemente te has dado cuenta por ahora, un sistema de traducción automática. Bien, no bastante,  es una #programa de traducción automática .  Proporciona un motor y *toolbox aquello te dejas para construir vuestros sistemas de traducción automática propios. La cosa única  necesitas hacer es escribir el dato. El dato consiste, en un nivel básico, de tres diccionarios y unas cuantas reglas (para tratar palabra *re-ordenando y otro material gramatical).
+</p><p>Para una introducción más detallada a cómo lo todas las  obras,  hay algunos papeles excelentes en la página <a href="/wiki/Publications" title="Publications"></a> de Publicaciones.
+</p>
+<h2><span class="mw-headline" id="You_will_need"> Necesitarás</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=2" title="Edit section: You will need">edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li>Para instalar núcleo de Apertium, normalmente <a href="/wiki/Install_Apertium_core_using_packaging" title="Install Apertium core using packaging">Instalar núcleo de Apertium que utiliza embalaje</a></li>
+<li>Instalar un nuevo, vacío, par de lengua <a href="/wiki/How_to_bootstrap_a_new_pair" title="How to bootstrap a new pair">Cómo a *bootstrap un par nuevo</a></li>
+<li>Un editor de texto (o un *specalised <a href="/wiki/XML_editors" title="XML editors">editor de XML</a> si  prefieres)</li></ul>
+<p>Este documento no describirá cómo para instalar estos envases, ni el marco de lengua nuevo. Para la información general complace ver también <a href="/wiki/Installation" title="Installation">Instalación</a>.
+</p>
+<h2><span id="What_does_a_language_pair_consist_of?"></span><span class="mw-headline" id="What_does_a_language_pair_consist_of.3F">Qué  un par de lengua consta de?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=3" title="Edit section: What does a language pair consist of?">Edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Apertium es una traducción automática de tipo de traslado superficial  sistema. Así, él básicamente obras en diccionarios y reglas de traslado superficial. En operación, superficial-el traslado está distinguido de profundo-traslado en aquel él  no  lleno sintáctico *parsing, las reglas son típicamente operaciones en grupos de unidades léxicas, más que operaciones en *parse árboles. 
+</p><p>En un nivel básico,  hay tres diccionarios principales:
+</p>
+<ol><li>El <a href="/wiki/Morphological_dictionary" title="Morphological dictionary">diccionario morfológico</a> para lengua *xxx: esto contiene las reglas de cómo palabras en lengua *xxx es *inflected. En nuestro ejemplo esto se apellidará: <code>*apertium-*hbs.*hbs.*dix</code></li>
+<li>El diccionario morfológico para lengua *yyy: esto contiene las reglas de cómo palabras en lengua *yyy es *inflected. En nuestro ejemplo esto se apellidará: <code>*apertium-*eng.*eng.*dix</code></li>
+<li><a href="/wiki/Bilingual_dictionary" title="Bilingual dictionary">Diccionario bilingüe</a>: contiene correspondencias entre palabras y símbolos en las dos lenguas. En nuestro ejemplo esto se apellidará: <code>*apertium-*hbs-*eng.*hbs-*eng.*dix</code></li></ol>
+<p>En un par de traducción, ambas lenguas pueden ser cualquier fuente  u objetivo para traducción; estos son plazos relativos .
+</p><p> hay también limas para reglas de traslado en cualquier dirección. Estos son las reglas  que rige qué las palabras son *re-ordenados en frases, p. ej. <i>charlar *noir</i> → <i>gato gato</i> → <i>negro negro</i>. También rige acuerdo de género, número, etc. Las reglas también pueden soler insertar o eliminar elementos léxicos, como será descrito más tarde. Estas limas son:
+</p>
+<ul><li>Lengua *xxx a lengua *yyy reglas de traslado: esta lima contiene reglas para cómo lengua *xxx será cambiado a lengua *yyy. En nuestro ejemplo esto será: <code>*apertium-*hbs-*eng.*hbs-*eng.*t1x</code></li>
+<li>Lengua *yyy a *xxx reglas de traslado de la lengua: esta lima contiene reglas para cómo lengua *yyy será cambiado a lengua *xxx. En nuestro ejemplo esto será: <code>*apertium-*hbs-*eng.*eng-*hbs.*t1x</code></li></ul>
+<p>Muchos de los pares de lengua actualmente disponibles tener otras limas, pero no les cubriremos aquí. Si  quieres saber más sobre las otras limas, o el proceso global, ve <a href="/wiki/Documentation" title="Documentation">Documentación</a>, especialmente el <a href="/wiki/Workflow_diagram" title="Workflow diagram">*Workflow esquema</a>
+y *Workflow <a href="/wiki/Workflow_reference" title="Workflow reference">remisión</a>. Pero el '.*dix' Y '.*t1x'/'.*t2x' Las limas son el únicos unos requirieron para generar un sistema funcional.
+</p>
+<h2><span class="mw-headline" id="Language_pair">Par de lengua</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=4" title="Edit section: Language pair">edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Como  puedes haber sido aludido a por los nombres de lima, este *HOWTO utilizará el ejemplo de traducir *Serbo-croata a inglés de explicar cómo para crear un sistema básico. Esto no es un par ideal, desde el sistema obra mejor para más estrechamente narró lenguas. Esto no tendría que presentar un problema para los ejemplos sencillos dados aquí.
+</p>
+<h2><span class="mw-headline" id="A_brief_note_on_terms">Una nota breve en plazos</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=5" title="Edit section: A brief note on terms">edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p> Hay número de plazos que necesitará ser entendido antes de que  continuamos.
+</p><p>El primero es <i><a href="/wiki/Lemma" title="Lemma">lema</a></i>. Un lema es la forma de cita  de una palabra.  Es la palabra  desnudado de cualquier información gramatical. Por ejemplo, el lema de los gatos de palabra es <i>gato</i>. En sustantivos ingleses, esto típicamente será la forma singular de la palabra en cuestión. Para verbos, el lema es el infinitivo  desnudado de a, p. ej., el lema de era <i></i> sería <i>ser</i>.
+</p><p>El segundo es símbolo <i></i>. En el contexto del sistema de Apertium, el símbolo refiere a una #sello gramatical. Los gatos de palabra es un sustantivo plural , por eso  tenga el símbolo de sustantivo y el símbolo plural. En la entrada y salida de módulos de Apertium estos es típicamente dado entre #grupo de ángulo, como sigue:
+</p>
+<ul><li><code>&lt;*n&gt;</code>; Para sustantivo.</li>
+<li><code>&lt;*pl&gt;</code>; Para plural.</li></ul>
+<p>Otros ejemplos de símbolos son &lt;*sg&gt;; singular, &lt;*p1&gt; primera persona, &lt;*pri&gt; presente *indicative, etc (ve también: <a href="/wiki/List_of_symbols" title="List of symbols">lista de símbolos</a>). Cuándo escrito en #grupo de ángulo, los símbolos también pueden ser referidos a tan etiquetas.  Vale notar que en muchos de la lengua <a href="/wiki/List_of_language_pairs" title="List of language pairs">actualmente disponible pares</a> las definiciones de símbolo son acrónimos o contracciones  de palabras en catalanes. Por ejemplo, *vbhaver — de *vb (verbo) y *haver ("para tener" en catalán). Los símbolos están definidos en &lt;*sdef&gt; etiquetas y utilizados en &lt;*s&gt; etiquetas.
+</p><p>La tercera palabra es paradigma <i></i>. En el contexto del sistema de Apertium, el paradigma refiere a un ejemplo de cómo un grupo particular de palabras *inflects. En el diccionario morfológico, lemas (ve encima) está enlazado a paradigmas que nos dejo para describir cómo un lema dado *inflects sin teniendo que escribir fuera todo de los finales.
+</p><p>Un ejemplo de la utilidad de este es, si  quisimos almacenar los dos adjetivos <i>felices</i> y perezosos <i></i>, en vez de almacenar dos mucha la misma cosa:
+</p>
+<ul><li>Feliz, *happ (*y, *ier, *iest)</li>
+<li>Perezoso, *laz (*y, *ier, *iest)</li></ul>
+<p>Sencillamente podemos almacenar uno, y entonces decir "perezoso, *inflects como feliz", o de hecho "tímido *inflects como feliz", "travieso *inflects como feliz", "amistoso *inflects como feliz", etc. En este ejemplo, feliz sería el paradigma, el modelo para cómo el otros *inflect. La descripción precisa de cómo esto está definido será explicado dentro de poco. Los paradigmas están definidos en &lt;*pardef&gt; etiquetas, y utilizados en &lt;*par&gt; etiquetas.
+</p>
+<h2><span class="mw-headline" id="Getting_started">Empezando</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=6" title="Edit section: Getting started">edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span class="mw-headline" id="Monolingual_dictionaries">Diccionarios monolingües</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=7" title="Edit section: Monolingual dictionaries">edita</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><span class="boilerplate seealso"><i>Ve también: <a href="/wiki/Morphological_dictionary" title="Morphological dictionary">diccionario Morfológico</a>, <a href="/wiki/List_of_dictionaries" title="List of dictionaries">Lista de diccionarios</a>,&#160;e <a href="/wiki/Incubator" title="Incubator">Incubadora</a></i></span></dd></dl>
+<p>Dejado  inicio por hacer nuestra primera lengua de fuente diccionario, *Serbo-croata en nuestro ejemplo. Como mencionó encima, esta lima se apellidará <code>*apertium-*hbs.*hbs.*dix</code>. El diccionario es una lima de XML . Fuego arriba de vuestro editor de texto y escribir el siguiente:
+</p>
+<pre>&lt;?*xml Versión="1.0" codificando="*UTF-8"?&gt;
+&lt;Diccionario&gt;
+
+&lt;/de diccionario&gt;
+</pre>
+<p>Tan, la lima tan lejos define que  queremos empezar un diccionario. En orden para él para ser útil,  necesitamos añadir algunos más entradas, el primero es un alfabeto. Esto define el conjunto de letras que puede ser utilizado en el diccionario, para *Serbo-croata.  Mire algo como el siguiente, conteniendo todas las letras del *Serbo-alfabeto croata:
+</p>
+<pre>&lt;Alfabeto&gt;*ABCČĆDDžĐEFGHIJKLLjMNNjOPRSŠTUVZŽabcčćddžđefghijklljmnnjoprsštuvzž&lt;/alfabeto&gt;
+</pre>
+<p>Sitio el alfabeto bajo la etiqueta &lt;&gt; de diccionario. (Nota: no pone *newlines o espacio en alfabeto!)
+</p><p>Luego  necesitamos definir algunos símbolos. Dejado  inicio fuera con el material sencillo, sustantivo (*n) en singular (*sg) y plural (*pl).
+</p>
+<pre>&lt;*sdefs&gt;
+   &lt;*sdef *n="*n"/&gt;
+   &lt;*sdef *n="*sg"/&gt;
+   &lt;*sdef *n="*pl"/&gt;
+&lt;/*sdefs&gt;
+</pre>
+<p>Los nombres de símbolo no tienen que ser tan pequeños, de hecho, sólo podrían ser escritos fuera en llenos, pero como   serás escribir les mucho,  hace sentido para abreviar.
+</p><p>Desafortunadamente, no es bastante tan sencillo. Sustantivos en *Serbo-croata *inflect para más de número justo,  son también *inflected para caso, y tener un género. Aun así,  asumiremos para los propósitos de este ejemplo que el sustantivo es masculino y en el *nominative caso (un ejemplo lleno puede ser encontrado al final de este documento).
+</p><p>La cosa próxima es para definir una sección para los paradigmas,
+</p>
+<pre>&lt;*pardefs&gt;
+
+&lt;/*pardefs&gt;
+</pre>
+<p>Y una sección de diccionario:
+</p>
+<pre>&lt;Sección *id="tipo" principal="sección"&gt;
+
+&lt;/estándar&gt;
+</pre>
+<p> Hay dos tipos de secciones, el primero es una sección estándar, aquello contiene palabras, *enclitics, etc. El segundo tipo es un <a href="/wiki/Inconditional_section" title="Inconditional section">*inconditional sección</a> qué típicamente contiene puntuación, y tan adelante. No tenemos un *inconditional sección aquí.
+</p><p>Tan, nuestra lima ahora tendría que mirar a algo le gusta:
+</p>
+<pre>&lt;?*xml Versión="1.0" codificando="*UTF-8"?&gt;
+&lt;Alfabeto&gt;
+   &lt;de diccionario&gt;*ABCČĆDDžĐEFGHIJKLLjMNNjOPRSŠTUVZŽabcčćddžđefghijklljmnnjoprsštuvzž&lt;/alfabeto&gt;
+   &lt;*sdefs&gt;
+     &lt;*sdef *n="*n"/&gt;
+     &lt;*sdef *n="*sg"/&gt;
+     &lt;*sdef *n="*pl"/&gt;
+   &lt;/*sdefs&gt;
+   &lt;*pardefs&gt;
+
+   &lt;/*pardefs&gt;
+   &lt;sección *id="tipo" principal="diccionario"&gt;
+
+   &lt;/de sección&gt;
+&lt;/estándar&gt;
+</pre>
+<p>Ahora  tenemos el esqueleto en sitio,  podemos empezar por añadir un sustantivo. El sustantivo en cuestión será '*gramofon' (cuál significa 'gramófono' o  esjugador de cordón').
+</p><p>La primera cosa  necesitamos hacer, como  tenemos no paradigmas previos, es para definir un paradigma dentro del &lt;*pardefs&gt; etiqueta.
+</p><p>Recuerda,  estamos asumiendo género masculino y *nominative caso. La forma singular del sustantivo es '*gramofon', y el plural es '*gramofoni'. Así que:
+</p>
+<pre>&lt;*pardef *n="*gramofon__*n"&gt;
+   &lt;*e&gt;&lt;*p&gt;&lt;*l/&gt;&lt;*r&gt;&lt;*s *n="*n"/&gt;&lt;*s *n="*sg"/&gt;&lt;/*r&gt;&lt;/*p&gt;&lt;/*e&gt;
+   &lt;*e&gt;&lt;*p&gt;&lt;*l&gt;*i&lt;/*l&gt;&lt;*r&gt;&lt;*s *n="*n"/&gt;&lt;*s *n="*pl"/&gt;&lt;/*r&gt;&lt;/*p&gt;&lt;/*e&gt;
+&lt;/*pardef&gt;
+</pre>
+<p>Nota: el '&lt;*l/&gt;' (equivalente a *l &lt;&gt;&lt;/*l&gt;) denota que  hay no material extra para ser añadido a la raíz para el singular.
+</p><p>
+Esto puede parecer como una manera bastante verbosa de describirlo, pero  hay razones para este y deprisa acaece segunda #carácter. Probablemente estás preguntándote lo que el &lt;*e&gt;, </p><p>, &lt;*l&gt; y *r &lt;&gt; estand para. Bien,
+
+</p><ul><li>*e, es para entrada.</li>
+<li>*p, es para par.</li>
+<li>*l, es para izquierdo.</li>
+<li>*r, es para derecho.</li></ul><p>
+
+Por qué dejado y derecho? Bien, los diccionarios morfológicos más tarde serán compilados a máquinas estatales finitas. Compilándoles dejado a análisis de productos derechos de palabras, y de derechos a palabras de productos izquierdos de análisis. Por ejemplo:
+</p><pre>* *gramofoni (Dejado a derecho) *gramofon&lt;*n&gt;&lt;*pl&gt; (análisis)
+* *gramofon&lt;*n&gt;&lt;*pl&gt; (derecho a izquierdo) *gramofoni (generación)
+</pre>
+<p>Ahora  hemos definido un paradigma,  necesitamos enlazarlo a su lema, *gramofon.  Pusimos esto en la sección que  hemos definido.
+</p><p>La entrada para poner en la sección &lt;&gt; parecerá:
+</p>
+<pre>&lt;*e *lm="*gramofon"&gt;&lt;*i&gt;*gramofon&lt;/*i&gt;&lt;*par *n="*gramofon__*n"/&gt;&lt;/*e&gt;
+</pre>
+<p>Un rápidamente corrido abajo en las abreviaturas:
+</p>
+<ul><li>*lm, es para lema.</li>
+<li>*i, es para identidad (el izquierdo y el derecho es el mismo).</li>
+<li>*par, es para paradigma.</li></ul>
+<p>Esta entrada declara el lema de la palabra, *gramofon, la raíz, *gramofon y el paradigma con qué él *inflects *gramofon__*n. La diferencia entre el lema y la raíz es que el lema es la forma de cita  de la palabra, mientras la raíz es la subcadena  del lema a qué sufijos está añadido. Esto acaecerá más claro más tarde cuándo  asomamos una entrada donde los dos son diferentes.
+</p><p> Somos ahora a punto para probar el diccionario. Lo salva debajo <code>*apertium-*hbs.*hbs.*dix</code>, y entonces regresar a la concha. Primero necesitamos compilarlo (con *lt-*comp), entonces  lo podemos probar (con *lt-*proc). Para quienes son nuevos a *cygwin sólo tomar nota que  necesitas salvar la lima de diccionario dentro de la carpeta de casa (por ejemplo C:\casa\de Apertium\*Username\*filename_de_diccionario). *Otherwise No serás capaz de compilar.
+</p>
+<pre>$ *lt-*comp *lr *apertium-*hbs.*hbs.*dix *hbs-*eng.*automorf.Cubo
+</pre>
+<p>Tendría que producir la salida:
+</p>
+<pre>main@standard 12 12
+</pre>
+<p>Como  estamos compilándolo dejados a derechos,  estamos produciendo un analizador. Deja marca un generador también.
+</p>
+<pre>$ *lt-*comp *rl *apertium-*hbs.*hbs.*dix *eng-*hbs.*autogen.Cubo
+</pre>
+<p>Al llegar a este punto, la orden tendría que producir la misma salida.
+</p><p>Ahora podemos probar estos. Corrido *lt-*proc en el analizador.
+</p>
+<pre>$ *lt-*proc *hbs-*eng.*automorf.Cubo
+</pre>
+<p>Ahora probarlo fuera, tipo en "*gramofoni" (gramófonos), y ver la salida:
+</p>
+<pre>^*gramofoni/*gramofon&lt;*n&gt;&lt;*pl&gt;$
+</pre>
+<p>Ahora, para el diccionario inglés,  la misma cosa, pero sustituir el gramófono de palabra inglés para *gramofon, y cambiar la inflexión plural. Qué si  quieres utilizar la palabra más correcta  es jugadora de cordón'? Bien,  explicaremos cómo para hacer que más tarde.
+</p><p>Ahora tendrías que tener dos limas:
+</p>
+<ul><li>*apertium-*hbs.*hbs.*dix Cuál contiene un (muy) básico *Serbo-diccionario morfológico croata, y</li>
+<li>*apertium-*eng.*eng.*dix Cuál contiene un (muy) diccionario morfológico inglés básico.</li></ul>
+<h3><span class="mw-headline" id="Bilingual_dictionary">Diccionario bilingüe</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=8" title="Edit section: Bilingual dictionary">edita</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p><i>Ve también: <a href="/wiki/Bilingual_dictionary" title="Bilingual dictionary">diccionario Bilingüe</a></i>
+</p><p>Así que ahora tenemos dos diccionarios morfológicos, la cosa próxima a marca es el <a href="/wiki/Bilingual_dictionary" title="Bilingual dictionary">diccionario bilingüe</a>. Esto describe mapeos entre palabras. Todos los  diccionarios utilizan el mismo formato (cuál está especificado en el *DTD, *dix.*dtd).
+</p><p>Crear una lima nueva, <code>*apertium-*hbs-*eng.*hbs-*eng.*dix</code> Y añadir el esqueleto básico:
+</p>
+<pre>&lt;?*xml Versión="1.0" codificando="*UTF-8"?&gt;
+&lt;Alfabeto&gt;
+   &lt;de diccionario/&gt;
+   &lt;*sdefs&gt;
+     &lt;*sdef *n="*n"/&gt;
+     &lt;*sdef *n="*sg"/&gt;
+     &lt;*sdef *n="*pl"/&gt;
+   &lt;/*sdefs&gt;
+
+   &lt;sección *id="tipo" principal="diccionario"&gt;
+
+   &lt;/de sección&gt;
+&lt;/estándar&gt;
+</pre>
+<p>Ahora  necesitamos añadir una entrada para traducir entre las dos palabras. A Algo le gusta:
+</p>
+<pre>&lt;*e&gt;&lt;*p&gt;&lt;*l&gt;*gramofon&lt;*s *n="*n"/&gt;&lt;/*l&gt;&lt;*r&gt;Gramófono&lt;*s *n="*n"/&gt;&lt;/*r&gt;&lt;/*p&gt;&lt;/*e&gt;
+</pre>
+<p>Porque  hay muchas estas entradas, son típicamente escritos encima uno tacha para facilitar lectura más fácil de la lima. Otra vez con el '*l' y '*r' derecho? Bien,  lo compilamos dejados a derechos de producir el *Serbo-diccionario → inglés croata, y derecho a dejado para producir el inglés → *Serbo-diccionario croata.
+</p><p>Tan, una vez esto está hecho, corrido las órdenes siguientes:
+</p>
+<pre>$ *lt-*comp *lr *apertium-*hbs.*hbs.*dix *hbs-*eng.*automorf.Cubo
+$ *lt-*comp *rl *apertium-*eng.*eng.*dix *hbs-*eng.*autogen.Cubo
+
+$ *lt-*comp *lr *apertium-*eng.*eng.*dix *eng-*hbs.*automorf.Cubo
+$ *lt-*comp *rl *apertium-*hbs.*hbs.*dix *eng-*hbs.*autogen.Cubo
+
+$ *lt-*comp *lr *apertium-*hbs-*eng.*hbs-*eng.*dix *hbs-*eng.*autobil.Cubo
+$ *lt-*comp *rl *apertium-*hbs-*eng.*hbs-*eng.*dix *eng-*hbs.*autobil.Cubo
+</pre>
+<p>Para generar los analizadores morfológicos (*automorf), los generadores morfológicos (*autogen) y la palabra *lookups (*autobil), el *bil es para "bilingüe".
+</p>
+<h3><span class="mw-headline" id="Transfer_rules">Reglas de traslado</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=9" title="Edit section: Transfer rules">edita</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Tan, ahora  tenemos dos diccionarios morfológicos, y un diccionario bilingüe. Todo que  necesitamos ahora es una regla de traslado para sustantivos. Limas de regla del traslado tienen su propios *DTD (traslado.*dtd) Cuáles pueden ser encontrados en el envase de Apertium. Si  necesitas implementar una regla es a menudo una idea buena de mirar en las limas de regla de otros pares de lengua primero. Muchas reglas pueden ser recicladas/*reused entre lenguas. Por ejemplo el describió abajo sería útil para cualquier *null-lengua @subject.
+</p><p>A Inicio fuera le gusta todo el otros con un esqueleto básico (<code>*apertium-*hbs-*eng.*hbs-*eng.*t1x</code>)&#160;:
+</p>
+<pre>&lt;?*xml Versión="1.0" codificando="*UTF-8"?&gt;
+&lt;Traslado&gt;
+
+&lt;/de traslado&gt;
+</pre>
+<p>En el momento, porque  estamos ignorando caso, sólo necesitamos hacer una regla que toma la entrada de símbolos gramatical y salidas les otra vez.
+</p><p>Primero necesitamos definir categorías y atributos. Categorías y atributos tanto dejarnos para agrupar símbolos gramaticales. Las categorías nos dejan para agrupar símbolos para los propósitos de emparejar (por ejemplo '*n.*' Es todos los  sustantivos). Los atributos nos dejan para agrupar un conjunto de símbolos que puede ser escogido de. Por ejemplo ( esg' y '*pl' puede ser agrupado un un atributo 'número').
+</p><p>Deja añadir las secciones necesarias:
+</p>
+<pre>&lt;Sección-*def-sección&gt;
+
+&lt;/de gatos-*def-sección&gt;
+&lt;de gatos-*def-*attrs&gt;
+
+&lt;/sección-*def-*attrs&gt;
+</pre>
+<p>Como  somos sólo *inflecting, sustantivos en singulares y plurales entonces  necesitamos añadir una categoría para sustantivos, y con un atributo de número. Algo como el siguiendo bastará:
+</p><p>A sección-*def-los gatos añaden:
+</p>
+<pre>&lt;*def-Gato *n="*nom"&gt;
+   &lt;gato-etiquetas de elemento="*n.*"/&gt;
+&lt;/*def-Gato&gt;
+</pre>
+<p>Esto coge todos los  sustantivos (los lemas siguieron por &lt;*n&gt; entonces cualquier cosa) y refiere a ellos tan "*nom" ( veremos cómo aquello está utilizado más tardío).
+</p><p>A la sección de sección-*def-*attrs, añade:
+</p>
+<pre>&lt;*def-*attr *n="*nbr"&gt;
+   &lt;*attr-Etiquetas de elemento="*sg"/&gt;
+   &lt;*attr-etiquetas de elemento="*pl"/&gt;
+&lt;/*def-*attr&gt;
+</pre>
+<p>Y entonces
+</p>
+<pre>&lt;*def-*attr *n="Un_*nom"&gt;
+   &lt;*attr-etiquetas de elemento="*n"/&gt;
+&lt;/*def-*attr&gt;
+</pre>
+<p>El primero define el atributo *nbr (número), los cuales pueden ser cualquier singular  (*sg) o plural (*pl).
+</p><p>El segundo define el atributo un_*nom (sustantivo de atributo).
+</p><p>Luego  necesitamos añadir una sección para variables globales:
+</p>
+<pre>&lt;Sección-*def-*vars&gt;
+
+&lt;/sección-*def-*vars&gt;
+</pre>
+<p>Estas variables suelen tienda o atributos de traslado entre reglas.  Necesitamos sólo uno por ahora de modo que la lima puede ser validada,
+</p>
+<pre>&lt;*def-*var *n="Número"/&gt;
+</pre>
+<p>Finalmente,  necesitamos añadir una regla, para tomar en el sustantivo y entonces salida él en la forma correcta.  Necesitaremos una sección de reglas...
+</p>
+<pre>&lt;Sección-sección&gt;
+
+&lt;/de reglas-reglas&gt;
+</pre>
+<p>Cambiando el paso de los ejemplos anteriores, yo  sólo paté esta regla, entonces pasarlo por, más que al revés.
+</p>
+<pre>&lt;Patrón&gt;
+   &lt;de patrón&gt;
+     &lt;de la regla-elemento *n="*nom"/&gt;
+   &lt;/acción&gt;
+   &lt;de patrón&gt;
+     &lt;fuera de *lu&gt;
+       &lt;&gt;
+         &lt;clip *pos="1" lado="*tl" parte="*lem"/&gt;
+         &lt;clip *pos="1" lado="*tl" separar="un_*nom"/&gt;
+         &lt;clip *pos="1" lado="*tl" parte="*nbr"/&gt;
+       &lt;/*lu&gt;
+     &lt;/fuera&gt;
+   &lt;/regla&gt;
+&lt;/de acción&gt;
+</pre>
+<p>La primera etiqueta es obvia,  define una regla. La segunda etiqueta, el patrón básicamente dice: "aplicar esta regla, si este patrón está encontrado". En este ejemplo el patrón consta de un sustantivo solo (definido por el elemento de categoría *nom). Nota que los patrones están emparejados en un más largos-emparejar primero. Tan, dice  tienes tres reglas, el primero coge el patrón: <code>&lt;*prn&gt; &lt;*vblex&gt; &lt;*n&gt;</code>, el segundo coge <code>&lt;*prn&gt; &lt;*vblex&gt;</code> y el tercio coge <code>&lt;*n&gt;</code>. El patrón emparejó, y gobernar ejecutado sería el primer un.
+</p><p>Para cada patrón,  hay una acción asociada, el cual produce una salida asociada, fuera. La salida, es una unidad léxica (*lu).
+</p><p>La etiqueta de clip deja un usuario para seleccionar y manipular atributos y partes de la lengua de fuente (lado="*sl"), o lengua de objetivo (lado="*tl") elemento léxico.
+</p><p>Dejado es compilarlo y probarlo. Reglas de traslado están compiladas con:
+</p>
+<pre>$ *apertium-*preprocess-Transferir *apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo
+</pre>
+<p>Cuál generará un <code>*hbs-*eng.*t1x.Lima</code> de cubo.
+</p><p>Ahora  somos a punto para probar nuestro sistema de traducción automática.  Hay uno la parte crucial que pierde, la categoría gramatical (*PoS) *tagger, pero aquello será explicado dentro de poco. Mientras tanto  lo podemos probar como es:
+</p><p>Primero, deja analizar una palabra, *gramofoni:
+</p>
+<pre>$ Resonar "*gramofoni" | *lt-*proc *hbs-*eng.*automorf.Cubo 
+^*gramofoni/*gramofon&lt;*n&gt;&lt;*pl&gt;$
+</pre>
+<p>Ahora, normalmente aquí el *POS *tagger escogería la versión derecha basada en la categoría gramatical, pero no tenemos un *POS *tagger todavía, así que  podemos utilizar este poco *gawk guión (gracias a Sergio) que  sólo salida el primer elemento recuperó.
+</p>
+<pre>$ Resonar "*gramofoni" | *lt-*proc *hbs-*eng.*automorf.Cubo | \
+  *gawk 'EMPEZAR{*RS="$"; *FS="/";}{*nf=ruptura($1,COMPONENTES,"^"); para(*i = 1; *i&lt;*nf; *i++) *printf COMPONENTES[*i]; si($2&#160;!= "") *printf("^%*s$",$2);}'
+^*gramofon&lt;*n&gt;&lt;*pl&gt;$
+</pre>
+<p>Ahora dejado  proceso que con la regla de traslado:
+</p>
+<pre>$ Resonar "*gramofoni" | *lt-*proc *hbs-*eng.*automorf.Cubo | \
+  *gawk 'EMPEZAR{*RS="$"; *FS="/";}{*nf=ruptura($1,COMPONENTES,"^"); para(*i = 1; *i&lt;*nf; *i++) *printf COMPONENTES[*i]; si($2&#160;!= "") *printf("^%*s$",$2);}' | \
+  *apertium-transferir *apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo *hbs-*eng.*autobil.Cubo
+</pre>
+<p>Él  salida:
+</p>
+<pre>^Gramófono&lt;*n&gt;&lt;*pl&gt;$^@
+</pre>
+<ul><li>'Gramófono' es la lengua de objetivo (lado="*tl") lema (*lem) en #puesto 1 (*pos="1").</li>
+<li>'&lt;*n&gt;' Es la lengua de objetivo un_*nom en #puesto 1.</li>
+<li>'&lt;*pl&gt;' Es el atributo de lengua del objetivo de número (*nbr) en #puesto 1.</li></ul>
+<p>Prueba comentar fuera uno de estas declaraciones de clip, *recompiling y viendo qué pasa.
+</p><p>Tan, ahora  tenemos la salida del traslado, la cosa única que los restos es para generar el objetivo-lengua *inflected formas. Para este,  utilizamos *lt-*proc, pero en generación (-g), no modo de análisis.
+</p>
+<pre>$ Resonar "*gramofoni" | *lt-*proc *hbs-*eng.*automorf.Cubo | \
+  *gawk 'EMPEZAR{*RS="$"; *FS="/";}{*nf=ruptura($1,COMPONENTES,"^"); para(*i = 1; *i&lt;*nf; *i++) *printf COMPONENTES[*i]; si($2&#160;!= "") *printf("^%*s$",$2);}' | \
+  *apertium-transferir *apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo *hbs-*eng.*autobil.Cubo | \
+  *lt-*proc -g *hbs-*eng.*autogen.Gramófonos
+
+de cubo\@
+</pre>
+<p>Y *c'*est *ca. Ahora tienes un sistema de traducción automática que traduce un *Serbo-sustantivo croata a un sustantivo inglés. Evidentemente esto no es muy útil, pero  cogeremos al material más complejo pronto. Oh, y no se preocupa sobre el '@' símbolo,  explicaré que pronto demasiado.<sup id="cite_ref-1" class="reference"><a href="#cite_note-1">&#91;1&#93;</a></sup>
+</p><p>Piensa de unas cuantas otras palabras que *inflect igual tan *gramofon. Qué aproximadamente añadiendo aquellos. No necesitamos para añadir cualesquier paradigmas, sólo las entradas en general sección de los diccionarios monolingües y bilingües.
+</p>
+<h2><span class="mw-headline" id="Bring_on_the_verbs">Trae en los verbos</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=10" title="Edit section: Bring on the verbs">edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Vale, así que  tenemos un sistema que traduce sustantivos, pero aquello es bastante inútil,  queremos traducir verbos también, e incluso frases enteras! Qué aproximadamente  empezamos con el verbo para ver. En *Serbo-croata esto es *videti. *Serbo-Croata es un *null-lengua @subject, esto significa que no típicamente utilice pronombres personales antes del *conjugated forma del verbo. Inglés no es. Tan por ejemplo:  veo en inglés sería traducido tan *vidim en *Serbo-croata.
+</p>
+<ul><li>*Vidim</li>
+<li>Ve&lt;*p1&gt;&lt;*sg&gt;</li>
+<li> Veo</li></ul>
+<p>Nota: <code>&lt;*p1&gt;</code> denota primera persona
+</p><p>Esto será importante cuándo  venimos para escribir la regla de traslado para verbos. Otros ejemplos de *null-las lenguas @subject incluyen: español, rumano y polaco. Esto también tiene el efecto que mientras sólo necesitamos añadir el verbo en el *Serbo-diccionario morfológico croata,  necesitamos añadir ambos el verbo, y los pronombres personales en el diccionario morfológico inglés.  Pasaremos por ambos de estos.
+</p><p>Las otras formas del verbo *videti es: *vidiš, *vidi, *vidimo, *vidite, y *vide; cuáles corresponden a:  ves (singular),  ve,  vemos,  ves (plural), y  ven.
+</p><p> Hay dos formas de  ves, uno es singular plural y formal  (*vidite) y el otro es singular e informal (*vidiš).
+</p><p> Vamos a probar y traducir la frase: "*Vidim *gramofoni" a " veo gramófonos". En los intereses de espaciales, sólo añadiremos bastante información para hacer la traducción y  dejará llenar fuera de los paradigmas (añadiendo las otras conjugaciones del verbo) como un ejercicio al lector.
+</p><p>El lector astuto se habrá dado cuenta por este punto que  podemos no sólo traducir *vidim *gramofoni porque no es un *grammatically frase correcta en *Serbo-croata. La frase correcta sería *vidim *gramofone, como el sustantivo toma el *accusative caso.  Tendremos que añadir aquella forma también, ninguna necesidad de añadir la información de caso por ahora aun así, sólo lo añadimos como otra opción para plural. Tan, en la definición de paradigma sólo copia el '*e' bloque para '*i' y cambiar el '*i' a '*e' allí.
+</p>
+<pre>&lt;*pardef *n="*gramofon__*n"&gt;
+   &lt;*e&gt;&lt;*p&gt;&lt;*l/&gt;&lt;*r&gt;&lt;*s *n="*n"/&gt;&lt;*s *n="*sg"/&gt;&lt;/*r&gt;&lt;/*p&gt;&lt;/*e&gt;
+   &lt;*e&gt;&lt;*p&gt;&lt;*l&gt;*i&lt;/*l&gt;&lt;*r&gt;&lt;*s *n="*n"/&gt;&lt;*s *n="*pl"/&gt;&lt;/*r&gt;&lt;/*p&gt;&lt;/*e&gt;
+   &lt;*e&gt;&lt;*p&gt;&lt;*l&gt;*e&lt;/*l&gt;&lt;*r&gt;&lt;*s *n="*n"/&gt;&lt;*s *n="*pl"/&gt;&lt;/*r&gt;&lt;/*p&gt;&lt;/*e&gt;
+&lt;/*pardef&gt;
+</pre>
+<p>Primera cosa  necesitamos hacer es añadir algunos más símbolos.  Necesitamos a primero añadir un símbolo para 'verbo', el cual  llamaremos "*vblex" (esto significa verbo léxico, tan *opposed a verbos modales y otros tipos). Los verbos tienen 'persona', y 'tenso' junto con número, así que deja añadir un par de aquellos también.  Necesitamos traducir " veo", tan para persona  tendríamos que añadir "*p1", o 'primera persona', y para tenso "*pri", o 'presente *indicative'.
+</p>
+<pre>&lt;*sdef *n="*vblex"/&gt;
+&lt;*sdef *n="*p1"/&gt;
+&lt;*sdef *n="*pri"/&gt;
+</pre>
+<p>Después de que  hemos hecho esto, igual con los sustantivos,  añadimos un paradigma para la conjugación de verbo. La primera línea será:
+</p>
+<pre>&lt;*pardef *n="*vid/*eti__*vblex"&gt;
+</pre>
+<p>El '/' suele demarcar donde las raíces (las partes entre el &lt;*l&gt; &lt;/*l&gt; etiquetas) está añadido a.
+</p><p>Entonces la inflexión para primer singular de persona:
+</p>
+<pre>
+
+&lt;*e&gt;&lt;*p&gt;&lt;*l&gt;*im&lt;/*l&gt;&lt;*r&gt;*eti&lt;*s *n="*vblex"/&gt;&lt;*s *n="*pri"/&gt;&lt;*s *n="*p1"/&gt;&lt;*s *n="*sg"/&gt;&lt;/*r&gt;&lt;/*p&gt;&lt;/*e&gt;
+
+</pre>
+<p>El '*im' denota el final (como en '*vidim'),  es necesario de añadir '*eti' al &lt;*r&gt; sección, como esto será *chopped fuera por la definición. El resto es bastante sincero, '*vblex' es verbo léxico, '*pri' es presente *indicative tenso, '*p1' es primera persona y  esg' es singular. También podemos añadir el plurales cuál será igual, exceptúa '*imo' en vez de '*im' y '*pl' en vez de'g'.
+</p><p>Después de que esto  necesitamos añadir un lema, mapeo de paradigma a la sección principal:
+</p>
+<pre>&lt;*e *lm="*videti"&gt;&lt;*i&gt;*vid&lt;/*i&gt;&lt;*par *n="*vid/*eti__*vblex"/&gt;&lt;/*e&gt;
+</pre>
+<p>Nota: el contenido de *i &lt;&gt; &lt;/*i&gt; es la raíz, no el lema.
+</p><p>Aquello es la obra  en el *Serbo-el diccionario croata hecho por ahora. Deja compilarlo entonces probarlo.
+</p>
+<pre>$ *lt-*comp *lr *apertium-*hbs.*hbs.*dix *hbs-*eng.*automorf.Cubo
+main@standard 23 25
+$ resonar "*vidim" | *lt-*proc *hbs-*eng.*automorf.Cubo
+^*vidim/*videti&lt;*vblex&gt;&lt;*pri&gt;&lt;*p1&gt;&lt;*sg&gt;$
+$ resonar "*vidimo" | *lt-*proc *hbs-*eng.*automorf.Cubo
+^*vidimo/*videti&lt;*vblex&gt;&lt;*pri&gt;&lt;*p1&gt;&lt;*pl&gt;$
+</pre>
+<p>Vale, tan ahora nosotros  igual para el diccionario inglés (recuerda para añadir las mismas definiciones de símbolo aquí como  añadiste al *Serbo-croata un).
+</p><p>El paradigma es:
+</p>
+<pre>&lt;*pardef *n="*s/*ee__*vblex"&gt;
+</pre>
+<p>Porque el pasado tenso es  es*aw'. Ahora,  podemos hacer uno de dos cosas,  podemos añadir ambos primer y segunda persona, pero  son la misma forma . De hecho, todas las  formas (exceptúa tercer singular de persona) del verbo 'para ver' es  es*ee'. Tan en cambio  hacemos una entrada para  *ee' y darlo sólo el '*pri' símbolo.
+</p>
+<pre>
+
+&lt;*e&gt;&lt;*p&gt;&lt;*l&gt;*ee&lt;/*l&gt;&lt;*r&gt;*ee&lt;*s *n="*vblex"/&gt;&lt;*s *n="*pri"/&gt;&lt;/*r&gt;&lt;/*p&gt;&lt;/*e&gt;
+
+</pre>
+<p>Y tan siempre, una entrada en general sección:
+</p>
+<pre>&lt;*e *lm="Ver"&gt;&lt;*i&gt;*s&lt;/*i&gt;&lt;*par *n="*s/*ee__*vblex"/&gt;&lt;/*e&gt;
+</pre>
+<p>Entonces deja salva, *recompile y prueba:
+</p>
+<pre>$ *lt-*comp *lr *apertium-*eng.*eng.*dix *eng-*hbs.*automorf.Cubo
+main@standard 18 19
+
+$ el eco "ve" | *lt-*proc *eng-*hbs.*automorf.El cubo
+^ve/ve&lt;*vblex&gt;&lt;*pri&gt;$
+</pre>
+<p>Ahora para el *obligatory entrada en el diccionario bilingüe:
+</p>
+<pre>&lt;*e&gt;&lt;*p&gt;&lt;*l&gt;*videti&lt;*s *n="*vblex"/&gt;&lt;/*l&gt;&lt;*r&gt;Ver&lt;*s *n="*vblex"/&gt;&lt;/*r&gt;&lt;/*p&gt;&lt;/*e&gt;
+</pre>
+<p>(Otra vez, no olvida para añadir el *sdefs de más temprano)
+</p><p>Y *recompile:
+</p>
+<pre>$ *lt-*comp *lr *apertium-*hbs-*eng.*hbs-*eng.*dix *hbs-*eng.*autobil.Cubo
+main@standard 18 18
+$ *lt-*comp *rl *apertium-*hbs-*eng.*hbs-*eng.*dix *eng-*hbs.*autobil.Cubo
+main@standard 18 18
+</pre>
+<p>Ahora para probar:
+</p>
+<pre>$ Resonar "*vidim" | *lt-*proc *hbs-*eng.*automorf.Cubo | \
+  *gawk 'EMPEZAR{*RS="$"; *FS="/";}{*nf=ruptura($1,COMPONENTES,"^"); para(*i = 1; *i&lt;*nf; *i++) *printf COMPONENTES[*i]; si($2&#160;!= "") *printf("^%*s$",$2);}' | \
+  *apertium-transferir *apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo *hbs-*eng.*autobil.El cubo
+
+^ve&lt;*vblex&gt;&lt;*pri&gt;&lt;*p1&gt;&lt;*sg&gt;$^@
+</pre>
+<p> Cogemos el análisis  pasados a través de correctamente, pero cuándo  probamos y generar una forma de superficie de este,  cogemos un '#', gusta abajo:
+</p>
+<pre>$ Resonar "*vidim" | *lt-*proc *hbs-*eng.*automorf.Cubo | \
+  *gawk 'EMPEZAR{*RS="$"; *FS="/";}{*nf=ruptura($1,COMPONENTES,"^"); para(*i = 1; *i&lt;*nf; *i++) *printf COMPONENTES[*i]; si($2&#160;!= "") *printf("^%*s$",$2);}' | \
+  *apertium-transferir *apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo *hbs-*eng.*autobil.Cubo | \
+  *lt-*proc -g *hbs-*eng.*autogen.El cubo
+#ve\@
+</pre>
+<p>Esto '#' significa que el generador no puede generar la forma léxica correcta porque no lo contenga. Por qué es esto?
+</p><p>Básicamente los análisis no emparejan, el  es*ee' en el diccionario es ve&lt;*vblex&gt;&lt;*pri&gt;, pero el ver entregado por el traslado es ve&lt;*vblex&gt;&lt;*pri&gt;&lt;*p1&gt;&lt;*sg&gt;. El *Serbo-el lado croata tiene más la información que el lado inglés requiere.  Puedes probar esto por añadir los símbolos desaparecidos al diccionario inglés, y entonces *recompiling, y probando otra vez.
+</p><p>Aun así, una manera más paradigmática de cuidar de este es por escribir una regla. Tan,  abrimos arriba de la lima de reglas (<code>*apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo *hbs-*eng.*autobil.Cubo</code> en caso  olvidaste).
+</p><p> Necesitamos añadir una categoría nueva para 'verbo'.
+</p>
+<pre>&lt;*def-Gato *n="*vrb"&gt;
+   &lt;gato-etiquetas de elemento="*vblex.*"/&gt;
+&lt;/*def-Gato&gt;
+</pre>
+<p>También necesitamos añadir atributos para tensos y para persona.  Lo haremos realmente sencillos por ahora,  puedes añadir *p2 y *p3, pero yo  no para salvar espacial.
+</p>
+<pre>&lt;*def-*attr *n="*temps"&gt;
+   &lt;*attr-Etiquetas de elemento="*pri"/&gt;
+&lt;/*def-*attr&gt;
+
+&lt;*def-*attr *n="*pers"&gt;
+   &lt;*attr-etiquetas de elemento="*p1"/&gt;
+&lt;/*def-*attr&gt;
+</pre>
+<p>También tendríamos que añadir un atributo para verbos.
+</p>
+<pre>&lt;*def-*attr *n="Un_verbo"&gt;
+   &lt;*attr-etiquetas de elemento="*vblex"/&gt;
+&lt;/*def-*attr&gt;
+</pre>
+<p>Ahora a la regla:
+</p>
+<pre>&lt;Patrón&gt;
+   &lt;de patrón&gt;
+     &lt;de la regla-elemento *n="*vrb"/&gt;
+   &lt;/acción&gt;
+   &lt;de patrón&gt;
+     &lt;fuera de *lu&gt;
+       &lt;&gt;
+         &lt;clip *pos="1" lado="*tl" parte="*lem"/&gt;
+         &lt;clip *pos="1" lado="*tl" separar="un_clip"/&gt;
+         &lt;de verbo *pos="1" lado="*tl" parte="*temps"/&gt;
+       &lt;/*lu&gt;
+     &lt;/fuera&gt;
+   &lt;/regla&gt;
+&lt;/de acción&gt;
+</pre>
+<p>Recordar cuándo  probaste comentar fuera del 'clip' etiquetas en el ejemplo de regla anterior y ellos desaparecieron del traslado, bien, aquello es bastante qué  estamos haciendo aquí.  Tomamos en un verbo con un análisis lleno, pero salida única un análisis parcial (etiqueta + de verbo del lema + etiqueta tensa).
+</p><p>Tan ahora, si nosotros *recompile que,  cogemos:
+</p>
+<pre>$ Resonar "*vidim" | *lt-*proc *hbs-*eng.*automorf.Cubo | \
+  *gawk 'EMPEZAR{*RS="$"; *FS="/";}{*nf=ruptura($1,COMPONENTES,"^"); para(*i = 1; *i&lt;*nf; *i++) *printf COMPONENTES[*i]; si($2&#160;!= "") *printf("^%*s$",$2);}' | \
+  *apertium-transferir *apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo *hbs-*eng.*autobil.El cubo
+^ve&lt;*vblex&gt;&lt;*pri&gt;$^@
+</pre>
+<p>Y:
+</p>
+<pre>$ Resonar "*vidim" | *lt-*proc *hbs-*eng.*automorf.Cubo  | \
+  *gawk 'EMPEZAR{*RS="$"; *FS="/";}{*nf=ruptura($1,COMPONENTES,"^"); para(*i = 1; *i&lt;*nf; *i++) *printf COMPONENTES[*i]; si($2&#160;!= "") *printf("^%*s$",$2);}' | \
+  *apertium-transferir *apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo *hbs-*eng.*autobil.Cubo | \
+  *lt-*proc -g *hbs-*eng.*autogen.El cubo
+ve\@
+</pre>
+<p>Prueba él con '*vidimo' ( vemos) para ver si  coges la salida correcta .
+</p><p>Ahora probar él con "*vidim *gramofone":
+</p>
+<pre>$ Resonar "*vidim *gramofoni" | *lt-*proc *hbs-*eng.*automorf.Cubo | \
+  *gawk 'EMPEZAR{*RS="$"; *FS="/";}{*nf=ruptura($1,COMPONENTES,"^"); para(*i = 1; *i&lt;*nf; *i++) *printf COMPONENTES[*i]; si($2&#160;!= "") *printf("^%*s$",$2);}' | \
+  *apertium-transferir *apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo *hbs-*eng.*autobil.Cubo | \
+  *lt-*proc -g *hbs-*eng.*autogen.El cubo
+ve gramófonos\@
+</pre>
+<h2><span id="But_what_about_personal_pronouns?"></span><span class="mw-headline" id="But_what_about_personal_pronouns.3F">Pero qué sobre pronombres personales?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=11" title="Edit section: But what about personal pronouns?">Edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Bien, aquello es sumo, pero todavía estamos perdiendo el pronombre personal que es necesario en inglés. Para añadir él en, primero necesitamos editar el diccionario morfológico inglés.
+</p><p>Tan antes, la primera cosa para hacer es añadir los símbolos necesarios:
+</p>
+<pre>&lt;*sdef *n="*prn"/&gt;
+&lt;*sdef *n="*subj"/&gt;
+</pre>
+<p>De los dos símbolos, *prn es pronombre, y *subj es tema (como en el tema de una frase).
+</p><p>Porque no hay ninguna raíz, o 'lema' para pronombres @subject personales, sólo añadimos el *pardef como sigue:
+</p>
+<pre>&lt;*pardef *n="*prsubj__*prn"&gt;
+   &lt;*e&gt;&lt;*p&gt;&lt;*l&gt;Yo&lt;/*l&gt;&lt;*r&gt;*prpers&lt;*s *n="*prn"/&gt;&lt;*s *n="*subj"/&gt;&lt;*s *n="*p1"/&gt;&lt;*s *n="*sg"/&gt;&lt;/*r&gt;&lt;/*p&gt;&lt;/*e&gt;
+&lt;/*pardef&gt;
+</pre>
+<p>Con '*prsubj' ser 'tema personal'. El resto de ellos (Tú, Nosotros etc.) queda como un ejercicio al lector.
+</p><p> Podemos añadir una entrada a la sección principal como sigue:
+</p>
+<pre>&lt;*e *lm="Pronombres @subject personales"&gt;&lt;*i/&gt;&lt;*par *n="*prsubj__*prn"/&gt;&lt;/*e&gt;
+</pre>
+<p>Tan, salva, *recompile y prueba, y  tendríamos que coger a algo le gusta:
+</p>
+<pre>$ Eco "I" | *lt-*proc *eng-*hbs.*automorf.Cubo
+^I/*PRPERS&lt;*prn&gt;&lt;*subj&gt;&lt;*p1&gt;&lt;*sg&gt;$
+</pre>
+<p>(Nota:  es en capitales porque 'I' es en capitales).
+</p><p>Ahora  necesitamos enmendar el 'verbo' regla a salida el pronombre personal @subject junto con la forma de verbo correcta.
+</p><p>Primero, añadir una categoría (esto tiene que ser coger bastante pedestre por ahora):
+</p>
+<pre>&lt;*def-Gato *n="*prpers"&gt;
+   &lt;gato-lema de elemento="*prpers" etiquetas="*prn.*"/&gt;
+&lt;/*def-Gato&gt;
+</pre>
+<p>Ahora añadir los tipos de pronombre como atributos, también podríamos añadir el '*obj' tipo como  somos en él, a pesar de que no necesitaremos utilizar lo por ahora:
+</p>
+<pre>&lt;*def-*attr *n="*tipus_*prn"&gt;
+   &lt;*attr-Etiquetas de elemento="*prn.*subj"/&gt;
+   &lt;*attr-Etiquetas de elemento="*prn.*obj"/&gt;
+&lt;/*def-*attr&gt;
+</pre>
+<p>Y ahora a entrada la regla:
+</p>
+<pre>&lt;Patrón&gt;
+   &lt;de patrón&gt;
+     &lt;de la regla-elemento *n="*vrb"/&gt;
+   &lt;/acción&gt;
+   &lt;de patrón&gt;
+     &lt;fuera de *lu&gt;
+       &lt;&gt;
+         &lt;encendido *v="*prpers"/&gt;
+         &lt;encendido-etiqueta *v="*prn"/&gt;
+         &lt;encendido-etiqueta *v="*subj"/&gt;
+         &lt;clip *pos="1" lado="*tl" parte="*pers"/&gt;
+         &lt;clip *pos="1" lado="*tl" parte="*nbr"/&gt;
+       &lt;/*lu&gt;
+       &lt;*b/&gt;
+       &lt;*lu&gt;
+         &lt;clip *pos="1" lado="*tl" parte="*lem"/&gt;
+         &lt;clip *pos="1" lado="*tl" separar="un_clip"/&gt;
+         &lt;de verbo *pos="1" lado="*tl" parte="*temps"/&gt;
+       &lt;/*lu&gt;
+     &lt;/fuera&gt;
+   &lt;/regla&gt;
+&lt;/de acción&gt;
+</pre>
+<p>Esto es bastante la misma regla tan antes, sólo  hicimos un par de cambios pequeños.
+</p><p> Necesitamos a salida:
+</p>
+<pre>^*prpers&lt;*prn&gt;&lt;*subj&gt;&lt;*p1&gt;&lt;*sg&gt;$ ^Ver&lt;*vblex&gt;&lt;*pri&gt;$
+</pre>
+<p>De modo que el generador podría escoger el pronombre derecho y la forma derecha del verbo.
+</p><p>Tan, un rápido *rundown:
+</p>
+<ul><li><code>&lt;Encendido&gt;</code>, imprime una serie literal, en este caso "*prpers"</li>
+<li><code>&lt;Encendido-etiqueta&gt;</code>, imprime una etiqueta literal, porque no podemos coger las etiquetas del verbo,  añadimos estos *ourself, "*prn" para pronombre, y "*subj" para @subject.</li>
+<li><code><b></b></code>, imprime un espacio, un espacio.</li></ul>
+<p>Nota que  recuperamos la información para número y tensar directamente del verbo.
+</p><p>Tan, ahora si nosotros *recompile y prueba que otra vez:
+</p>
+<pre>$ Resonar "*vidim *gramofone" | *lt-*proc *hbs-*eng.*automorf.Cubo  | \
+  *gawk 'EMPEZAR{*RS="$"; *FS="/";}{*nf=ruptura($1,COMPONENTES,"^"); para(*i = 1; *i&lt;*nf; *i++) *printf COMPONENTES[*i]; si($2&#160;!= "") *printf("^%*s$",$2);}' | \
+  *apertium-transferir *apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo *hbs-*eng.*autobil.Cubo | \
+  *lt-*proc -g *hbs-*eng.*autogen.Cubo
+ veo gramófonos
+</pre>
+<p>Qué, mientras no es exactamente prosa premiada (mucho así *HOWTO), es una traducción bastante cuidadosa.
+</p>
+<h2><span id="So_tell_me_about_the_record_player_(Multiwords)"></span><span class="mw-headline" id="So_tell_me_about_the_record_player_.28Multiwords.29">Así que me digo aproximadamente el tocadiscos (*Multiwords)</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=12" title="Edit section: So tell me about the record player (Multiwords)">edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Mientras el gramófono es una palabra inglesa , no es la traducción mejor. El gramófono es típicamente utilizado para la clase muy vieja,  sabes con la aguja en vez del *stylus, y ningún *powered amplificación. Una traducción mejor sería  esjugador de cordón'. A pesar de que esto es más de una palabra,  lo podemos tratar como si  es una palabra  por utilizar *multiword (*multipalabra) construcciones.
+</p><p>No necesitamos para tocar el *Serbo-diccionario croata, sólo el inglés uno y el bilingüe un, tan abierto lo arriba.
+</p><p>El plural de  esjugador de cordón' es  esjugadores de cordón', así que  toma el mismo paradigma como gramófono (gramófono__*n) — en aquel sólo añadimos  es'. Todo  necesitamos hacer es añadir un elemento nuevo a la sección principal.
+</p>
+<pre>&lt;*e *lm="Tocadiscos"&gt;&lt;*i&gt;récord&lt;*b/&gt;jugador&lt;/*i&gt;&lt;*par *n="gramófono__*n"/&gt;&lt;/*e&gt;
+</pre>
+<p>La cosa única diferente sobre este es el uso de la <b></b> etiqueta, a pesar de que esto no es enteramente nuevo como  vimos él en uso en la lima de reglas.
+</p><p>Tan, *recompile y prueba en el *orthodox moda:
+</p>
+<pre>$ Resonar "*vidim *gramofone" | *lt-*proc *hbs-*eng.*automorf.Cubo | \
+  *gawk 'EMPEZAR{*RS="$"; *FS="/";}{*nf=ruptura($1,COMPONENTES,"^"); para(*i = 1; *i&lt;*nf; *i++) *printf COMPONENTES[*i]; si($2&#160;!= "") *printf("^%*s$",$2);}' | \
+  *apertium-transferir *apertium-*hbs-*eng.*hbs-*eng.*t1x *hbs-*eng.*t1x.Cubo *hbs-*eng.*autobil.Cubo  | \
+  *lt-*proc -g *hbs-*eng.*autogen.Cubo
+ veo tocadiscos
+</pre>
+<p>Perfecto. Un beneficio grande de utilizar *multiwords es que  puedes traducir expresiones idiomáticas *verbatim, sin teniendo que hacer palabra-por-traducción de palabra. Por ejemplo la frase inglesa, "en el momento" sería traducido a *Serbo-croata como "*trenutno" (*trenutak = <i>momento</i>, *trenutno siendo adverbio de aquel) &#8212; no sea posible de traducir esta palabra de frase inglesa-por-palabra a *Serbo-croata.
+</p>
+<h2><span class="mw-headline" id="Dealing_with_minor_variation">Tratando variación menor</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=13" title="Edit section: Dealing with minor variation">edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>*Serbo-Croata es un plazo de paraguas para varias lenguas estándares, tan  hay diferencias en *pronounciation y *ortography.  hay un fresco *phonetic sistema de escritura así que  escribes cómo  hablas. Un ejemplo notable es el *pronounciation del *proto-vocal eslava <i>*yat</i>. La palabra para diccionario puede para caso ser cualquier "*rječnik" (llamado *Ijekavian), o "*rečnik" (llamado *Ekavian).
+</p>
+<h3><span class="mw-headline" id="Analysis">Análisis</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=14" title="Edit section: Analysis">edita</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p> Tendría que haber una manera bastante fácil de tratar este, y  hay, utilizando paradigmas otra vez. Los paradigmas no son sólo utilizados para añadir símbolos gramaticales, pero también pueden soler reemplazar cualquier símbolo/de carácter con otro. Por ejemplo, aquí es un paradigma para aceptar ambos "*e" y "*je" en el análisis. El paradigma tiene que, como con el otros van al diccionario monolingüe para *Serbo-croata.
+</p>
+<pre>  &lt;*pardef *n="*e_*je__*yat"&gt;
+    &lt;*e&gt;
+      &lt;*p&gt;
+        &lt;*l&gt;*e&lt;/*l&gt;
+        &lt;*r&gt;*e&lt;/*r&gt;
+      &lt;/*p&gt;
+    &lt;/*e&gt;
+    &lt;*e&gt;
+      &lt;*p&gt;
+        &lt;*l&gt;*je&lt;/*l&gt;
+        &lt;*r&gt;*e&lt;/*r&gt;
+      &lt;/*p&gt;
+    &lt;/*e&gt;
+  &lt;/*pardef&gt;
+</pre>
+<p>Entonces en la "sección principal":
+</p>
+<pre>    &lt;*e *lm="*rečnik"&gt;&lt;*i&gt;*r&lt;/*i&gt;&lt;*par *n="*e_*je__*yat"/&gt;&lt;*i&gt;*čni&lt;/*i&gt;&lt;*par *n="*rečni/*k__*n"/&gt;&lt;/*e&gt;
+</pre>
+<p>Esto sólo nos dejo para analizar ambas formas aun así... Más obra es necesaria si  queremos generar ambas formas.
+</p>
+<h3><span class="mw-headline" id="Generation">Generación</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=15" title="Edit section: Generation">edita</a><span class="mw-editsection-bracket">]</span></span></h3>
+<h2><span class="mw-headline" id="Notes">Notas</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=16" title="Edit section: Notes">edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<div class="mw-references-wrap"><ol class="references">
+<li id="cite_note-1"><span class="mw-cite-backlink"><a href="#cite_ref-1">↑</a></span> <span class="reference-text">Resulta no cogí alrededor a explicarlo, así que: El <code>@</code> símbolo parece debido al punto y aparte '<code>.</code>' Aquel está añadido a cada traducción en caso no tiene uno. Para el técnicamente importado, esto es de modo que el *tagger sabe cuándo una frase nueva está empezando, incluso si  no hay un punto y aparte allí.</span>
+</li>
+</ol></div>
+<h2><span class="mw-headline" id="See_also">Ve también</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Apertium_New_Language_Pair_HOWTO&amp;action=edit&amp;section=17" title="Edit section: See also">edita</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Building_dictionaries" title="Building dictionaries">Construyendo diccionarios</a></li>
+<li><a href="/wiki/Finding_errors_in_dictionaries" title="Finding errors in dictionaries">Encontrando errores en diccionarios</a></li>
+<li><a href="/w/index.php?title=Cookbook&amp;action=edit&amp;redlink=1" class="new" title="Cookbook (page does not exist)">Recetario</a></li>
+<li><a href="/wiki/Chunking" title="Chunking">*Chunking</a></li>
+<li><a href="/wiki/Contributing_to_an_existing_pair" title="Contributing to an existing pair">Contribuyendo a un par de existir</a></li></ul>
+
+</html>

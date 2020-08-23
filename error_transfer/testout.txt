@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>*Something *æ *ø *å</title>
+</head>
+<body>
+
+<p>*legal *persons</p>
+<p>3-9szgzAlegal <b>persons</b>3-9szgzA</p>
+
+<p>4-p3-bLQI am David.4-p3-bLQ</p>
+<p>5-zxcgpw<b>I</b> am <b>David.</b>5-zxcgpw</p>
+<p>6-Txvv8wI <b>am David</b>.6-Txvv8w</p>
+<p>7-iDQsTA<b>I am</b> David.7-iDQsTA</p>
+
+<p>8-YrIkywBees cannot swim.8-YrIkyw</p>
+<p>9-5Rj0tQBees <i>cannot swim</i>.9-5Rj0tQ</p>
+<p>10-kSNV1gBees <i>cannot</i> swim.10-kSNV1g</p>
+<p>11-N1ZMjgBees <i>cannot</i> swim.11-N1ZMjg</p>
+<p>12-4JEbRgBees <i>cannot</i> swim.12-4JEbRg</p>
+
+<p>13-voW7gQConway stated that young children "understand object permanence. Concealed objects feature in their awareness." (Nielsen equivalence).13-voW7gQ</p>
+<p>14-iQPZ_g<a href="#1">Conway</a> stated that young children "<i>understand <a href="#2">object permanence</a>. Concealed objects feature in their awareness.</i>" (Nielsen equivalence).14-iQPZ_g</p>
+
+<p>15-RKZpLAMy sister lives in Wales.15-RKZpLA</p>
+<p>16-KQTt6Q<b>My <i>sister lives</i></b> <u>in Wales</u>.16-KQTt6Q</p>
+
+<p>17-XOfYBAThe sister's dog.17-XOfYBA</p>
+<p>18-eMnQgg<b>The</b> <i>sister's</i> dog.18-eMnQgg</p>
+
+<p>19-2UwctAA Japanese BBC article.19-2UwctA</p>
+<p>20--1s7WQA <b>Japanese</b> <i>BBC article</i>.20--1s7WQ</p>
+
+<p>21-SttA7gA modern Britain.21-SttA7g</p>
+<p>22-dVXgyQA <b>modern</b> Britain.22-dVXgyQ</p>
+
+<p>23-kOq8ewThe big red dog.23-kOq8ew</p>
+<p>24-Y-574AThe <b>big red</b> <i>dog</i>.24-Y-574A</p>
+
+<p>25-nNFVVAHe said "I tile bathrooms."25-nNFVVA</p>
+<p>26-6UiQxQHe said "<i>I tile <a href="#1">bathrooms</a>.</i>"26-6UiQxQ</p>
+
+<p>27-IU4p4QThe New York Times, which has an executive editor over the news pages and an editorial page editor over opinion pages.27-IU4p4Q</p>
+<p>28-G4EFow<a href="#1">The New York Times</a>, which has an <b>executive editor</b> over the news pages and an <b>editorial page editor</b> over opinion pages.28-G4EFow</p>
+
+<img src="dummy" alt="29-ASfOXQAlt attribute29-ASfOXQ" title="30-fhzvkQTitle attribute30-fhzvkQ">
+
+<p>31-ZshGyAText with no inline tags.31-ZshGyA</p>
+<p>32-t2zoawText with <a href="#1">inline</a> tag.32-t2zoaw</p>
+<p>33-qtPXKAText with <a href="#1">successive</a> <a href="#1">identical inline</a> tags.33-qtPXKA</p>
+<p>34-0Mn9LwText with <a href="#1">identical</a> separated <a href="#1">inline</a> tags.34-0Mn9Lw</p>
+<p>35-tZFpSgText with <a href="#1">multiple</a> <a href="#2">inline</a> tags.35-tZFpSg</p>
+<p><a href="#1">36-gQtnzQText entirely inside inline tag.36-gQtnzQ</a></p>
+
+<p>37-mWvnagText with <a href="#1"> XML &lt; &gt; " ' &amp; markup </a> .37-mWvnag</p>
+
+<p>38-zM8GTAText with <a href="#1"> inline spaced</a> tag.38-zM8GTA</p>
+<p>39-Am29qQText with <a href="#1">inline spaced </a> tag.39-Am29qQ</p>
+<p>40-583rbwText with <a href="#1"> inline spaced</a> and more <a href="#1"> inline spaced</a> tags.40-583rbw</p>
+<p>41-tUz1hgText with <a href="#1"> inline spaced and</a> <a href="#1">inline spaced </a> tags.41-tUz1hg</p>
+<p>42--rK0YgText with <a href="#1"> inline spaced and </a> <a href="#1"> inline spaced </a> tags.42--rK0Yg</p>
+<p>43-liPd-AText with <a href="#1">inline spaced and </a> <a href="#1"> inline spaced</a> tags.43-liPd-A</p>
+
+<div>44-zg5HzgText with 44-zg5Hzg <a href="#1">45-toF6OAinline tags 45-toF6OA <div>46-Mxz0oQbut also nested a block46-Mxz0oQ</div></a> 47-obXR1w tag.47-obXR1w</div>
+
+<p>48-C9nmtQText with <a href="#1">nested <b>inline</b></a> tags.48-C9nmtQ</p>
+<p>49-aLMgnwText with <a href="#1"><b>nested</b> inline</a> tags.49-aLMgnw</p>
+<p>50-BqJRtgText with <a href="#1"><b>nested</b> <i>inline</i></a> tags.50-BqJRtg</p>
+<p>51-j7sO3wText with <a href="#1"><b>nested</b> <b>inline</b></a> tags.51-j7sO3w</p>
+
+<p>52-DFkkZgText with protected <br> inline tag.52-DFkkZg</p>
+<p>53-cX3iZQText with multiple protected <br><br> inline tags.53-cX3iZQ</p>
+<p>54-E6h8mwText with <a href="#1">protected</a><br> inline tag.54-E6h8mw</p>
+<p>55-U3rGmAText with protected <br> <a href="#1">inline</a> tag.55-U3rGmA</p>
+<p>56-qnBevwText with protected inline trailing tag.56-qnBevw<br></p>
+<p><br>57-gzqPWQText with protected inline leading tag.57-gzqPWQ</p>
+<p>58-T1LApQText with protected inline trailing <a href="#1">tag.</a>58-T1LApQ<br></p>
+<p><br>59-wlIdxQ<a href="#1">Text</a> with protected inline leading tag.59-wlIdxQ</p>
+<p>60-2Xn84AText with <a href="#1"><br>embedded protected</a> inline tag.60-2Xn84A</p>
+<p>61-t2AY8wText with <a href="#1">embedded <br> protected</a> inline tag.61-t2AY8w</p>
+<p>62-8glNgwText with <a href="#1">embedded protected<br></a> inline tag.62-8glNgw</p>
+<p>63-cSSxqQText with <a href="#1"><br><b>embedded</b> protected</a> inline tag.63-cSSxqQ</p>
+<p>64-J6B_hAText with <a href="#1"><b>embedded</b> <br> protected</a> inline tag.64-J6B_hA</p>
+<p>65-UraiJwText with multiple <a href="#1"><br>embedded <br>protected</a> inline tag.65-UraiJw</p>
+
+<p>66-hY1C7wText with <span translate="no">protected inline</span> tag.66-hY1C7w</p>
+<p>67-M8NLEQText with <span translate="yes">unprotected inline</span> tag.67-M8NLEQ</p>
+<p>68-gK__KAText with <span translate="no">protected <i translate="yes">and unprotected</i> inline</span> tag.68-gK__KA</p>
+</body>
+</html>

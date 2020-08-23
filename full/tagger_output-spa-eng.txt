@@ -1,0 +1,2 @@
+^El<det><def><m><pl><sf:Los>$ ^perro<n><m><pl><sf:perros>$ ^de<pr><sf:del>+el<det><def><m><sg><sf:del>$ ^chico<n><m><sg><sf:chico>$ ^correr<vblex><pri><p3><pl><sf:corren>$ ^rápido<adj><m><sg><sf:rápido>$ ^.<sent><sf:.>$ ^.<sent><sf:.>$[][
+]

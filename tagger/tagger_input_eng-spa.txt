@@ -1,0 +1,1 @@
+^Los/El<det><def><m><pl>/Prpers<prn><pro><p3><m><pl>$ ^perros/perro<n><m><pl>$ ^del/de<pr>+el<det><def><m><sg>$ ^chico/chico<n><m><sg>$ ^corren/correr<vblex><pri><p3><pl>$ ^rápido/rápido<adj><m><sg>$ ^./.<sent>$

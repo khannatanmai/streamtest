@@ -1,0 +1,288 @@
+
+
+***********
+
+lt-proc output:
+^legal/legal<adj>$ ^persons/person<n><pl>$[]
+
+
+
+postchunk output:
+^Persona<n><f><pl>$ ^legal<adj><mf><pl>$[]
+
+
+
+***********
+
+lt-proc output:
+^legal/legal<adj>$ [[t:b:e4XkhY]]^persons/person<n><pl>$[]
+
+
+
+postchunk output:
+[[t:b:e4XkhY]]^persona<n><f><pl>$ ^legal<adj><mf><pl>$[]
+
+
+
+***********
+
+lt-proc output:
+^I/I<num><mf><sg>/prpers<prn><subj><p1><mf><sg>$ ^am/be<vbser><pri><p1><sg>$ ^David/David<np><ant><m><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+ ^ser<vbser><pri><p1><sg>$ ^David<np><ant><m><sg>$ ^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+[[t:b:Steu7o1]]^I/I<num><mf><sg>/prpers<prn><subj><p1><mf><sg>$ [[t:b:Steu7o2]]^am/be<vbser><pri><p1><sg>$ ^David/David<np><ant><m><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+ [[t:b:Steu7o2]]^Ser<vbser><pri><p1><sg>$ ^David<np><ant><m><sg>$ ^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^I/I<num><mf><sg>/prpers<prn><subj><p1><mf><sg>$ [[t:b:Steu7o1]]^am/be<vbser><pri><p1><sg>$ [[t:b:Steu7o2]]^David/David<np><ant><m><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+ [[t:b:Steu7o1]]^Ser<vbser><pri><p1><sg>$ [[t:b:Steu7o2]]^David<np><ant><m><sg>$ ^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+[[t:b:Steu7o1]]^I/I<num><mf><sg>/prpers<prn><subj><p1><mf><sg>$ ^am/be<vbser><pri><p1><sg>$ [[t:b:Steu7o2]]^David/David<np><ant><m><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+ ^Ser<vbser><pri><p1><sg>$ [[t:b:Steu7o2]]^David<np><ant><m><sg>$ ^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^Bees/Bee<n><pl>$ ^cannot/can<vaux><pres>+not<adv>$ ^swim/swim<vblex><inf>/swim<vblex><pres>$^./.<sent>$[]
+
+
+
+postchunk output:
+^El<det><def><f><pl>$ ^abeja<n><f><pl>$ ^no<adv>$ ^poder<vbmod><pri><p3><pl>$ ^nadar<vblex><inf>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^Bees/Bee<n><pl>$ [[t:i:NaFC2iv]]^cannot/can<vaux><pres>+not<adv>$ ^swim/swim<vblex><inf>/swim<vblex><pres>$^./.<sent>$[]
+
+
+
+postchunk output:
+^El<det><def><f><pl>$ ^abeja<n><f><pl>$ [[t:i:NaFC2iv]]^no<adv>$ [[t:i:NaFC2iv]]^poder<vbmod><pri><p3><pl>$ ^nadar<vblex><inf>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^Conway/*Conway$ ^stated/state<vblex><past>/state<vblex><pp>$ ^that/that<cnjsub>/that<det><dem><sg>/that<prn><tn><mf><sg>/that<rel><an><mf><sp>$ ^young/young<adj><sint>$ ^children/child<n><pl>$ "^understand/understand<vblex><inf>/understand<vblex><pres>$ ^object/object<n><sg>/object<vblex><inf>/object<vblex><pres>$ ^permanence/permanence<n><sg>$^./.<sent>$ ^Concealed/Conceal<vblex><past>/Conceal<vblex><pp>$ ^objects/object<n><pl>/object<vblex><pri><p3><sg>$ ^feature/feature<n><sg>/feature<vblex><inf>/feature<vblex><pres>$ ^in/in<pr>$ ^their/their<det><pos><sp>$ ^awareness/awareness<n><sg>$^./.<sent>$" ^(/(<lpar>$^Nielsen/*Nielsen$ ^equivalence/equivalence<n><sg>$^)/)<rpar>$^./.<sent>$[]
+
+
+
+postchunk output:
+^*Conway$ ^Declarar<vblex><ifi><p3><sg>$ ^que<cnjsub>$ ^el<det><def><m><pl>$ ^niño<n><m><pl>$ ^joven<adj><mf><pl>$ "^entender<vblex><pri><p3><pl>$ ^permanencia<n><f><sg>$ ^de<pr>$ ^objeto<n><m><sg>$^.<sent>$ ^Encubrir<vblex><pp><m><sg>$ ^objetar<vblex><pri><p3><sg>$ ^característica<n><f><sg>$ ^en<pr>$ ^suyo<det><pos><mf><sg>$ ^concienciación<n><f><sg>$^.<sent>$" ^(<lpar>$^*Nielsen$ ^Equivalencia<n><f><sg>$^)<rpar>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+[[t:a:NaFC2iv]]^Conway/*Conway$ ^stated/state<vblex><past>/state<vblex><pp>$ ^that/that<cnjsub>/that<det><dem><sg>/that<prn><tn><mf><sg>/that<rel><an><mf><sp>$ ^young/young<adj><sint>$ ^children/child<n><pl>$ "[[t:i:M0JZW3Q]]^understand/understand<vblex><inf>/understand<vblex><pres>$ [[t:i:M0JZW3Q1; t:a:qN1fD2pi1]]^object/object<n><sg>/object<vblex><inf>/object<vblex><pres>$ [[t:i:M0JZW3Q2; t:a:qN1fD2pi2]]^permanence/permanence<n><sg>$[[t:i:M0JZW3Q3]]^./.<sent>$ [[t:i:M0JZW3Q4; t:a:ZVcC0MJ]]^Concealed/Conceal<vblex><past>/Conceal<vblex><pp>$ [[t:i:M0JZW3Q5; t:a:xDp3Y3y]]^objects/object<n><pl>/object<vblex><pri><p3><sg>$ [[t:i:M0JZW3Q6]]^feature/feature<n><sg>/feature<vblex><inf>/feature<vblex><pres>$ [[t:i:M0JZW3Q7]]^in/in<pr>$ [[t:i:M0JZW3Q8]]^their/their<det><pos><sp>$ [[t:i:M0JZW3Q9]]^awareness/awareness<n><sg>$[[t:i:M0JZW3Q10]]^./.<sent>$" ^(/(<lpar>$^Nielsen/*Nielsen$ ^equivalence/equivalence<n><sg>$^)/)<rpar>$^./.<sent>$[]
+
+
+
+postchunk output:
+[[t:a:NaFC2iv]]^*Conway$ ^Declarar<vblex><ifi><p3><sg>$ ^que<cnjsub>$ ^el<det><def><m><pl>$ ^niño<n><m><pl>$ ^joven<adj><mf><pl>$ "[[t:i:M0JZW3Q]]^entender<vblex><pri><p3><pl>$ [[t:i:M0JZW3Q2; t:a:qN1fD2pi2]]^permanencia<n><f><sg>$ ^de<pr>$ [[t:i:M0JZW3Q1; t:a:qN1fD2pi1]]^objeto<n><m><sg>$[[t:i:M0JZW3Q3]]^.<sent>$ [[t:i:M0JZW3Q4; t:a:ZVcC0MJ]]^Encubrir<vblex><pp><m><sg>$ [[t:i:M0JZW3Q5; t:a:xDp3Y3y]]^objetar<vblex><pri><p3><sg>$ [[t:i:M0JZW3Q6]]^característica<n><f><sg>$ [[t:i:M0JZW3Q7]]^en<pr>$ [[t:i:M0JZW3Q8]]^suyo<det><pos><mf><sg>$ [[t:i:M0JZW3Q9]]^concienciación<n><f><sg>$[[t:i:M0JZW3Q10]]^.<sent>$" ^(<lpar>$^*Nielsen$ ^Equivalencia<n><f><sg>$^)<rpar>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^My/My<det><pos><sp>$ ^sister/sister<n><sg>$ ^lives/life<n><pl>/live<vblex><pri><p3><sg>$ ^in/in<pr>$ ^Wales/Wales<np><loc><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+^Mío<det><pos><mf><pl>$ ^vida<n><f><pl>$ ^de<pr>$ ^hermano<n><f><sg>$ ^en<pr>$ ^Gales<np><loc><m><sg>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+[[t:b:qum2bhp1]]^My/My<det><pos><sp>$ [[t:b:qum2bhp2; t:i:KPL7B551]]^sister/sister<n><sg>$ [[t:b:qum2bhp3; t:i:KPL7B552]]^lives/life<n><pl>/live<vblex><pri><p3><sg>$ [[t:u:WyW2HW1]]^in/in<pr>$ [[t:u:WyW2HW2]]^Wales/Wales<np><loc><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+[[t:b:qum2bhp1]]^Mío<det><pos><mf><pl>$ [[t:b:qum2bhp3; t:i:KPL7B552]]^vida<n><f><pl>$ ^de<pr>$ [[t:b:qum2bhp2; t:i:KPL7B551]]^hermano<n><f><sg>$ [[t:u:WyW2HW1]]^en<pr>$ [[t:u:WyW2HW2]]^Gales<np><loc><m><sg>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^The/The<det><def><sp>$ ^sister/sister<n><sg>$ ^'s/'s<gen>/be<vbser><pri><p3><sg>$ ^dog/dog<n><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+^El<det><def><m><sg>$ ^perro<n><m><sg>$ ^de<pr>$ ^el<det><def><f><sg>$ ^hermano<n><f><sg>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+[[t:b:8gaY]]^The/The<det><def><sp>$ [[t:i:QypP0e]]^sister/sister<n><sg>$ ^'s/'s<gen>/be<vbser><pri><p3><sg>$ ^dog/dog<n><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+^El<det><def><m><sg>$ ^perro<n><m><sg>$ ^de<pr>$ [[t:b:8gaY]]^el<det><def><f><sg>$ [[t:i:QypP0e]]^hermano<n><f><sg>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^A/A<det><ind><sg>$ ^Japanese/japanese<adj>/Japanese<n><sg>/Japanese<n><pl>$ ^BBC/BBC<n><acr><sg>$ ^article/article<n><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+^Uno<det><ind><f><sg>$ ^prenda<n><f><sg>$ ^de<pr>$ ^BBC<n><acr><f><sg>$ ^japonés<adj><f><sg>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^A/A<det><ind><sg>$ [[t:b:qum2bhp]]^Japanese/japanese<adj>/Japanese<n><sg>/Japanese<n><pl>$ [[t:i:M0JZW3Q]]^BBC/BBC<n><acr><sg>$ ^article/article<n><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+^Uno<det><ind><f><sg>$ ^prenda<n><f><sg>$ ^de<pr>$ [[t:i:M0JZW3Q]]^BBC<n><acr><f><sg>$ [[t:b:qum2bhp]]^japonés<adj><f><sg>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^A/A<det><ind><sg>$ ^modern/modern<adj>$ ^Britain/Britain<np><loc><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+^Uno<det><ind><f><sg>$ ^Gran Bretaña<np><loc><f><sg>$ ^moderno<adj><f><sg>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^A/A<det><ind><sg>$ [[t:b:qum2bhp]]^modern/modern<adj>$ ^Britain/Britain<np><loc><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+^Uno<det><ind><f><sg>$ ^Gran Bretaña<np><loc><f><sg>$ [[t:b:qum2bhp]]^moderno<adj><f><sg>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^The/The<det><def><sp>$ ^big/big<adj><sint>$ ^red/red<adj>/red<n><sg>$ ^dog/dog<n><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+^El<det><def><m><sg>$ ^perro<n><m><sg>$ ^rojo<adj><m><sg>$ ^grande<adj><mf><sg>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^The/The<det><def><sp>$ [[t:b:qum2bhp1]]^big/big<adj><sint>$ [[t:b:qum2bhp2; t:i:M0JZW3Q]]^red/red<adj>/red<n><sg>$ ^dog/dog<n><sg>$^./.<sent>$[]
+
+
+
+postchunk output:
+^El<det><def><m><sg>$ ^perro<n><m><sg>$ [[t:b:qum2bhp2; t:i:M0JZW3Q]]^rojo<adj><m><sg>$ [[t:b:qum2bhp1]]^grande<adj><mf><sg>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+^He/Prpers<prn><subj><p3><m><sg>$ ^said/say<vblex><past>/say<vblex><pp>$ "^I/I<num><mf><sg>/prpers<prn><subj><p1><mf><sg>$ ^tile/tile<n><sg>/tile<vblex><inf>/tile<vblex><pres>$ ^bathrooms/bathroom<n><pl>$^./.<sent>$"[]
+
+
+
+postchunk output:
+ ^Decir<vblex><prs><p3><sg>$ "^I<num><mf><pl>$ ^baño<n><m><pl>$ ^de<pr>$ ^azulejo<n><m><sg>$^.<sent>$"[]
+
+
+
+***********
+
+lt-proc output:
+^He/Prpers<prn><subj><p3><m><sg>$ ^said/say<vblex><past>/say<vblex><pp>$ "[[t:i:M0JZW3Q1]]^I/I<num><mf><sg>/prpers<prn><subj><p1><mf><sg>$ [[t:i:M0JZW3Q2]]^tile/tile<n><sg>/tile<vblex><inf>/tile<vblex><pres>$ [[t:i:M0JZW3Q3; t:a:NaFC2iv]]^bathrooms/bathroom<n><pl>$[[t:i:M0JZW3Q4]]^./.<sent>$"[]
+
+
+
+postchunk output:
+ ^Decir<vblex><prs><p3><sg>$ "[[t:i:M0JZW3Q1]]^I<num><mf><pl>$ [[t:i:M0JZW3Q3; t:a:NaFC2iv]]^baño<n><m><pl>$ ^de<pr>$ [[t:i:M0JZW3Q2]]^azulejo<n><m><sg>$[[t:i:M0JZW3Q4]]^.<sent>$"[]
+
+
+
+***********
+
+lt-proc output:
+^The New York Times/The New York Times<np><al><sg>$^,/,<cm>$ ^which/which<det><itg><sp>/which<prn><itg><m><sp>/which<rel><an><mf><sp>$ ^has/have<vbhaver><pri><p3><sg>/have<vblex><pri><p3><sg>$ ^an/a<det><ind><sg>$ ^executive/executive<adj>/executive<n><sg>$ ^editor/editor<n><sg>$ ^over/over<adv>/over<pr>$ ^the/the<det><def><sp>$ ^news/news<adj>/news<n><sg>/news<n><pl>$ ^pages/page<n><pl>$ ^and/and<cnjcoo>$ ^an/a<det><ind><sg>$ ^editorial/editorial<n><sg>$ ^page/page<n><sg>$ ^editor/editor<n><sg>$ ^over/over<adv>/over<pr>$ ^opinion/opinion<n><sg>$ ^pages/page<n><pl>$^./.<sent>$^./.<sent>$[]
+
+
+
+postchunk output:
+^The New York Times<np><al><m><sg>$^,<cm>$ ^el cual<rel><nn><m><sg>$ ^tener<vblex><pri><p3><sg>$ ^uno<det><ind><m><sg>$ ^editor<n><m><sg>$ ^ejecutivo<adj><m><sg>$ ^sobre<pr>$ ^el<det><def><f><pl>$ ^página<n><f><pl>$ ^noticioso<adj><f><pl>$ ^y<cnjcoo>$ ^uno<det><ind><m><sg>$ ^editor<n><m><sg>$ ^de<pr>$ ^página<n><f><sg>$ ^de<pr>$ ^el<det><def><m><sg>$ ^editorial<n><m><sg>$ ^encima<adv>$ ^página<n><f><pl>$ ^de<pr>$ ^opinión<n><f><sg>$^.<sent>$^.<sent>$[]
+
+
+
+***********
+
+lt-proc output:
+[[t:a:ETwYHMW]]^The New York Times/The New York Times<np><al><sg>$^,/,<cm>$ ^which/which<det><itg><sp>/which<prn><itg><m><sp>/which<rel><an><mf><sp>$ ^has/have<vbhaver><pri><p3><sg>/have<vblex><pri><p3><sg>$ ^an/a<det><ind><sg>$ [[t:b:QjxgZ1]]^executive/executive<adj>/executive<n><sg>$ [[t:b:QjxgZ2]]^editor/editor<n><sg>$ ^over/over<adv>/over<pr>$ ^the/the<det><def><sp>$ ^news/news<adj>/news<n><sg>/news<n><pl>$ ^pages/page<n><pl>$ ^and/and<cnjcoo>$ ^an/a<det><ind><sg>$ [[t:b:QjxgZ3]]^editorial/editorial<n><sg>$ [[t:b:QjxgZ4]]^page/page<n><sg>$ [[t:b:QjxgZ5]]^editor/editor<n><sg>$ ^over/over<adv>/over<pr>$ ^opinion/opinion<n><sg>$ ^pages/page<n><pl>$^./.<sent>$^./.<sent>$[] 
+
+
+
+postchunk output:
+[[t:a:ETwYHMW]]^The New York Times<np><al><m><sg>$^,<cm>$ ^el cual<rel><nn><m><sg>$ ^tener<vblex><pri><p3><sg>$ ^uno<det><ind><m><sg>$ [[t:b:QjxgZ2]]^editor<n><m><sg>$ [[t:b:QjxgZ1]]^ejecutivo<adj><m><sg>$ ^sobre<pr>$ ^el<det><def><f><pl>$ ^página<n><f><pl>$ ^noticioso<adj><f><pl>$ ^y<cnjcoo>$ ^uno<det><ind><m><sg>$ [[t:b:QjxgZ5]]^editor<n><m><sg>$ ^de<pr>$ [[t:b:QjxgZ4]]^página<n><f><sg>$ ^de<pr>$ ^el<det><def><m><sg>$ [[t:b:QjxgZ3]]^editorial<n><m><sg>$ ^encima<adv>$ ^página<n><f><pl>$ ^de<pr>$ ^opinión<n><f><sg>$^.<sent>$^.<sent>$[] 
+

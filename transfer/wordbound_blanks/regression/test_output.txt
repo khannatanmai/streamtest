@@ -1,0 +1,19 @@
+This test uses apertium-transfer output as of 4 July 2020
+
+Regression transfer tests for language pairs: spa-cat eng-spa
+
+********
+
+DIFF WITH REFERENCEspa-cat
+
+
+********
+
+
+********
+
+DIFF WITH REFERENCEeng-spa
+
+
+********
+

@@ -1,0 +1,1 @@
+apertium-transfer -b /Users/khannatanmai/Documents/GSoC/repo/main/apertium/tests/data/apertium-nno-nob.nob-nno.t1x /Users/khannatanmai/Documents/GSoC/repo/main/apertium/tests/data/nno-nob.t1x.bin < test1.txt 

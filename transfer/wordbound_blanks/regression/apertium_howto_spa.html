@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+</td></tr></tbody></table>
+<p>Esti tutorial va desplicar el mou d'entamar un par nuevu de llingües nuevu pa la ferramienta de torna automática Apertium.
+</p><p>Nun se precisa conocimientu dalu de llingüística o sistemes de torna acullá de ser capaz d'estremar nomes de verbos (y preposiciones, etc.)
+</p>
+<h2><span class="mw-headline" id="Entamu">Entamu</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=1" title="Edit section: Entamu">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Apertium ye, como posiblemente pescanciaras, un sistema de torna automática. Bono, nun del too, ye una plataforma de torna. Ufre un motor y unes ferramientes tales que te permitirán ellaborar los tos propios sistemes de torna. Lo único que fai falta ye escribir datos. L'aniciu d'una nueva llingua consiste básicamente en tres diccionarios y delles regles (de reorganización de pallabres y otres cuestiones gramaticales).
+</p><p>Pa una introducción más detallada de como funciona too, hai dellos papelos interesantes na páxina del proyeutu <a rel="nofollow" class="external text" href="http://apertium.sourceforge.net">apertium.sourceforge.net</a>.
+</p>
+<h2><span class="mw-headline" id="Vas_precisar">Vas precisar</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=2" title="Edit section: Vas precisar">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Lttoolbox" title="Lttoolbox">lttoolbox</a> (&gt;= 3.0.0)</li>
+<li>libxml útiles (xmllint etc.)</li>
+<li>apertium (&gt;= 3.0.0)</li>
+<li>un editor de testu (o un editor XML especializáu si lo prefieres)</li></ul>
+<p>Esti documentu nun va desplicar como instalar estos paquetes, pa más información ve por favor la estaya de documentación del sitiu web d'Apertium.
+</p>
+<h2><span id="¿En_que_consiste_un_par_de_llingües?"></span><span class="mw-headline" id=".C2.BFEn_que_consiste_un_par_de_lling.C3.BCes.3F">¿En que consiste un par de llingües?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=3" title="Edit section: ¿En que consiste un par de llingües?">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Apertium ye un sistema de torna de lo que se conoz como tranferencia superficial. Ello ye qu'emplega básicamente los diccionarios y les regles de transferencia superficial. Na práutica, la transferencia superficial estrémase de la tranferencia en profundidá en que nun fai un analís sintáuticu completu
+</p>
+<dl><dt>les regles son operaciones típiques en grupos d'unidaes léxiques en vez d'operaciones n'árboles sintáuticos. Nun nivel básicu hai tres diccionarios principales</dt>
+<dd></dd></dl>
+<ol><li>Diccionariu morfolóxicu de la llingua xx: recueye les regles d'inflexón de les pallabres de la llingua xx. Nel nuesu exemplu llamarémoslu: apertium-sh-en.sh.dix</li>
+<li>Diccionariu morfolóxicu de la llingua yy: recueye les regles d'inflexón de les pallabres de la llingua yy. Nel nuesu exemplu llamarémoslu: apertium-sh-en.en.dix</li>
+<li>Diccionariu billingüe: caltién les correspondencies ente les pallabres y símbolos de les dos llingües. Nel nuesu exemplu llamarémoslu: apertium-sh-en.sh-en.dix</li></ol>
+<p>Nun par de llingües, dambes puen ser orixen y fin de les tornes en términos relativos.
+</p><p>Hai amás dos arquivos pa la transferencia de regles. Son eses regles les encargaes de decidir como les pallabres se reorganicen nos enunciaos, p.e. chat noir -&gt; cat black -&gt; black cat. Tamién toma les decisiones de xéneru, númberu, etc. Les regles puen usase tanto p'añadir como pa eliminar elementos léxicos, como se desplicará más tarde. Estos arquivos son:
+</p>
+<ul><li>Regles de transferencia de la llingua xx a la llingua yy: esti archivu contién les regles de como la llingua xx tien de camudar a la llingua yy. Nel nuesu exemplu: apertium-sh-en.trules-sh-en.xml</li>
+<li>Regles de transferencia de la llingua yy a la llingua xx: esti archivu contién les regles de como la llingua yy tien de camudar a la llingua xenx. Nel nuesu exemplu: apertium-sh-en.trules-en-sh.xml</li></ul>
+<p>Dellos pares de llingües que s'ufierten caltienen otros arquivos, pero nun mos ocuparemos d'ellos equí. Estos arquivos son los únicos que se precisen pa xenerar un sistema funcional.
+</p>
+<h2><span id="Un_par_de_llingües"></span><span class="mw-headline" id="Un_par_de_lling.C3.BCes">Un par de llingües</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=4" title="Edit section: Un par de llingües">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Como s'alvirtiera nos nomes d'arquivu, esti tutorial emplega l'exemplu del par de llingües serbo-croata ya inglés pa desplicar como crear un sistema básicu. Esti nun ye un par ideal por mor de que'l sistema funciona meyor entre pares de llingües más averaes ente elles. Nun ye problema polo cenciello de los exemplos qu'equí s'amuesen.
+</p>
+<h2><span id="Una_nota_breve_no_que_cinca_a_los_términos"></span><span class="mw-headline" id="Una_nota_breve_no_que_cinca_a_los_t.C3.A9rminos">Una nota breve no que cinca a los términos</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=5" title="Edit section: Una nota breve no que cinca a los términos">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Dellos términos han comprendese primero de siguir.
+</p><p>El primeru ye «lema». Un lema ye'l mou de citar una pallabra. Ye daqué asina como'l raigañu d'una pallabra. Por exemplu el lema de la pallabra gatos ye «gatu». Nos nomes n'asturianu esti sedrá normalmente la forma en masculín singular de la pallabra en cuestión. Pa los verbos, el lema sedría l'infinitivu. P.e. el lema de «canciemos» sedría «canciar».
+</p><p>El segundu ye «símbolu». Nel contestu d'Apertium, símbolu refierse a la etiqueta gramatical. La pallabra gatos ye un nome plural, poro caltendrá el símbolu de nome y el símbolu de plural. Nos módulos d'entrada y salida d'Apertium éstes apaecen ente paréntesis angulaos (&lt;,&gt;), como sigue:
+</p>
+<ul><li>&lt;n&gt;; pa nome.</li>
+<li>&lt;pl&gt;; pa plural.</li></ul>
+<p>Otros exemplos de símbolos son &lt;sg&gt;; singular, &lt;p1&gt; primer persona, &lt;pri&gt; presente d'indicativu, etc. Cuando apaecen ente paréntesis angulaos, los símbolos van venceyaos a etiquetes. Pue albidrase qu'en munchos de los pares de llingües disponibles anguaño les definiciones de símbolos son acrónimos o contraiciones de pallabres en catalán. Por exemplu, vbhaver — de vb (verbu) and haver («tener» en catalán). Los símbolos tán definíos nes etiquetes &lt;sdef&gt; y emplegaos en etiquetes &lt;s&gt;
+</p><p>El tercer términu ye «paradigma». Nel contestu d'Apertium el paradigma refierse al mou d'inflexón d'un grupu concretu de pallabres. Nel diccionariu morfolóxicu, los lemes (ver enriba) vencéyense a paradigmes que nos permiten desplicar como un lema dáu inflexiona ensin tener d'escribir toles terminaciones.
+</p><p>Un exemplu de la utilidá d'esto ye que si quixéramos amestar los dos axetivos «happy» y «lazy», en vez d'añedir dos paquetes de la mesma cosa:
+</p>
+<ul><li>happy, happ (y, ier, iest)</li>
+<li>lazy, laz (y, ier, iest)</li></ul>
+<p>guardaríamos namás ún, y diríamos entós «lazy inflexona como happy», y ensin dubia «shy inflexona como happy», «naughty inflexona como happy», «friendly inflexona como happy», etc. Nesti exemplu, happy sedría'l paradigma, el modelu de referencia pol qu'otros inflexonen. La descripción precisa de como se define esto desplicarémosla llueu. Los paradigmes defínense n'etiquetes &lt;pardef&gt;, y enllázase a ellos n'etiquetes &lt;par&gt;.
+</p>
+<h2><span id="Prepaŕandose_pa_entamar"></span><span class="mw-headline" id="Prepa.C5.95andose_pa_entamar">Prepaŕandose pa entamar</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=6" title="Edit section: Prepaŕandose pa entamar">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span id="Diccionarios_monollingües"></span><span class="mw-headline" id="Diccionarios_monolling.C3.BCes">Diccionarios monollingües</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=7" title="Edit section: Diccionarios monollingües">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><span class="boilerplate seealso"><i>Ver tamién: <a href="/wiki/Incubator" title="Incubator">Incubator</a></i></span></dd></dl>
+<p>Vamos a entamar creando'l nuesu primer diccionariu. El diccionariu ye un arquivu XML. Arranca'l to editor de testu y copia lo siguiente:
+</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;dictionary&gt;
+
+&lt;/dictionary&gt;
+</pre>
+<p>Ello ye'l mou de dicir que queremos entamar un diccionariu. Pa que seya útil precisamos amestar delles entraes más, primero un alfabetu. Ello defín el conxuntu de lletres que va a usase nel diccionariu. Pal nuesu exemplu servo-croata sería daqué apaecío a lo que sigue, calteniendo toles lletres del alfabetu servo-croata:
+</p>
+<pre>&lt;alphabet&gt;ABCČĆDDžĐEFGHIJKLLjMNNjOPRSŠTUVZŽabcčćddžđefghijklljmnnjoprsštuvzž&lt;/alphabet&gt;
+</pre>
+<p>Afita'l alfabetu embaxo la etiqueta &lt;dictionary&gt;.
+</p><p>Agora habemos definir dellos símbolos. Pa entamar colo más cenciello, nomes (n) en singular (sg) y plural (pl).
+</p>
+<pre>&lt;sdefs&gt;
+   &lt;sdef n="n"/&gt;
+   &lt;sdef n="sg"/&gt;
+   &lt;sdef n="pl"/&gt;
+&lt;/sdefs&gt;
+</pre>
+<p>Los nomes pa los símbolos nun tienen que ser tan curtios, pero polo práutico d'aforrar testu y tiempu tie sén l'acurtialos.
+</p><p>Desafortunadamente, nun ye tan cenciello, y los nomes en servo-croata inflexonen, amás d'en númberu, en xéneru y casu. Por embargu, pa la fin d'esti exemplu emplegaremos namás el nome en masculín y en casu nominativu (un exemplu completu pue atopase a lo cabero d'esti arquivu).
+</p><p>Lo siguiente ye definir una estaya pa los paradigmes,
+</p>
+<pre>&lt;pardefs&gt;
+
+&lt;/pardefs&gt;
+</pre>
+<p>y otra estaya de diccionariu:
+</p>
+<pre>&lt;section id="main" type="standard"&gt;
+
+&lt;/section&gt;
+</pre>
+<p>Hai dos tipos d'estayes: la del primer tipu ye una seición estándar que caltién pallabres, enclíticos, etc. La del segundu, ye una seición na que s'inclúi normalmente la puntuación y daqué cosa más. Nun apaez equí nenguna seición incondicional, magar que la veremos depués.
+</p><p>Poro, el nuesu arquivu tendrá un aspeutu apaecíu a:
+</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;dictionary&gt;
+   &lt;sdefs&gt;
+     &lt;sdef n="n"/&gt;
+     &lt;sdef n="sg"/&gt;
+     &lt;sdef n="pl"/&gt;
+   &lt;/sdefs&gt;
+   &lt;pardefs&gt;
+
+   &lt;/pardefs&gt;
+   &lt;section id="main" type="standard"&gt;
+
+   &lt;/section&gt;
+&lt;/dictionary&gt;
+</pre>
+<p>Con estes yá tenemos la cadarma afitada y podemos entamar a amesta-y nomes. El nome en cuestión va ser «gramofon» (que quier dicir «tocadiscos» o «platu [xiradiscos]»).
+</p><p>Lo primero que tenemos que faer, por mor de que nun tenemos entá nengún paradigma, ye crear ún.
+</p><p>Hai remembrase que tamos asumiendo casu masculín y casu nominativu. La forma singular del nome ye «gramofon», y el plural ye «gramofoni». Asina:
+</p>
+<pre>&lt;pardef n="gramofon__n"&gt;
+   &lt;e&gt;
+     &lt;p&gt;
+       &lt;l/&gt;
+       &lt;r&gt;&lt;s n="n"/&gt;&lt;s n="sg"/&gt;&lt;/r&gt;
+     &lt;/p&gt;
+   &lt;/e&gt;
+   &lt;e&gt;
+     &lt;p&gt;
+       &lt;l&gt;i&lt;/l&gt;
+       &lt;r&gt;&lt;s n="n"/&gt;&lt;s n="pl"/&gt;&lt;/r&gt;
+     &lt;/p&gt;
+   &lt;/e&gt;
+&lt;/pardef&gt;
+</pre>
+<p>Nota: la etiqueta &lt;l/&gt; (equival a &lt;l&gt;&lt;/l&gt;) y denota que nun hai información extra qu'añedir pal singular.
+</p><p>
+De primeres pue paecer un mou poco claru de describir les coses, pero sides pa ello y la rapidez ye una d'elles. Tarás posiblemente naguando por saber qué son les etiquetes &lt;e&gt;, </p><p>, &lt;l&gt; y &lt;r&gt;. Bono,
+
+</p><ul><li>e, pa entrada.</li>
+<li>p, pa par.</li>
+<li>l, pa izquierda (en.left).</li>
+<li>r, pa drecha (en.right).</li></ul><p>
+
+¿Por qué izquierda y drecha? Los diccionarios compilaranse depués en sistemes d'estáu definíu. Ello ye, compílense d'izquierda a drecha p'analizar les pallabres y de drecha a izquierda pa xenerar pallabres dende l'analís. Por exemplu.
+</p><pre>* gramofoni (izquierda a drecha) gramofon&lt;n&gt;&lt;pl&gt; (analís)
+* gramofon&lt;n&gt;&lt;pl&gt; (drecha a izquierda) gramofoni (xeneración)
+</pre>
+<p>Agora que yá definimos el paradigma, tenemos de venceyalu al so lema, gramofon. Ponémoslo na estaya que creáramos.
+</p><p>La entrada a poner na estaya (
+&lt;/dictionary&gt;
+</p>
+
+<p>Necesitamos añedir una entrada pa la torna ente les dos pallabres. Daqué asina:
+</p>
+<pre>&lt;e&gt;&lt;p&gt;&lt;l&gt;gramofon&lt;s n="n"/&gt;&lt;/l&gt;&lt;r&gt;gramophone&lt;s n="n"/&gt;&lt;/r&gt;&lt;/p&gt;&lt;/e&gt;
+</pre>
+<p>Nun diccionariu desarrolláu atoparemos milenta entraes, polo que ye preferible escribir una por ringlera por mor de facilitar la so llectura.
+Because there are a lot of these entries, they're typically written on one line to facilitate easier reading of the file. Otra vuelta apaecen les etiquetes &lt;l&gt; y &lt;r&gt;, y asina, compilamos de izquierda a drecha pa producir el diccionariu serbo-croata → inglés, y de drecha a izquierda pal inglés → servo-croata.
+</p><p>En faciendo esto, cuerri los siguientes comandos:
+</p>
+<pre>$ lt-comp lr apertium-sh-en.sh.dix sh-en.automorf.bin
+$ lt-comp rl apertium-sh-en.en.dix sh-en.autogen.bin
+
+$ lt-comp lr apertium-sh-en.en.dix en-sh.automorf.bin
+$ lt-comp rl apertium-sh-en.sh.dix en-sh.autogen.bin
+
+$ lt-comp lr apertium-sh-en.sh-en.dix sh-en.autobil.bin
+$ lt-comp rl apertium-sh-en.sh-en.dix en-sh.autobil.bin
+</pre>
+<p>Pa xenerar los analizadores morfolóxicos (automorf), los xeneradores morfolóxicos (autogen) 
+To generate the morphological analysers (automorf), the morphological generators (autogen) y les busques de pallabres (autobil), «bil» vien de billingüe.
+</p>
+<h3><span class="mw-headline" id="Regles_de_transferencia">Regles de transferencia</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=8" title="Edit section: Regles de transferencia">edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>Asina que yá tenemos dos diccionarios morfolóxicos y unu billingüe. Tolo que precisamos agora ye una regla de transferencia pa los nomes. Los arquivos de regles de transferencia tienen la so propia DTD (transfer.dtd) que pue topase nel paquete Apertium. Davezu, cuando fai falta amestar una regla nueva, aconséyase echar una gueyaína a los arquivos de regles d'otros pares de llingües primero. Munches regles puen ser reutilizaes/reciclaes ente llingües. Por exemplu la que se describe embaxo podría ser útil pa les llingües que nun precisen suxetu.
+</p><p>L'entamu faise como les otres vegaes con la cadarma básica:
+</p>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;transfer&gt;
+
+&lt;/transfer&gt;
+</pre>
+<p>Pel momentu, al desconocer el casu, namás precisamos crear una regla que pañe los símbolos gramaticales y los devuelva otra vez.
+</p><p>Pa emprimar necesitamos definir categoríes y atributos. Tienen la fin de permitinos agrupar símbolos gramaticales. Les categoríes permítennos agrupar símbolos col propósitu d'igualos de mou que, por exemplu, 'n.*' sedría una referencia a tolos nomes. Los atributos permítennos agrupar el repertoriu de símbolos que podríen escoyese dende ehí. Por exemplu ('sg' and 'pl' podríen agrupase nel atributu 'númberu').
+</p><p>Vamos añedir les estayes necesaries:
+</p>
+<pre>&lt;section-def-cats&gt;
+
+&lt;/section-def-cats&gt;
+&lt;section-def-attrs&gt;
+
+&lt;/section-def-attrs&gt;
+</pre>
+<p>Como namás tamos inflexonando nomes en singular y plural hemos entós amestar una categoría pa nomes con un atributu pa númberu. Daqué asemeyao a:
+</p><p>Na estaya -def-cats añéde-y:
+</p>
+<pre>&lt;def-cat n="nom"&gt;
+   &lt;cat-item tags="n.*"/&gt;
+&lt;/def-cat&gt;
+</pre>
+<p>Esto paña tolos nomes (lemes siguíos por &lt;n&gt;) y refierse a ellos con la etiqueta &lt;&lt;nom&gt;&gt; (veremos el so emplegu más tarde).
+</p><p>Na estaya def-attrs, añede:
+</p>
+<pre>&lt;def-attr n="nbr"&gt;
+   &lt;attr-item tags="sg"/&gt;
+   &lt;attr-item tags="pl"/&gt;
+&lt;/def-attr&gt;
+</pre>
+<p>y llueu
+</p>
+<pre>&lt;def-attr n="a_nom"&gt;
+   &lt;attr-item tags="n"/&gt;
+&lt;/def-attr&gt;
+</pre>
+<p>El primeru defín l'atributu nbr (númberu), que pue ser singular (sg) o plural (pl).
+</p><p>El segundu defín l'atributu a_nom (atributu nome).
+</p><p>A continuación vamos precisar añedir una estaya pa les variables globales:
+</p>
+<pre>&lt;section-def-vars&gt;
+
+&lt;/section-def-vars&gt;
+</pre>
+<p>Eses variables empléguense p'almacenar o transferir atributos ente regles. Per agora namás precisamos ún,
+</p>
+<pre>&lt;def-var n="number"/&gt;
+</pre>
+<p>Pa finar, hemos añedir una regla, pa pañar el nome y depués poder sacalu na forma correuta. Poro precisaremos una estaya de regles...
+</p>
+<pre>&lt;section-rules&gt;
+
+&lt;/section-rules&gt;
+</pre>
+<p>Camudando el ritmu de los exemplos anteriores, amosamos a continuación esta regla y darémos-y un repás.
+</p>
+<pre>&lt;rule&gt;
+   &lt;pattern&gt;
+     &lt;pattern-item n="nom"/&gt;
+   &lt;/pattern&gt;
+   &lt;action&gt;
+     &lt;out&gt;
+       &lt;lu&gt;
+         &lt;clip pos="1" side="tl" part="lem"/&gt;
+         &lt;clip pos="1" side="tl" part="a_nom"/&gt;
+         &lt;clip pos="1" side="tl" part="nbr"/&gt;
+       &lt;/lu&gt;
+     &lt;/out&gt;
+   &lt;/action&gt;
+&lt;/rule&gt;
+</pre>
+<p>La primer etiqueta &lt;rule&gt;, ensin dubia, defín una regla. La segunda &lt;pattern&gt; básicamente diz &lt;&lt;aplicar esta regla si s'atopa esti patrón&gt;&gt;. Nesti exemplu'l patrón correspuende a un nome simple (definíu pola categoría "nom"). Ha notase que los patrones correspuenden a los resultaos más llargos primero. Asina que si tienes tres regles, la primera correspondería "&lt;prn&gt;&lt;vblex&gt;&lt;n&gt;", la segunda a "&lt;prn&gt;&lt;vblex&gt;" y la tercera a "&lt;n&gt;", el patrón escoyíu y la regla executada sedrá la primera.
+</p><p>Cada patrón ta venceyáu a una aición que produz una salida determinada. La salida ye una unidá léxica (lu).
+</p><p>La etiqueta &lt;clip&gt; permíte-y al usuariu escoyer y manipular atributos y partes de los elementos léxicos de la llingua orixe (side="sl"), o llingua meta (side="tl").
+</p><p>Vamos a compilalo y probalo. Les regles de transferencia compílense con:
+</p>
+<pre>$ apertium-preprocess-transfer apertium-sh-en.trules-sh-en.xml trules-sh-en.bin
+</pre>
+<p>Esto creará un archivu trules-sh-en.bin.
+</p><p>Y nesti momentu tamos preparaos pa probar el nuesu sistema de torna. Entá nos faltaría una parte perimportante, l'etiquetador the part-of-speech (PoS), pero desplicarémoslu dientro poco. Endagora podemos probalo como ye:
+</p><p>Pa emprimar vamos a analizar una pallabra, gramofoni:
+</p>
+<pre>$ echo "gramofoni" | lt-proc sh-en.automorf.bin 
+^gramofon/gramofon&lt;n&gt;&lt;pl&gt;$
+</pre>
+<p>Normalmente equí l'etiquetador PoS escoyería la versión morfolóxica correuta basándose na parte del discursu nel qu'apaez, pero al nun haber etiquetador PoS tovía podemos emplegar esti pequeñu script (gracies a Sergio) que dará salida al primer elementu recuperáu.
+</p>
+<pre>$ echo "gramofoni" | lt-proc sh-en.automorf.bin | \
+  gawk 'BEGIN{RS="$"; FS="/";}{nf=split($1,COMPONENTS,"^"); for(i = 1; i&lt;nf; i++) printf COMPONENTS[i]; if($2&#160;!= "") printf("^%s$",$2);}' | \
+^gramofon&lt;n&gt;&lt;pl&gt;$
+</pre>
+<p>Agora vamos a procesalo cola regla de transferencia:
+</p>
+<pre>$ echo "gramofoni" | lt-proc sh-en.automorf.bin | \
+  gawk 'BEGIN{RS="$"; FS="/";}{nf=split($1,COMPONENTS,"^"); for(i = 1; i&lt;nf; i++) printf COMPONENTS[i]; if($2&#160;!= "") printf("^%s$",$2);}' | \
+  apertium-transfer apertium-sh-en.trules-sh-en.xml trules-sh-en.bin sh-en.autobil.bin
+</pre>
+<p>Dará la salida:
+</p>
+<pre>^gramophone&lt;n&gt;&lt;pl&gt;$^@
+</pre>
+<ul><li>'gramophone' ye'l lema (lem) na posición 1 (pos="1") na llingua meta (side="tl").</li>
+<li>'&lt;n&gt;' ye'l a_nom na posición 1 na llingua meta.</li>
+<li>'&lt;pl&gt;' ye l'atributu de númberu (nbr) na posición 1 na llingua meta.</li></ul>
+<p>Pues intentar tu analís un poco distintos intentando camentar la salida.
+</p><p>Asina ye que tenemos la salida de la transferencia y que namás quedaría crear les formes inflexonaes na llingua meta. Pa ello emplegamos lt-proc, pero nel mou de xeneración (-g) y non d'analís.
+</p>
+<pre>$ echo "gramofoni" | lt-proc sh-en.automorf.bin | \
+  gawk 'BEGIN{RS="$"; FS="/";}{nf=split($1,COMPONENTS,"^"); for(i = 1; i&lt;nf; i++) printf COMPONENTS[i]; if($2&#160;!= "") printf("^%s$",$2);}' | \
+  apertium-transfer apertium-sh-en.trules-sh-en.xml trules-sh-en.bin sh-en.autobil.bin | \
+  lt-proc -g sh-en.autogen.bin
+
+gramophones\@
+</pre>
+<p>Y con eso ya podemos falar del aniciu del sistema de traducción de nomes serbo-croates en nomes ingleses. Camentarás que nun ye enforma útil, pero dirá complicándose poco a poco. Y nun te preocupes pol símbolu '@', desplicarémoslu ceo tamién.
+</p><p>Piensa en delles pallabres qu'inflexones igual que gramofon. Sedría bona idega amestales al diccionariu. Nun fai falta añedir nengún paradigma, namás les entraes nos diccionarios monollingüe y billingüe.
+</p>
+<h2><span class="mw-headline" id="Atacando_los_verbos">Atacando los verbos</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=9" title="Edit section: Atacando los verbos">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Asina que yá tenemos un sistema que traduz nomes, pero eso ye un poco inútil, queremos traducir verbos, ¡y frases enteres tamién! ¿Qué tal si entamamos pol verbu "see" (ver)? En Serbo-Croata sería "videti". El Serbo-Croata ye una llingua que nun precisa suxetu léxicu, ello ye que nun suel usar pronomes personales antes de la forma conxugada del verbu. L'inglés sí. Entós, por exemplu: "I see" n'inglés tornaríase como "vidim" en Serbo-Croata.
+</p>
+<ul><li>Vidim</li>
+<li>see&lt;p1&gt;&lt;sg&gt;</li>
+<li>I see</li></ul>
+<p>Nota: &lt;p1&gt; denota primer persona
+</p><p>Esto va ser importante a la de ponese a escribir les regles de tresferencia pa los verbos. Otros exemplos de llingües ensin suxetu léxicu obligatoriu seríen l'español, rumanu, polacu o l'asturianu mesmu. Ello tien tamién la consecuencia de que mentantu que en Serbo-Croata valdríanos con amestar el verbu al diccionariu morfolóxicu n'inglés precisaríamos añedir dambos: el verbu y el pronome personal. Pa pescancialo veremos los dos casos.
+</p><p>Les otres formes del verbu "videti" son: vidiš, vidi, vidimo, vidite, and vide; correspondientes a you see (singular), he sees, we see, you see (plural), and they see.
+</p><p>Hai dos formes de "you see", una ye formal singular (vidite) y otra ye informal singular (vidiš).
+</p><p>Vamos intentar traducir la oración: "Vidim gramofoni" a "I see gramophones". Pa economizar vamos añedir namás información abondo y vamos escaecer completar el restu de paradigmes (el restu de la conxugación del verbu) como exerciu pal llector.
+</p><p>El llector más amañosu camentaría nesti puntu que nun podríamos tornar la oración "vidim gramofoni" porque nun ye gramaticalmente correcta en Serbo-Croata. De fechu, la forma bona habría ser "vidim gramofone", por mor de que'l nome pañaría la forma l'acusativu. Tendremos qu'añedir esa forma tamién, pero creo que nun paga la pena metese pela información de casu agora, asina que la meteremos simplemente como otra posibilidá más pal plural. Poro, namás has copiar el bloque 'e' pa 'i' y troca 'i' por 'e' ehí.
+</p><p>Lo primero que necesitamos faer ye añedir dellos símbolos más. Pa entamar un símbolu pa 'verbu', que vamos llamar "vblex" (que quier dicir "verbu léxicu", n'oposición a los verbos modales y d'otru tipu). Los verbos tienen 'persona' y 'tiempu' amás de númberu, asina que vamos meter un par d'ellos tamién. Queremos traducir "I see", asina que pa persona hemos añedir "p1" (primer persona) y pa tiempu "pri" (presente d'indicativu).
+</p>
+<pre>&lt;sdef n="vblex"/&gt;
+&lt;sdef n="p1"/&gt;
+&lt;sdef n="pri"/&gt;
+</pre>
+<p>En fecho esto, como colos nomes, amestamos el paradigma pa la conxugación verbal. La primer ringlera será:
+</p>
+<pre>&lt;pardef n="vid/eti__vblex"&gt;
+</pre>
+<p>El símbolu '/' úsase pa marcar onde entama la desinencia (parte ente les etiquetes &lt;l&gt; y &lt;/l&gt;)
+</p><p>Depués la inflexón pa la primer persona de singular:
+</p>
+<pre>&lt;e&gt;
+   &lt;p&gt;
+     &lt;l&gt;im&lt;/l&gt;
+     &lt;r&gt;eti&lt;s n="vblex"/&gt;&lt;s n="pri"/&gt;&lt;s n="p1"/&gt;&lt;s n="sg"/&gt;&lt;/r&gt;
+   &lt;/p&gt;
+&lt;/e&gt;
+</pre>
+<p>L'im' denota la terminación (como en 'vidim'). Ha añedise 'eti' a la etiqueta &lt;r&gt; que será cortao pola definición. El resto ye mui cenciello, 'vblex' ye verbu léxicu, 'pri' ye tiempu presente d'indicativu, 'p1' ye primer persona y 'sg' ye singular. Podemos tamién añedir el plural, que será igual, esceutu 'imo' en vez de 'im' y 'pl' en vez de 'sg'.
+</p><p>Depués d'esto necesitamos añadir un lema, como mapa del paradigma pa la seición principal:
+</p>
+<pre>&lt;e lm="videti"&gt;&lt;i&gt;vid&lt;/i&gt;&lt;par n="vid/eti__vblex"/&gt;&lt;/e&gt;
+</pre>
+<p>Nota: el conteníu de <i> ya </i> ye la raíz, non el lema.
+</p><p>Esti ye tol trabayu nel diccionariu Serbo-Croata per agora. Vamos compilalo y prebalo.
+</p>
+<pre>$ lt-comp lr apertium-sh-en.sh.dix sh-en.automorf.bin
+main@standard 23 25
+$ echo "vidim" | lt-proc sh-en.automorf.bin
+^vidim/videti&lt;vblex&gt;&lt;pri&gt;&lt;p1&gt;&lt;sg&gt;$
+$ echo "vidimo" | lt-proc sh-en.automorf.bin
+^vidimo/videti&lt;vblex&gt;&lt;pri&gt;&lt;p1&gt;&lt;pl&gt;$
+</pre>
+<p>Agora tenemos que faer lo mesmo pal diccionariu d'Inglés (alcuérdate d'añedir les mismes definiciones de símbolos qu'añediste al Serbo-Croata).
+</p><p>El paradigma ye:
+</p>
+<pre>&lt;pardef n="s/ee__vblex"&gt;
+</pre>
+<p>porque el pásau ye 'saw'. Agora podemos faer dos coses. Podemos añadir la primera y segunda persona, magar que seya la mesma. De fechu, toles formes (esceutu la de tercera persona de singular) del verbu 'to see' son 'see'. Asina qu'en vez d'eso vamos faer una entrada namás pa 'see' y pondrémos-y namás el símbolu 'pri'.
+</p>
+<pre>&lt;e&gt;
+   &lt;p&gt;
+     &lt;l&gt;ee&lt;/l&gt;
+     &lt;r&gt;ee&lt;s n="vblex"/&gt;&lt;s n="pri"/&gt;&lt;/r&gt;
+   &lt;/p&gt;
+&lt;/e&gt;
+</pre>
+<p>y como siempre, una entrada na seición principal:
+</p>
+<pre>&lt;e lm="see"&gt;&lt;i&gt;s&lt;/i&gt;&lt;par n="s/ee__vblex"/&gt;&lt;/e&gt;
+</pre>
+<p>Grabamos, recompilamos y probamos:
+</p>
+
+<p>$ lt-comp lr apertium-sh-en.en.dix en-sh.automorf.bin
+main@standard 18 19
+</p><p>$ echo "see" | lt-proc en-sh.automorf.bin
+^see/see&lt;vblex&gt;&lt;pri&gt;$
+</p>
+
+<p>Quédanos la entrada obligatoria nel diccionariu billingüe:
+</p>
+<pre>&lt;e&gt;&lt;p&gt;&lt;l&gt;videti&lt;s n="vblex"/&gt;&lt;/l&gt;&lt;r&gt;see&lt;s n="vblex"/&gt;&lt;/r&gt;&lt;/p&gt;&lt;/e&gt;
+</pre>
+<p>(otra vuelta, nun escaezas añedir les sdefs de antes)
+</p><p>Y recompila:
+</p>
+<pre>$ lt-comp lr apertium-sh-en.sh-en.dix sh-en.autobil.bin
+main@standard 18 18
+$ lt-comp rl apertium-sh-en.sh-en.dix en-sh.autobil.bin
+main@standard 18 18
+</pre>
+<p>Agora prebamos l'inventu:
+</p>
+<pre>$ echo "vidim" | lt-proc sh-en.automorf.bin | \
+  gawk 'BEGIN{RS="$"; FS="/";}{nf=split($1,COMPONENTS,"^"); for(i = 1; i&lt;nf; i++) printf COMPONENTS[i]; if($2&#160;!= "") printf("^%s$",$2);}' | \
+  apertium-transfer apertium-sh-en.trules-sh-en.xml trules-sh-en.bin sh-en.autobil.bin 
+
+^see&lt;vblex&gt;&lt;pri&gt;&lt;p1&gt;&lt;sg&gt;$^@
+</pre>
+<p>Conseguimos pasar l'analís correutamente, pero al intentar xenerar la forma superficial dende ehí, recibimos un '#', como embaxo:
+</p>
+<pre>$ echo "vidim" | lt-proc sh-en.automorf.bin | \
+  gawk 'BEGIN{RS="$"; FS="/";}{nf=split($1,COMPONENTS,"^"); for(i = 1; i&lt;nf; i++) printf COMPONENTS[i]; if($2&#160;!= "") printf("^%s$",$2);}' | \
+  apertium-transfer apertium-sh-en.trules-sh-en.xml trules-sh-en.bin sh-en.autobil.bin | \
+  lt-proc -g sh-en.autogen.bin
+#see\@
+</pre>
+<p>Esti '#' quier dicir que'l xenerador nun ye a xenerar la forma léxica correuta porque nun la tien. ¿Qué ye esto?
+</p><p>Básicamente los analises nun cases, el 'see' nel diccionariu ye see&lt;vblex&gt;&lt;pri&gt;, pero'l see que vien a buscar del transfer ye see&lt;vblex&gt;&lt;pri&gt;&lt;p1&gt;&lt;sg&gt;. El llau del diccionariu Serbo-Croata tien más información que la que'l llau del Inglés precisa. Pues prebar amestando los símbolos perdíos al diccionariu Inglés, y depués recompilando y probando otra vuelta.
+</p><p>Por embargu, una forma más acertada d'evitar esto ye escribiendo una regla. Asina que, abrimos l'archivu de regles (apertium-sh-en.trules-sh-en.xml).
+</p><p>Tenemos qu'añedir una categoría nueva pa 'verbu'.
+</p>
+<pre>&lt;def-cat n="vrb"&gt;
+   &lt;cat-item tags="vblex.*"/&gt;
+&lt;/def-cat&gt;
+</pre>
+<p>Necesitamos tamién añedir los atributos pa persona y tiempu. Esta vez vamos faelo d'un mou mui simple, pues amestar p2 y p3, pero p'aforrar espaciu yo nun lo voi faer.
+</p>
+<pre>&lt;def-attr n="temps"&gt;
+   &lt;attr-item tags="pri"/&gt;
+&lt;/def-attr&gt;
+
+&lt;def-attr n="pers"&gt;
+   &lt;attr-item tags="p1"/&gt;
+&lt;/def-attr&gt;
+</pre>
+<p>Deberíamos añedir tamién un atributu pa verbos.
+</p>
+<pre>&lt;def-attr n="a_verb"&gt;
+   &lt;attr-item tags="vblex"/&gt;
+&lt;/def-attr&gt;
+</pre>
+<p>Agora na regla:
+</p>
+<pre>&lt;rule&gt;
+   &lt;pattern&gt;
+     &lt;pattern-item n="vrb"/&gt;
+   &lt;/pattern&gt;
+   &lt;action&gt;
+     &lt;out&gt;
+       &lt;lu&gt;
+         &lt;clip pos="1" side="tl" part="lem"/&gt;
+         &lt;clip pos="1" side="tl" part="a_verb"/&gt;
+         &lt;clip pos="1" side="tl" part="temps"/&gt;
+       &lt;/lu&gt;
+     &lt;/out&gt;
+   &lt;/action&gt;
+&lt;/rule&gt;
+</pre>
+<p>Alcuérdate nel exemplu anterior cuando pusiste les etiquetes "clip" en comentarios y desapaecieron del módulu de tresferencia, esto ye lo que tamos faciendo equí. Garramos el verbu col analís completu, pero la salida ye un analís parcial (lema + etiqueta verbu + etiqueta tiempu).
+Poro, si recompilamos eso, obtenemos:
+</p>
+<pre>$ echo "vidim" | lt-proc sh-en.automorf.bin | \
+  gawk 'BEGIN{RS="$"; FS="/";}{nf=split($1,COMPONENTS,"^"); for(i = 1; i&lt;nf; i++) printf COMPONENTS[i]; if($2&#160;!= "") printf("^%s$",$2);}' | \
+  apertium-transfer apertium-sh-en.trules-sh-en.xml trules-sh-en.bin sh-en.autobil.bin
+^see&lt;vblex&gt;&lt;pri&gt;$^@
+</pre>
+<p>and:
+</p>
+<pre>$ echo "vidim" | lt-proc sh-en.automorf.bin  | \
+  gawk 'BEGIN{RS="$"; FS="/";}{nf=split($1,COMPONENTS,"^"); for(i = 1; i&lt;nf; i++) printf COMPONENTS[i]; if($2&#160;!= "") printf("^%s$",$2);}' | \
+  apertium-transfer apertium-sh-en.trules-sh-en.xml trules-sh-en.bin sh-en.autobil.bin | \
+  lt-proc -g sh-en.autogen.bin
+see\@
+</pre>
+<p>Prébalo con 'vidimo' (vemos) pa ver si obtienes la salida correcta.
+</p><p>Agora preba con "vidim gramofone":
+</p>
+<pre>$ echo "vidim gramofoni" | lt-proc sh-en.automorf.bin | \
+  gawk 'BEGIN{RS="$"; FS="/";}{nf=split($1,COMPONENTS,"^"); for(i = 1; i&lt;nf; i++) printf COMPONENTS[i]; if($2&#160;!= "") printf("^%s$",$2);}' | \
+  apertium-transfer apertium-sh-en.trules-sh-en.xml trules-sh-en.bin sh-en.autobil.bin | \
+  lt-proc -g sh-en.autogen.bin
+see gramophones\@
+</pre>
+<h2><span class="mw-headline" id="See_also">See also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=10" title="Edit section: See also">edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Building_dictionaries" title="Building dictionaries">Building dictionaries</a></li>
+<li><a href="/wiki/Finding_errors_in_dictionaries" title="Finding errors in dictionaries">Finding_errors_in_dictionaries</a></li>
+<li><a href="/w/index.php?title=Cookbook&amp;action=edit&amp;redlink=1" class="new" title="Cookbook (page does not exist)">Cookbook</a></li>
+<li><a href="/wiki/Chunking" title="Chunking">Chunking</a></li>
+<li><a href="/wiki/Contributing_to_an_existing_pair" title="Contributing to an existing pair">Contributing to an existing pair</a></li></ul>
+
+</html>

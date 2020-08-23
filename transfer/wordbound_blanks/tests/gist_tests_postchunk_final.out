@@ -1,0 +1,81 @@
+^Persona<n><f><pl>$ ^legal<adj><mf><pl>$[]
+
+
+[[t:b:e4XkhY]]^persona<n><f><pl>$ ^legal<adj><mf><pl>$[]
+
+
+
+ ^ser<vbser><pri><p1><sg>$ ^David<np><ant><m><sg>$ ^.<sent>$[]
+
+
+ [[t:b:Steu7o2]]^Ser<vbser><pri><p1><sg>$ ^David<np><ant><m><sg>$ ^.<sent>$[]
+
+
+ [[t:b:Steu7o1]]^Ser<vbser><pri><p1><sg>$ [[t:b:Steu7o2]]^David<np><ant><m><sg>$ ^.<sent>$[]
+
+
+ ^Ser<vbser><pri><p1><sg>$ [[t:b:Steu7o2]]^David<np><ant><m><sg>$ ^.<sent>$[]
+
+
+
+^El<det><def><f><pl>$ ^abeja<n><f><pl>$ ^no<adv>$ ^poder<vbmod><pri><p3><pl>$ ^nadar<vblex><inf>$^.<sent>$[]
+
+
+^El<det><def><f><pl>$ ^abeja<n><f><pl>$ [[t:i:NaFC2iv]]^no<adv>$ [[t:i:NaFC2iv]]^poder<vbmod><pri><p3><pl>$ ^nadar<vblex><inf>$^.<sent>$[]
+
+
+
+^*Conway$ ^Declarar<vblex><ifi><p3><sg>$ ^que<cnjsub>$ ^el<det><def><m><pl>$ ^niño<n><m><pl>$ ^joven<adj><mf><pl>$ "^entender<vblex><pri><p3><pl>$ ^permanencia<n><f><sg>$ ^de<pr>$ ^objeto<n><m><sg>$^.<sent>$ ^Encubrir<vblex><pp><m><sg>$ ^objetar<vblex><pri><p3><sg>$ ^característica<n><f><sg>$ ^en<pr>$ ^suyo<det><pos><mf><sg>$ ^concienciación<n><f><sg>$^.<sent>$" ^(<lpar>$^*Nielsen$ ^Equivalencia<n><f><sg>$^)<rpar>$^.<sent>$[]
+
+
+[[t:a:NaFC2iv]]^*Conway$ ^Declarar<vblex><ifi><p3><sg>$ ^que<cnjsub>$ ^el<det><def><m><pl>$ ^niño<n><m><pl>$ ^joven<adj><mf><pl>$ "[[t:i:M0JZW3Q]]^entender<vblex><pri><p3><pl>$ [[t:i:M0JZW3Q2; t:a:qN1fD2pi2]]^permanencia<n><f><sg>$ ^de<pr>$ [[t:i:M0JZW3Q1; t:a:qN1fD2pi1]]^objeto<n><m><sg>$[[t:i:M0JZW3Q3]]^.<sent>$ [[t:i:M0JZW3Q4; t:a:ZVcC0MJ]]^Encubrir<vblex><pp><m><sg>$ [[t:i:M0JZW3Q5; t:a:xDp3Y3y]]^objetar<vblex><pri><p3><sg>$ [[t:i:M0JZW3Q6]]^característica<n><f><sg>$ [[t:i:M0JZW3Q7]]^en<pr>$ [[t:i:M0JZW3Q8]]^suyo<det><pos><mf><sg>$ [[t:i:M0JZW3Q9]]^concienciación<n><f><sg>$[[t:i:M0JZW3Q10]]^.<sent>$" ^(<lpar>$^*Nielsen$ ^Equivalencia<n><f><sg>$^)<rpar>$^.<sent>$[]
+
+
+
+^Mío<det><pos><mf><pl>$ ^vida<n><f><pl>$ ^de<pr>$ ^hermano<n><f><sg>$ ^en<pr>$ ^Gales<np><loc><m><sg>$^.<sent>$[]
+
+
+[[t:b:qum2bhp1]]^Mío<det><pos><mf><pl>$ [[t:b:qum2bhp3; t:i:KPL7B552]]^vida<n><f><pl>$ ^de<pr>$ [[t:b:qum2bhp2; t:i:KPL7B551]]^hermano<n><f><sg>$ [[t:u:WyW2HW1]]^en<pr>$ [[t:u:WyW2HW2]]^Gales<np><loc><m><sg>$^.<sent>$[]
+
+
+
+^El<det><def><m><sg>$ ^perro<n><m><sg>$ ^de<pr>$ ^el<det><def><f><sg>$ ^hermano<n><f><sg>$^.<sent>$[]
+
+
+^El<det><def><m><sg>$ ^perro<n><m><sg>$ ^de<pr>$ [[t:b:8gaY]]^el<det><def><f><sg>$ [[t:i:QypP0e]]^hermano<n><f><sg>$^.<sent>$[]
+
+
+
+^Uno<det><ind><f><sg>$ ^prenda<n><f><sg>$ ^de<pr>$ ^BBC<n><acr><f><sg>$ ^japonés<adj><f><sg>$^.<sent>$[]
+
+
+^Uno<det><ind><f><sg>$ ^prenda<n><f><sg>$ ^de<pr>$ [[t:i:M0JZW3Q]]^BBC<n><acr><f><sg>$ [[t:b:qum2bhp]]^japonés<adj><f><sg>$^.<sent>$[]
+
+
+
+^Uno<det><ind><f><sg>$ ^Gran Bretaña<np><loc><f><sg>$ ^moderno<adj><f><sg>$^.<sent>$[]
+
+
+^Uno<det><ind><f><sg>$ ^Gran Bretaña<np><loc><f><sg>$ [[t:b:qum2bhp]]^moderno<adj><f><sg>$^.<sent>$[]
+
+
+
+^El<det><def><m><sg>$ ^perro<n><m><sg>$ ^rojo<adj><m><sg>$ ^grande<adj><mf><sg>$^.<sent>$[]
+
+
+^El<det><def><m><sg>$ ^perro<n><m><sg>$ [[t:b:qum2bhp2; t:i:M0JZW3Q]]^rojo<adj><m><sg>$ [[t:b:qum2bhp1]]^grande<adj><mf><sg>$^.<sent>$[]
+
+
+
+ ^Decir<vblex><prs><p3><sg>$ "^I<num><mf><pl>$ ^baño<n><m><pl>$ ^de<pr>$ ^azulejo<n><m><sg>$^.<sent>$"[]
+
+
+ ^Decir<vblex><prs><p3><sg>$ "[[t:i:M0JZW3Q1]]^I<num><mf><pl>$ [[t:i:M0JZW3Q3; t:a:NaFC2iv]]^baño<n><m><pl>$ ^de<pr>$ [[t:i:M0JZW3Q2]]^azulejo<n><m><sg>$[[t:i:M0JZW3Q4]]^.<sent>$"[]
+
+
+
+^The New York Times<np><al><m><sg>$^,<cm>$ ^el cual<rel><nn><m><sg>$ ^tener<vblex><pri><p3><sg>$ ^uno<det><ind><m><sg>$ ^editor<n><m><sg>$ ^ejecutivo<adj><m><sg>$ ^sobre<pr>$ ^el<det><def><f><pl>$ ^página<n><f><pl>$ ^noticioso<adj><f><pl>$ ^y<cnjcoo>$ ^uno<det><ind><m><sg>$ ^editor<n><m><sg>$ ^de<pr>$ ^página<n><f><sg>$ ^de<pr>$ ^el<det><def><m><sg>$ ^editorial<n><m><sg>$ ^encima<adv>$ ^página<n><f><pl>$ ^de<pr>$ ^opinión<n><f><sg>$^.<sent>$^.<sent>$[]
+
+
+[[t:a:ETwYHMW]]^The New York Times<np><al><m><sg>$^,<cm>$ ^el cual<rel><nn><m><sg>$ ^tener<vblex><pri><p3><sg>$ ^uno<det><ind><m><sg>$ [[t:b:QjxgZ2]]^editor<n><m><sg>$ [[t:b:QjxgZ1]]^ejecutivo<adj><m><sg>$ ^sobre<pr>$ ^el<det><def><f><pl>$ ^página<n><f><pl>$ ^noticioso<adj><f><pl>$ ^y<cnjcoo>$ ^uno<det><ind><m><sg>$ [[t:b:QjxgZ5]]^editor<n><m><sg>$ ^de<pr>$ [[t:b:QjxgZ4]]^página<n><f><sg>$ ^de<pr>$ ^el<det><def><m><sg>$ [[t:b:QjxgZ3]]^editorial<n><m><sg>$ ^encima<adv>$ ^página<n><f><pl>$ ^de<pr>$ ^opinión<n><f><sg>$^.<sent>$^.<sent>$[] 
+

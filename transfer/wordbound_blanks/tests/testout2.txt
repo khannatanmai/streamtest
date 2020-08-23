@@ -1,0 +1,82 @@
+^legal<adj>$ ^person<n><pl>$[]
+
+
+^legal<adj>$ [[t:b:e4XkhY]]^person<n><pl>$[]
+
+
+
+^prpers<prn><subj><p1><mf><sg>$ ^be<vbser><pri><p1><sg>$ ^David<np><ant><m><sg>$^.<sent>$[]
+
+
+[[t:b:Steu7o]]^prpers<prn><subj><p1><mf><sg>$ [[t:b:Steu7o]]^be<vbser><pri><p1><sg>$ ^David<np><ant><m><sg>$^.<sent>$[]
+
+
+^prpers<prn><subj><p1><mf><sg>$ [[t:b:Steu7o]]^be<vbser><pri><p1><sg>$ [[t:b:Steu7o]]^David<np><ant><m><sg>$^.<sent>$[]
+
+
+[[t:b:Steu7o]]^prpers<prn><subj><p1><mf><sg>$ ^be<vbser><pri><p1><sg>$ [[t:b:Steu7o]]^David<np><ant><m><sg>$^.<sent>$[]
+
+
+
+^Bee<n><pl>$ ^can<vaux><pres>$ ^not<adv>$ ^swim<vblex><inf>$^.<sent>$[]
+
+
+^Bee<n><pl>$ [[t:i:NaFC2iv]]^can<vaux><pres>$ ^not<adv>$ ^swim<vblex><inf>$^.<sent>$[]
+
+
+
+^*Conway$ ^state<vblex><past>$ ^that<cnjsub>$ ^young<adj><sint>$ ^child<n><pl>$ "^understand<vblex><inf>$ ^object<n><sg>$ ^permanence<n><sg>$^.<sent>$ ^Conceal<vblex><pp>$ ^object<vblex><pri><p3><sg>$ ^feature<n><sg>$ ^in<pr>$ ^their<det><pos><sp>$ ^awareness<n><sg>$^.<sent>$" ^(<lpar>$^*Nielsen$ ^equivalence<n><sg>$^)<rpar>$^.<sent>$[]
+
+
+[[t:a:NaFC2iv]]^*Conway$ ^state<vblex><past>$ ^that<cnjsub>$ ^young<adj><sint>$ ^child<n><pl>$ "[[t:i:M0JZW3Q]]^understand<vblex><inf>$ [[t:i:M0JZW3Q; t:a:qN1fD2pi]]^object<n><sg>$ [[t:i:M0JZW3Q; t:a:qN1fD2pi]]^permanence<n><sg>$[[t:i:M0JZW3Q]]^.<sent>$ [[t:i:M0JZW3Q; t:a:ZVcC0MJ]]^Conceal<vblex><pp>$ [[t:i:M0JZW3Q; t:a:xDp3Y3y]]^object<vblex><pri><p3><sg>$ [[t:i:M0JZW3Q]]^feature<n><sg>$ [[t:i:M0JZW3Q]]^in<pr>$ [[t:i:M0JZW3Q]]^their<det><pos><sp>$ [[t:i:M0JZW3Q]]^awareness<n><sg>$[[t:i:M0JZW3Q]]^.<sent>$" ^(<lpar>$^*Nielsen$ ^equivalence<n><sg>$^)<rpar>$^.<sent>$[]
+
+
+
+^My<det><pos><sp>$ ^sister<n><sg>$ ^life<n><pl>$ ^in<pr>$ ^Wales<np><loc><sg>$^.<sent>$[]
+
+
+[[t:b:qum2bhp]]^My<det><pos><sp>$ [[t:b:qum2bhp; t:i:KPL7B55]]^sister<n><sg>$ [[t:b:qum2bhp; t:i:KPL7B55]]^life<n><pl>$ [[t:u:WyW2HW]]^in<pr>$ [[t:u:WyW2HW]]^Wales<np><loc><sg>$^.<sent>$[]
+
+
+
+^The<det><def><sp>$ ^sister<n><sg>$ ^'s<gen>$ ^dog<n><sg>$^.<sent>$[]
+
+
+[[t:b:8gaY]]^The<det><def><sp>$ [[t:i:QypP0e]]^sister<n><sg>$ ^'s<gen>$ ^dog<n><sg>$^.<sent>$[]
+
+
+
+^A<det><ind><sg>$ ^japanese<adj>$ ^BBC<n><acr><sg>$ ^article<n><sg>$^.<sent>$[]
+
+
+^A<det><ind><sg>$ [[t:b:qum2bhp]]^japanese<adj>$ [[t:i:M0JZW3Q]]^BBC<n><acr><sg>$ ^article<n><sg>$^.<sent>$[]
+
+
+
+^A<det><ind><sg>$ ^modern<adj>$ ^Britain<np><loc><sg>$^.<sent>$[]
+
+
+^A<det><ind><sg>$ [[t:b:qum2bhp]]^modern<adj>$ ^Britain<np><loc><sg>$^.<sent>$[]
+
+
+
+^The<det><def><sp>$ ^big<adj><sint>$ ^red<adj>$ ^dog<n><sg>$^.<sent>$[]
+
+
+^The<det><def><sp>$ [[t:b:qum2bhp]]^big<adj><sint>$ [[t:b:qum2bhp; t:i:M0JZW3Q]]^red<adj>$ ^dog<n><sg>$^.<sent>$[]
+
+
+
+^Prpers<prn><subj><p3><m><sg>$ ^say<vblex><past>$ "^I<num><mf><sg>$ ^tile<n><sg>$ ^bathroom<n><pl>$^.<sent>$"[]
+
+
+^Prpers<prn><subj><p3><m><sg>$ ^say<vblex><past>$ "[[t:i:M0JZW3Q]]^I<num><mf><sg>$ [[t:i:M0JZW3Q]]^tile<n><sg>$ [[t:i:M0JZW3Q; t:a:NaFC2iv]]^bathroom<n><pl>$[[t:i:M0JZW3Q]]^.<sent>$"[]
+
+
+
+^The New York Times<np><al><sg>$^,<cm>$ ^which<prn><itg><m><sp>$ ^have<vblex><pri><p3><sg>$ ^a<det><ind><sg>$ ^executive<adj>$ ^editor<n><sg>$ ^over<pr>$ ^the<det><def><sp>$ ^news<adj>$ ^page<n><pl>$ ^and<cnjcoo>$ ^a<det><ind><sg>$ ^editorial<n><sg>$ ^page<n><sg>$ ^editor<n><sg>$ ^over<adv>$ ^opinion<n><sg>$ ^page<n><pl>$^.<sent>$^.<sent>$[]
+
+
+[[t:a:ETwYHMW]]^The New York Times<np><al><sg>$^,<cm>$ ^which<prn><itg><m><sp>$ ^have<vblex><pri><p3><sg>$ ^a<det><ind><sg>$ [[t:b:QjxgZ]]^executive<adj>$ [[t:b:QjxgZ]]^editor<n><sg>$ ^over<pr>$ ^the<det><def><sp>$ ^news<adj>$ ^page<n><pl>$ ^and<cnjcoo>$ ^a<det><ind><sg>$ [[t:b:QjxgZ]]^editorial<n><sg>$ [[t:b:QjxgZ]]^page<n><sg>$ [[t:b:QjxgZ]]^editor<n><sg>$ ^over<adv>$ ^opinion<n><sg>$ ^page<n><pl>$^.<sent>$^.<sent>$[] 
+
+[[t:s:test12]]^*tanmai$

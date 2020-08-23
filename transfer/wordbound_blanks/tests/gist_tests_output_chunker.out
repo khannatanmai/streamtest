@@ -1,0 +1,81 @@
+^Nom_adj<SN><UNDET><f><pl>{^persona<n><3><4>$ ^legal<adj><mf><4>$}$[]
+
+
+^nom_adj<SN><UNDET><f><pl>{[[t:b:e4XkhY]]^persona<n><3><4>$ ^legal<adj><mf><4>$}$[]
+
+
+
+^prnsubj<SN><tn><p1><mf><sg>{^prpers<prn><2><p1><4><sg>$}$ ^be<Vcop><vbser><pri><p1><sg>{^ser<vbser><3><4><5>$}$ ^nom<SN><UNDET><m><sg>{^David<np><ant><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^Prnsubj<SN><tn><p1><mf><sg>{[[t:b:Steu7o]]^prpers<prn><2><p1><4><sg>$}$ ^be<Vcop><vbser><pri><p1><sg>{[[t:b:Steu7o]]^ser<vbser><3><4><5>$}$ ^nom<SN><UNDET><m><sg>{^David<np><ant><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^Prnsubj<SN><tn><p1><mf><sg>{^prpers<prn><2><p1><4><sg>$}$ ^be<Vcop><vbser><pri><p1><sg>{[[t:b:Steu7o]]^ser<vbser><3><4><5>$}$ ^nom<SN><UNDET><m><sg>{[[t:b:Steu7o]]^David<np><ant><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^Prnsubj<SN><tn><p1><mf><sg>{[[t:b:Steu7o]]^prpers<prn><2><p1><4><sg>$}$ ^be<Vcop><vbser><pri><p1><sg>{^ser<vbser><3><4><5>$}$ ^nom<SN><UNDET><m><sg>{[[t:b:Steu7o]]^David<np><ant><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+
+^Nom<SN><UNDET><f><pl>{^abeja<n><3><4>$}$ ^adv<adv><NEG>{^no<adv>$}$ ^auxmod_inf<SV><vblex><pri><PD><ND>{^poder<vbmod><3><4><5>$ ^nadar<vblex><inf>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^Nom<SN><UNDET><f><pl>{^abeja<n><3><4>$}$ ^adv<adv><NEG>{^no<adv>$}$ ^auxmod_inf<SV><vblex><pri><PD><ND>{[[t:i:NaFC2iv]]^poder<vbmod><3><4><5>$ ^nadar<vblex><inf>$}$^punt<sent>{^.<sent>$}$[]
+
+
+
+^unknown<unknown>{^*Conway$}$ ^Verbcj<SV><vblex><ifi><PD><ND>{^declarar<vblex><3><4><5>$}$ ^cnj<cnjsub>{^que<cnjsub>$}$ ^nom_adj<SN><UNDET><m><pl>{^niño<n><3><4>$ ^joven<adj><mf><4>$}$ "^inf<SV><vblex><inf><PD><ND>{^entender<vblex><3>$}$ ^nom_pr_nom<SN><UNDET><f><sg>{^permanencia<n><3><4>$ ^de<pr>$ ^objeto<n><m><sg>$}$^punt<sent>{^.<sent>$}$ ^Pp<SA><GD><ND>{^encubrir<vblex><pp><2><3>$}$ ^verbcj<SV><vblex><pri><p3><sg>{^objetar<vblex><3><4><5>$}$ ^nom<SN><UNDET><f><sg>{^característica<n><3><4>$}$ ^pr<PREP>{^en<pr>$}$ ^det_nom<SN><DET><f><sg>{^suyo<det><pos><mf><4>$ ^concienciación<n><3><4>$}$^punt<sent>{^.<sent>$}$" ^default<default>{^(<lpar>$}$^unknown<unknown>{^*Nielsen$}$ ^Nom<SN><UNDET><f><sg>{^equivalencia<n><3><4>$}$^default<default>{^)<rpar>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^unknown<unknown>{[[t:a:NaFC2iv]]^*Conway$}$ ^Verbcj<SV><vblex><ifi><PD><ND>{^declarar<vblex><3><4><5>$}$ ^cnj<cnjsub>{^que<cnjsub>$}$ ^nom_adj<SN><UNDET><m><pl>{^niño<n><3><4>$ ^joven<adj><mf><4>$}$ "^inf<SV><vblex><inf><PD><ND>{[[t:i:M0JZW3Q]]^entender<vblex><3>$}$ ^nom_pr_nom<SN><UNDET><f><sg>{[[t:i:M0JZW3Q; t:a:qN1fD2pi]]^permanencia<n><3><4>$ ^de<pr>$ [[t:i:M0JZW3Q; t:a:qN1fD2pi]]^objeto<n><m><sg>$}$^punt<sent>{[[t:i:M0JZW3Q]]^.<sent>$}$ ^Pp<SA><GD><ND>{[[t:i:M0JZW3Q; t:a:ZVcC0MJ]]^encubrir<vblex><pp><2><3>$}$ ^verbcj<SV><vblex><pri><p3><sg>{[[t:i:M0JZW3Q; t:a:xDp3Y3y]]^objetar<vblex><3><4><5>$}$ ^nom<SN><UNDET><f><sg>{[[t:i:M0JZW3Q]]^característica<n><3><4>$}$ ^pr<PREP>{[[t:i:M0JZW3Q]]^en<pr>$}$ ^det_nom<SN><DET><f><sg>{[[t:i:M0JZW3Q]]^suyo<det><pos><mf><4>$ [[t:i:M0JZW3Q]]^concienciación<n><3><4>$}$^punt<sent>{[[t:i:M0JZW3Q]]^.<sent>$}$" ^default<default>{^(<lpar>$}$^unknown<unknown>{^*Nielsen$}$ ^Nom<SN><UNDET><f><sg>{^equivalencia<n><3><4>$}$^default<default>{^)<rpar>$}$^punt<sent>{^.<sent>$}$[]
+
+
+
+^Det_nom_pr_nom<SN><DET><f><pl>{^mío<det><pos><mf><4>$ ^vida<n><3><4>$ ^de<pr>$ ^hermano<n><f><sg>$}$ ^pr<PREP>{^en<pr>$}$ ^nom<SN><UNDET><m><sg>{^Gales<np><loc><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^Det_nom_pr_nom<SN><DET><f><pl>{[[t:b:qum2bhp]]^mío<det><pos><mf><4>$ [[t:b:qum2bhp; t:i:KPL7B55]]^vida<n><3><4>$ ^de<pr>$ [[t:b:qum2bhp; t:i:KPL7B55]]^hermano<n><f><sg>$}$ ^pr<PREP>{[[t:u:WyW2HW]]^en<pr>$}$ ^nom<SN><UNDET><m><sg>{[[t:u:WyW2HW]]^Gales<np><loc><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+
+^Det_nom<SN><DET><f><sg>{^el<det><def><3><4>$ ^hermano<n><3><4>$}$ ^pr<GEN>{}$ ^nom<SN><UNDET><GD><sg>{^perro<n><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^Det_nom<SN><DET><f><sg>{[[t:b:8gaY]]^el<det><def><3><4>$ [[t:i:QypP0e]]^hermano<n><3><4>$}$ ^pr<GEN>{}$ ^nom<SN><UNDET><GD><sg>{^perro<n><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+
+^Det_nom_pr_nom_adj<SN><DET><f><sg>{^uno<det><ind><3><4>$ ^prenda<n><3><4>$ ^de<pr>$ ^BBC<n><acr><f><sg>$ ^japonés<adj><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^Det_nom_pr_nom_adj<SN><DET><f><sg>{^uno<det><ind><3><4>$ ^prenda<n><3><4>$ ^de<pr>$ [[t:i:M0JZW3Q]]^BBC<n><acr><f><sg>$ [[t:b:qum2bhp]]^japonés<adj><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+
+^Det_nom_adj<SN><DET><f><sg>{^uno<det><ind><3><4>$ ^Gran Bretaña<np><loc><3><4>$ ^moderno<adj><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^Det_nom_adj<SN><DET><f><sg>{^uno<det><ind><3><4>$ ^Gran Bretaña<np><loc><3><4>$ [[t:b:qum2bhp]]^moderno<adj><3><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+
+^Det_nom_adj_adj<SN><DET><GD><sg>{^el<det><def><3><4>$ ^perro<n><3><4>$ ^rojo<adj><3><4>$ ^grande<adj><mf><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^Det_nom_adj_adj<SN><DET><GD><sg>{^el<det><def><3><4>$ ^perro<n><3><4>$ [[t:b:qum2bhp; t:i:M0JZW3Q]]^rojo<adj><3><4>$ [[t:b:qum2bhp]]^grande<adj><mf><4>$}$^punt<sent>{^.<sent>$}$[]
+
+
+
+^Prnsubj<SN><tn><p3><m><sg>{^prpers<prn><2><p3><4><sg>$}$ ^verbcj<SV><reporting><ifi><PD><ND>{^decir<vblex><3><4><5>$}$ "^num_nom_pr_nom<SN><NUM><m><pl>{^I<num><mf><4>$ ^baño<n><3><4>$ ^de<pr>$ ^azulejo<n><m><sg>$}$^punt<sent>{^.<sent>$}$"[]
+
+
+^Prnsubj<SN><tn><p3><m><sg>{^prpers<prn><2><p3><4><sg>$}$ ^verbcj<SV><reporting><ifi><PD><ND>{^decir<vblex><3><4><5>$}$ "^num_nom_pr_nom<SN><NUM><m><pl>{[[t:i:M0JZW3Q]]^I<num><mf><4>$ [[t:i:M0JZW3Q; t:a:NaFC2iv]]^baño<n><3><4>$ ^de<pr>$ [[t:i:M0JZW3Q]]^azulejo<n><m><sg>$}$^punt<sent>{[[t:i:M0JZW3Q]]^.<sent>$}$"[]
+
+
+
+^Nom<SN><UNDET><m><sg>{^The New York Times<np><al><3><4>$}$^coma<cm>{^,<cm>$}$ ^relnom<REL><nn><GD><ND>{^el cual<rel><nn><3><4>$}$ ^verbcj<SV><vblex><pri><p3><sg>{^tener<vblex><3><4><5>$}$ ^det_nom_adj<SN><DET><GD><sg>{^uno<det><ind><3><4>$ ^editor<n><3><4>$ ^ejecutivo<adj><3><4>$}$ ^pr<PREP>{^sobre<pr>$}$ ^det_nom_adj<SN><DET><f><pl>{^el<det><def><3><4>$ ^página<n><3><4>$ ^noticioso<adj><3><4>$}$ ^cnj<cnjcoo>{^y<cnjcoo>$}$ ^det_nom_pr_nom_pr_det_nom<SN><DET><GD><sg>{^uno<det><ind><3><4>$ ^editor<n><3><4>$ ^de<pr>$ ^página<n><f><sg>$ ^de<pr>$ ^el<det><def><m><sg>$ ^editorial<n><m><sg>$}$ ^adv<adv>{^encima<adv>$}$ ^nom_pr_nom<SN><UNDET><f><pl>{^página<n><3><4>$ ^de<pr>$ ^opinión<n><f><sg>$}$^punt<sent>{^.<sent>$}$^punt<sent>{^.<sent>$}$[]
+
+
+^Nom<SN><UNDET><m><sg>{[[t:a:ETwYHMW]]^The New York Times<np><al><3><4>$}$^coma<cm>{^,<cm>$}$ ^relnom<REL><nn><GD><ND>{^el cual<rel><nn><3><4>$}$ ^verbcj<SV><vblex><pri><p3><sg>{^tener<vblex><3><4><5>$}$ ^det_nom_adj<SN><DET><GD><sg>{^uno<det><ind><3><4>$ [[t:b:QjxgZ]]^editor<n><3><4>$ [[t:b:QjxgZ]]^ejecutivo<adj><3><4>$}$ ^pr<PREP>{^sobre<pr>$}$ ^det_nom_adj<SN><DET><f><pl>{^el<det><def><3><4>$ ^página<n><3><4>$ ^noticioso<adj><3><4>$}$ ^cnj<cnjcoo>{^y<cnjcoo>$}$ ^det_nom_pr_nom_pr_det_nom<SN><DET><GD><sg>{^uno<det><ind><3><4>$ [[t:b:QjxgZ]]^editor<n><3><4>$ ^de<pr>$ [[t:b:QjxgZ]]^página<n><f><sg>$ ^de<pr>$ ^el<det><def><m><sg>$ [[t:b:QjxgZ]]^editorial<n><m><sg>$}$ ^adv<adv>{^encima<adv>$}$ ^nom_pr_nom<SN><UNDET><f><pl>{^página<n><3><4>$ ^de<pr>$ ^opinión<n><f><sg>$}$^punt<sent>{^.<sent>$}$^punt<sent>{^.<sent>$}$[] 
+

@@ -1,0 +1,81 @@
+^legal<adj>/legal<adj><mf>$ ^person<n><pl>/persona<n><f><pl>$[]
+
+
+^legal<adj>/legal<adj><mf>$ [[t:b:e4XkhY]]^person<n><pl>/persona<n><f><pl>$[]
+
+
+
+^prpers<prn><subj><p1><mf><sg>/prpers<prn><tn><p1><mf><sg>$ ^be<vbser><pri><p1><sg>/ser<vbser><pri><p1><sg>$ ^David<np><ant><m><sg>/David<np><ant><m><sg>$^.<sent>/.<sent>$[]
+
+
+[[t:b:Steu7o1]]^prpers<prn><subj><p1><mf><sg>/prpers<prn><tn><p1><mf><sg>$ [[t:b:Steu7o2]]^be<vbser><pri><p1><sg>/ser<vbser><pri><p1><sg>$ ^David<np><ant><m><sg>/David<np><ant><m><sg>$^.<sent>/.<sent>$[]
+
+
+^prpers<prn><subj><p1><mf><sg>/prpers<prn><tn><p1><mf><sg>$ [[t:b:Steu7o1]]^be<vbser><pri><p1><sg>/ser<vbser><pri><p1><sg>$ [[t:b:Steu7o2]]^David<np><ant><m><sg>/David<np><ant><m><sg>$^.<sent>/.<sent>$[]
+
+
+[[t:b:Steu7o1]]^prpers<prn><subj><p1><mf><sg>/prpers<prn><tn><p1><mf><sg>$ ^be<vbser><pri><p1><sg>/ser<vbser><pri><p1><sg>$ [[t:b:Steu7o2]]^David<np><ant><m><sg>/David<np><ant><m><sg>$^.<sent>/.<sent>$[]
+
+
+
+^Bee<n><pl>/Abeja<n><f><pl>$ ^can<vaux><pres>/poder<vbmod><pres>$ ^not<adv>/no<adv>$ ^swim<vblex><inf>/nadar<vblex><inf>$^.<sent>/.<sent>$[]
+
+
+^Bee<n><pl>/Abeja<n><f><pl>$ [[t:i:NaFC2iv]]^can<vaux><pres>/poder<vbmod><pres>$ [[t:i:NaFC2iv]]^not<adv>/no<adv>$ ^swim<vblex><inf>/nadar<vblex><inf>$^.<sent>/.<sent>$[]
+
+
+
+^*Conway/*Conway$ ^state<vblex><past>/declarar<vblex><past>/plantear<vblex><past>$ ^that<cnjsub>/que<cnjsub>$ ^young<adj><sint>/joven<adj><mf>$ ^child<n><pl>/niño<n><m><pl>$ "^understand<vblex><inf>/entender<vblex><inf>$ ^object<n><sg>/objeto<n><m><sg>$ ^permanence<n><sg>/permanencia<n><f><sg>$^.<sent>/.<sent>$ ^Conceal<vblex><pp>/Encubrir<vblex><pp>$ ^object<vblex><pri><p3><sg>/objetar<vblex><pri><p3><sg>$ ^feature<n><sg>/característica<n><f><sg>$ ^in<pr>/en<pr>$ ^their<det><pos><sp>/suyo<det><pos><mf><ND>$ ^awareness<n><sg>/concienciación<n><f><sg>$^.<sent>/.<sent>$" ^(<lpar>/(<lpar>$^*Nielsen/*Nielsen$ ^equivalence<n><sg>/equivalencia<n><f><sg>$^)<rpar>/)<rpar>$^.<sent>/.<sent>$[]
+
+
+[[t:a:NaFC2iv]]^*Conway/*Conway$ ^state<vblex><past>/declarar<vblex><past>/plantear<vblex><past>$ ^that<cnjsub>/que<cnjsub>$ ^young<adj><sint>/joven<adj><mf>$ ^child<n><pl>/niño<n><m><pl>$ "[[t:i:M0JZW3Q]]^understand<vblex><inf>/entender<vblex><inf>$ [[t:i:M0JZW3Q1; t:a:qN1fD2pi1]]^object<n><sg>/objeto<n><m><sg>$ [[t:i:M0JZW3Q2; t:a:qN1fD2pi2]]^permanence<n><sg>/permanencia<n><f><sg>$[[t:i:M0JZW3Q3]]^.<sent>/.<sent>$ [[t:i:M0JZW3Q4; t:a:ZVcC0MJ]]^Conceal<vblex><pp>/Encubrir<vblex><pp>$ [[t:i:M0JZW3Q5; t:a:xDp3Y3y]]^object<vblex><pri><p3><sg>/objetar<vblex><pri><p3><sg>$ [[t:i:M0JZW3Q6]]^feature<n><sg>/característica<n><f><sg>$ [[t:i:M0JZW3Q7]]^in<pr>/en<pr>$ [[t:i:M0JZW3Q8]]^their<det><pos><sp>/suyo<det><pos><mf><ND>$ [[t:i:M0JZW3Q9]]^awareness<n><sg>/concienciación<n><f><sg>$[[t:i:M0JZW3Q10]]^.<sent>/.<sent>$" ^(<lpar>/(<lpar>$^*Nielsen/*Nielsen$ ^equivalence<n><sg>/equivalencia<n><f><sg>$^)<rpar>/)<rpar>$^.<sent>/.<sent>$[]
+
+
+
+^My<det><pos><sp>/Mío<det><pos><mf><ND>$ ^sister<n><sg>/hermano<n><f><sg>$ ^life<n><pl>/vida<n><f><pl>$ ^in<pr>/en<pr>$ ^Wales<np><loc><sg>/Gales<np><loc><m><sg>$^.<sent>/.<sent>$[]
+
+
+[[t:b:qum2bhp1]]^My<det><pos><sp>/Mío<det><pos><mf><ND>$ [[t:b:qum2bhp2; t:i:KPL7B551]]^sister<n><sg>/hermano<n><f><sg>$ [[t:b:qum2bhp3; t:i:KPL7B552]]^life<n><pl>/vida<n><f><pl>$ [[t:u:WyW2HW1]]^in<pr>/en<pr>$ [[t:u:WyW2HW2]]^Wales<np><loc><sg>/Gales<np><loc><m><sg>$^.<sent>/.<sent>$[]
+
+
+
+^The<det><def><sp>/El<det><def><GD><ND>$ ^sister<n><sg>/hermano<n><f><sg>$ ^'s<gen>/$ ^dog<n><sg>/perro<n><GD><sg>$^.<sent>/.<sent>$[]
+
+
+[[t:b:8gaY]]^The<det><def><sp>/El<det><def><GD><ND>$ [[t:i:QypP0e]]^sister<n><sg>/hermano<n><f><sg>$ ^'s<gen>/$ ^dog<n><sg>/perro<n><GD><sg>$^.<sent>/.<sent>$[]
+
+
+
+^A<det><ind><sg>/Uno<det><ind><GD><sg>$ ^japanese<adj>/japonés<adj>$ ^BBC<n><acr><sg>/BBC<n><acr><f><sg>$ ^article<n><sg>/prenda<n><f><sg>/artículo<n><m><sg>$^.<sent>/.<sent>$[]
+
+
+^A<det><ind><sg>/Uno<det><ind><GD><sg>$ [[t:b:qum2bhp]]^japanese<adj>/japonés<adj>$ [[t:i:M0JZW3Q]]^BBC<n><acr><sg>/BBC<n><acr><f><sg>$ ^article<n><sg>/prenda<n><f><sg>/artículo<n><m><sg>$^.<sent>/.<sent>$[]
+
+
+
+^A<det><ind><sg>/Uno<det><ind><GD><sg>$ ^modern<adj>/moderno<adj>$ ^Britain<np><loc><sg>/Gran Bretaña<np><loc><f><sg>$^.<sent>/.<sent>$[]
+
+
+^A<det><ind><sg>/Uno<det><ind><GD><sg>$ [[t:b:qum2bhp]]^modern<adj>/moderno<adj>$ ^Britain<np><loc><sg>/Gran Bretaña<np><loc><f><sg>$^.<sent>/.<sent>$[]
+
+
+
+^The<det><def><sp>/El<det><def><GD><ND>$ ^big<adj><sint>/grande<adj><mf>$ ^red<adj>/rojo<adj>$ ^dog<n><sg>/perro<n><GD><sg>$^.<sent>/.<sent>$[]
+
+
+^The<det><def><sp>/El<det><def><GD><ND>$ [[t:b:qum2bhp1]]^big<adj><sint>/grande<adj><mf>$ [[t:b:qum2bhp2; t:i:M0JZW3Q]]^red<adj>/rojo<adj>$ ^dog<n><sg>/perro<n><GD><sg>$^.<sent>/.<sent>$[]
+
+
+
+^Prpers<prn><subj><p3><m><sg>/Prpers<prn><tn><p3><m><sg>$ ^say<vblex><past>/decir<vblex><past>$ "^I<num><mf><sg>/I<num><mf><sg>$ ^tile<n><sg>/azulejo<n><m><sg>$ ^bathroom<n><pl>/baño<n><m><pl>$^.<sent>/.<sent>$"[]
+
+
+^Prpers<prn><subj><p3><m><sg>/Prpers<prn><tn><p3><m><sg>$ ^say<vblex><past>/decir<vblex><past>$ "[[t:i:M0JZW3Q1]]^I<num><mf><sg>/I<num><mf><sg>$ [[t:i:M0JZW3Q2]]^tile<n><sg>/azulejo<n><m><sg>$ [[t:i:M0JZW3Q3; t:a:NaFC2iv]]^bathroom<n><pl>/baño<n><m><pl>$[[t:i:M0JZW3Q4]]^.<sent>/.<sent>$"[]
+
+
+
+^The New York Times<np><al><sg>/The New York Times<np><al><m><sg>$^,<cm>/,<cm>$ ^which<prn><itg><m><sp>/cuál<prn><itg><mf><ND>$ ^have<vblex><pri><p3><sg>/tener<vblex><pri><p3><sg>$ ^a<det><ind><sg>/uno<det><ind><GD><sg>$ ^executive<adj>/ejecutivo<adj>$ ^editor<n><sg>/editor<n><GD><sg>/director<n><f><sg>$ ^over<pr>/sobre<pr>/durante<pr>$ ^the<det><def><sp>/el<det><def><GD><ND>$ ^news<adj>/noticioso<adj>$ ^page<n><pl>/página<n><f><pl>$ ^and<cnjcoo>/y<cnjcoo>$ ^a<det><ind><sg>/uno<det><ind><GD><sg>$ ^editorial<n><sg>/editorial<n><m><sg>$ ^page<n><sg>/página<n><f><sg>$ ^editor<n><sg>/editor<n><GD><sg>/director<n><f><sg>$ ^over<adv>/encima<adv>$ ^opinion<n><sg>/opinión<n><f><sg>$ ^page<n><pl>/página<n><f><pl>$^.<sent>/.<sent>$^.<sent>/.<sent>$[]
+
+
+[[t:a:ETwYHMW]]^The New York Times<np><al><sg>/The New York Times<np><al><m><sg>$^,<cm>/,<cm>$ ^which<prn><itg><m><sp>/cuál<prn><itg><mf><ND>$ ^have<vblex><pri><p3><sg>/tener<vblex><pri><p3><sg>$ ^a<det><ind><sg>/uno<det><ind><GD><sg>$ [[t:b:QjxgZ1]]^executive<adj>/ejecutivo<adj>$ [[t:b:QjxgZ2]]^editor<n><sg>/editor<n><GD><sg>/director<n><f><sg>$ ^over<pr>/sobre<pr>/durante<pr>$ ^the<det><def><sp>/el<det><def><GD><ND>$ ^news<adj>/noticioso<adj>$ ^page<n><pl>/página<n><f><pl>$ ^and<cnjcoo>/y<cnjcoo>$ ^a<det><ind><sg>/uno<det><ind><GD><sg>$ [[t:b:QjxgZ3]]^editorial<n><sg>/editorial<n><m><sg>$ [[t:b:QjxgZ4]]^page<n><sg>/página<n><f><sg>$ [[t:b:QjxgZ5]]^editor<n><sg>/editor<n><GD><sg>/director<n><f><sg>$ ^over<adv>/encima<adv>$ ^opinion<n><sg>/opinión<n><f><sg>$ ^page<n><pl>/página<n><f><pl>$^.<sent>/.<sent>$^.<sent>/.<sent>$[] 
+

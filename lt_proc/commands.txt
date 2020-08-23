@@ -1,0 +1,1 @@
+lt-proc -g '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/spa-eng.autogen.bin' | lt-proc -p '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/spa-eng.autopgen.bin'

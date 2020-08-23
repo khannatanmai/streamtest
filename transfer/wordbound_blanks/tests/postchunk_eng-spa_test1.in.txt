@@ -1,0 +1,2 @@
+^Det_adj<SA>{^el<det><def>$ [[t:b:qum2bhp]]^grande# test<adj>$}$ ^inf<SV><vblex><pres><p3><ND>{[[t:i:M0JZW3Q]]^vivir<vblex><3>$}$ ^default<default>{[[t:b:qum2bhp; t:i:M0JZW3Q]]^rojo<adj>$}$ ^nom<SN><sg>{^perro<n><3>$}$ ^nom<SN><sg>{[[t:s:123456]]^test<n><3># abc$}$ ^have_enc_pp<SV><tx><tps><PD><ND>{[[t:x:1234ab]]^xyz<cnjadv>$ [[t:s:p2rthg]]^abc<vbhaver><ger>$ [[t:x:y265hk]]^uvwx<vblex><pp>$}$ ^have_enc_pp<SV><tx><tps><PD><ND>{[[t:x:1234ab; t:y:poposj]]^xyz<cnjadv>$ [[t:s:p2rthg; t:b:123456]]^abc<vbhaver><ger>$ [[t:x:y265hk]]^uvwx<vblex><pp>$}$[
+]

@@ -1,0 +1,2 @@
+^The<det><def><sp>/El<det><def><GD><ND>$ [[t:b:qum2bhp]]^big# test<adj><sint>/grande# test<adj><mf>$ [[t:b:qum2bhp; t:i:M0JZW3Q]]^red<adj>/rojo<adj>$ ^dog<n><sg>/perro<n><GD><sg>$ [[t:s:123456]]^test# xyz<n><sg>/test# abc<n><sg>$ [[t:b:qum2bhp]]^dog<n><sg>/perro<n><GD><sg>$ [[t:b:qum2bhp; t:i:M0JZW3Q]]^and<cnjcoo>/y<cnjcoo>$ [[t:s:123456]]^cat<n><sg>/gato<n><GD><sg>$[
+]

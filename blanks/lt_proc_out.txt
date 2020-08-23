@@ -1,0 +1,1 @@
+^The/The<det><def><sp>$ [[t:b:qum2bhp]]^big/big<adj><sint>$ [[t:b:qum2bhp; t:i:M0JZW3Q]]^red/red<adj>/red<n><sg>$ ^dog/dog<n><sg>$^./.<sent>$[]

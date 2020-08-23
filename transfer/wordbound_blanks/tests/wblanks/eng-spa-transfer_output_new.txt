@@ -1,0 +1,3 @@
+^Nom_to_inf<SN><UNDET><sg><inf>{[[t:s:adasd]]^xyz<n><4># a vv$  [[t:x:fsddto]]^para<pr>$  [[t:b:123456; t:s:123; t:b:as23]]^abc<vblex><5>+he<prn><enc><sg># hg kg$}$  
+
+^nom<SN><UNDET><sg>{[[t:p:1234]]^xyz<n><4>$}$  ^pr<PREP>{^to<pr>$}$  ^default<default>{[[t:b:asdg12]]^abc<vblex><inf><sf:yada>$}$  ^default<default>{[[t:s:xyzas]]^he<prn><obj><sg>$}$

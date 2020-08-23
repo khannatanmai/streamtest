@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en" dir="ltr">
+
+</td></tr></tbody></table>
+<p>*Esti tutorial va *desplicar el *mou d'*entamar un parell *nuevu de *llingües *nuevu *pa la *ferramienta de torna automàtica Apertium.
+</p><p>*Nun es precisa *conocimientu *dalu de *llingüística o *sistemes de torna enllà de ser capaç d'*estremar *nomes de verbs (i preposicions, etc.)
+</p>
+<h2><span class="mw-headline" id="Entamu">*Entamu</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=1" title="Edit section: Entamu">*edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Apertium *ye, com possiblement *pescanciaras, un sistema de torna automàtica. Bono, *nun del *too, *ye una plataforma de torna. *Ufre un motor i uneixes *ferramientes tals que et permetran *ellaborar els tos propis *sistemes de torna. L'única cosa que *fai falta *ye escriure dades. L'*aniciu d'una nova *llingua consisteix bàsicament en tres diccionaris i *delles reglis (de reorganització de *pallabres i *otres qüestions gramaticals).
+</p><p>*Pa una introducció més detallada de com funciona *too, *hai *dellos *papelos interessants *na *páxina del *proyeutu <a rel="nofollow" class="external text" href="http://apertium.sourceforge.net">apertium.sourceforge.net</a>.
+</p>
+<h2><span class="mw-headline" id="Vas_precisar">Vas precisar</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=2" title="Edit section: Vas precisar">*edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Lttoolbox" title="Lttoolbox">*lttoolbox</a> (&gt;= 3.0.0)</li>
+<li>*libxml útils (*xmllint etc.)</li>
+<li>*apertium (&gt;= 3.0.0)</li>
+<li>un editor de *testu (o un editor XML *especializáu si el prefereixes)</li></ul>
+<p>*Esti *documentu *nun va *desplicar com instal·lar aquests paquets, *pa més informació veu si us plau la *estaya de documentació del *sitiu web d'Apertium.
+</p>
+<h2><span id="¿En_que_consiste_un_par_de_llingües?"></span><span class="mw-headline" id=".C2.BFEn_que_consiste_un_par_de_lling.C3.BCes.3F">En què consisteix un parell de *llingües?</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=3" title="Edit section: ¿En que consiste un par de llingües?">*edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Apertium *ye un sistema de torna del que es *conoz com *tranferencia superficial. Això *ye *qu'*emplega bàsicament els diccionaris i els reglis de transferència superficial. *Na *práutica, la transferència superficial *estrémase de la *tranferencia en *profundidá en què *nun *fai un *analís *sintáuticu *completu
+</p>
+<dl><dt>els reglis són operacions *típiques en grups d'*unidaes *léxiques en vegada d'operacions n'arbres *sintáuticos. *Nun nivell *básicu *hai tres diccionaris principals</dt>
+<dd></dd></dl>
+<ol><li>*Diccionariu *morfolóxicu de la *llingua *xx: *recueye els reglis d'*inflexón dels *pallabres de la *llingua *xx. *Nel *nuesu *exemplu *llamarémoslu: apertium-sh-en.sh.*dix</li>
+<li>*Diccionariu *morfolóxicu de la *llingua *yy: *recueye els reglis d'*inflexón dels *pallabres de la *llingua *yy. *Nel *nuesu *exemplu *llamarémoslu: *apertium-*sh-en.en.*dix</li>
+<li>*Diccionariu *billingüe: *caltién els *correspondencies ens els *pallabres i símbols dels dos *llingües. *Nel *nuesu *exemplu *llamarémoslu: apertium-sh-en.sh-en.*dix</li></ol>
+<p>*Nun parell de *llingües, *dambes *puen ser *orixen i fi dels tornis en termes relatius.
+</p><p>*Hai *amás dos *arquivos *pa la transferència de reglis. Són esses reglis els *encargaes de decidir com els *pallabres es reorganitzin ens enuncieu-vos, p.e. xat *noir -&gt; *cat *black -&gt; *black cat. *Tamién presa els decisions de *xéneru, *númberu, etc. Els reglis *puen usés tant p'afegir com *pa eliminar elements lèxics, com es *desplicará més tard. Aquests *arquivos són:
+</p>
+<ul><li>Reglis de transferència de la *llingua *xx a la *llingua *yy: *esti *archivu *contién els reglis de com la *llingua *xx *tien de *camudar a la *llingua *yy. *Nel *nuesu *exemplu: *apertium-*sh-en.*trules-*sh-en.*xml</li>
+<li>Reglis de transferència de la *llingua *yy a la *llingua *xx: *esti *archivu *contién els reglis de com la *llingua *yy *tien de *camudar a la *llingua *xenx. *Nel *nuesu *exemplu: *apertium-*sh-en.*trules-en-*sh.*xml</li></ul>
+<p>*Dellos paris de *llingües que s'*ufierten *caltienen uns altres *arquivos, però *nun *mos ocuparem d'ells *equí. Aquests *arquivos són els únics que es precisin *pa *xenerar un sistema funcional.
+</p>
+<h2><span id="Un_par_de_llingües"></span><span class="mw-headline" id="Un_par_de_lling.C3.BCes">Un parell de *llingües</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=4" title="Edit section: Un par de llingües">*edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>Com a s'*alvirtiera ens *nomes d'*arquivu, *esti tutorial *emplega l'*exemplu del parell de *llingües *serbo-croat ja anglès *pa *desplicar com crear un sistema *básicu. *Esti *nun *ye un parell ideal per mor de que'l sistema funciona *meyor entre parells de *llingües més *averaes ens eles dobles. *Nun *ye problema pol *cenciello dels *exemplos *qu'*equí s'*amuesen.
+</p>
+<h2><span id="Una_nota_breve_no_que_cinca_a_los_términos"></span><span class="mw-headline" id="Una_nota_breve_no_que_cinca_a_los_t.C3.A9rminos">Una nota breu no que *cinca als termes</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=5" title="Edit section: Una nota breve no que cinca a los términos">*edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>*Dellos termes han *comprendese primer de *siguir.
+</p><p>El *primeru *ye «lema». Un lema *ye'l *mou de citar una *pallabra. *Ye *daqué *asina com a'l *raigañu d'una *pallabra. Per *exemplu el lema de la *pallabra gats *ye «*gatu». Ens *nomes n'*asturianu *esti *sedrá normalment la forma en *masculín singular de la *pallabra en qüestió. *Pa els verbs, el lema *sedría l'*infinitivu. P.e. el lema de «*canciemos» *sedría «*canciar».
+</p><p>El *segundu *ye «*símbolu». *Nel *contestu d'Apertium, *símbolu *refierse a l'etiqueta gramatical. La *pallabra gats *ye un *nome plural, porus *caltendrá el *símbolu de *nome i el *símbolu de plural. Ens mòduls d'entrada i sortida d'Apertium *éstes *apaecen ens parèntesi *angulaos (&lt;,&gt;), com segueix:
+</p>
+<ul><li>&lt;n&gt;; *pa *nome.</li>
+<li>&lt;*pl&gt;; *pa plural.</li></ul>
+<p>Uns altres *exemplos de símbols són &lt;*sg&gt;; singular, &lt;*p1&gt; primer persona, &lt;*pri&gt; present d'*indicativu, etc. Quan *apaecen ens parèntesi *angulaos, els símbols van *venceyaos a etiquetis. *Pue *albidrase *qu'en *munchos dels parells de *llingües disponibles *anguaño els definicions de símbols són acrònims o *contraiciones de *pallabres en català. Per *exemplu, *vbhaver — de *vb (*verbu) *and *haver («tenir» en català). Els símbols *tán definiu-vos *nes etiquetis &lt;*sdef&gt; i *emplegaos en etiquetis &lt;s&gt;
+</p><p>El tercer *términu *ye «paradigma». *Nel *contestu d'Apertium el paradigma *refierse al *mou d'*inflexón d'un *grupu *concretu de *pallabres. *Nel *diccionariu *morfolóxicu, els *lemes (veure *enriba) *vencéyense a *paradigmes que ens permeten *desplicar com un lema *dáu *inflexiona *ensin tenir d'escriure *toles terminacions.
+</p><p>Un *exemplu de la *utilidá d'això *ye que si *quixéramos *amestar els dos *axetivos «*happy» i «*lazy», en vegada d'*añedir dos paquets de la *mesma cosa:
+</p>
+<ul><li>*happy, *happ (i, *ier, *iest)</li>
+<li>*lazy, *laz (i, *ier, *iest)</li></ul>
+<p>guardaríem *namás *ún, i diríem *entós «*lazy *inflexona com *happy», i *ensin *dubia «*shy *inflexona com *happy», «*naughty *inflexona com *happy», «*friendly *inflexona com *happy», etc. *Nesti *exemplu, *happy *sedría'l paradigma, el *modelu de referència *pol *qu'uns altres *inflexonen. La descripció precisa de com es defineix això *desplicarémosla *llueu. Els *paradigmes *defínense n'etiquetis &lt;*pardef&gt;, i *enllázase a ells n'etiquetis &lt;parell&gt;.
+</p>
+<h2><span id="Prepaŕandose_pa_entamar"></span><span class="mw-headline" id="Prepa.C5.95andose_pa_entamar">*Prepaŕandose *pa *entamar</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=6" title="Edit section: Prepaŕandose pa entamar">*edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<h3><span id="Diccionarios_monollingües"></span><span class="mw-headline" id="Diccionarios_monolling.C3.BCes">Diccionaris *monollingües</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=7" title="Edit section: Diccionarios monollingües">*edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<dl><dd><span class="boilerplate seealso"><i>Veure *tamién: <a href="/wiki/Incubator" title="Incubator">*Incubator</a></i></span></dd></dl>
+<p>Anem a *entamar creant'l *nuesu primer *diccionariu. El *diccionariu *ye un *arquivu XML. Arrenca'l *to editor de *testu i còpia el següent:
+</p>
+<pre>&lt;?*xml *version="1.0" *encoding="*UTF-8"?&gt;
+&lt;*dictionary&gt;
+
+&lt;/*dictionary&gt;
+</pre>
+<p>Això *ye'l *mou de *dicir que volem *entamar un *diccionariu. *Pa que *seya útil precisem *amestar *delles *entraes més, primer un *alfabetu. Això *defín el *conxuntu de *lletres que va a usés *nel *diccionariu. *Pal *nuesu *exemplu *servo-croat seria *daqué *apaecío al que segueix, *calteniendo *toles *lletres del *alfabetu *servo-croat:
+</p>
+<pre>&lt;*alphabet&gt;*ABCČĆDDžĐEFGHIJKLLjMNNjOPRSŠTUVZŽabcčćddžđefghijklljmnnjoprsštuvzž&lt;/*alphabet&gt;
+</pre>
+<p>*Afita'l *alfabetu *embaxo l'etiqueta &lt;*dictionary&gt;.
+</p><p>*Agora *habemos definir *dellos símbols. *Pa *entamar *colo més *cenciello, *nomes (n) en singular (*sg) i plural (*pl).
+</p>
+<pre>&lt;*sdefs&gt;
+ &lt;*sdef n="n"/&gt;
+ &lt;*sdef n="*sg"/&gt;
+ &lt;*sdef n="*pl"/&gt;
+&lt;/*sdefs&gt;
+</pre>
+<p>Els *nomes *pa els símbols *nun han de ser tan *curtios, però pol *práutico d'*aforrar *testu i *tiempu *tie *sén l'*acurtialos.
+</p><p>Desafortunadament, *nun *ye tan *cenciello, i els *nomes en *servo-croat *inflexonen, *amás d'en *númberu, en *xéneru i *casu. Per *embargu, *pa la fi d'*esti *exemplu *emplegaremos *namás el *nome en *masculín i en *casu *nominativu (un *exemplu *completu *pue *atopase al *cabero d'*esti *arquivu).
+</p><p>El següent *ye definir una *estaya *pa els *paradigmes,
+</p>
+<pre>&lt;*pardefs&gt;
+
+&lt;/*pardefs&gt;
+</pre>
+<p>i una altra *estaya de *diccionariu:
+</p>
+<pre>&lt;*section aneu="*main" *type="*standard"&gt;
+
+&lt;/*section&gt;
+</pre>
+<p>*Hai dos tipus d'*estayes: la del primer *tipu *ye una *seición estàndard que *caltién *pallabres, enclítics, etc. La del *segundu, *ye una *seición *na que s'*inclúi normalment la puntuació i *daqué cosa més. *Nun *apaez *equí *nenguna *seición incondicional, *magar que la veurem *depués.
+</p><p>Porus, el *nuesu *arquivu tindrà un *aspeutu *apaecíu a:
+</p>
+<pre>&lt;?*xml *version="1.0" *encoding="*UTF-8"?&gt;
+&lt;*dictionary&gt;
+ &lt;*sdefs&gt;
+ &lt;*sdef n="n"/&gt;
+ &lt;*sdef n="*sg"/&gt;
+ &lt;*sdef n="*pl"/&gt;
+ &lt;/*sdefs&gt;
+ &lt;*pardefs&gt;
+
+ &lt;/*pardefs&gt;
+ &lt;*section aneu="*main" *type="*standard"&gt;
+
+ &lt;/*section&gt;
+&lt;/*dictionary&gt;
+</pre>
+<p>Amb *estes *yá tenim la *cadarma *afitada i podem *entamar a *amesta-i *nomes. El *nome en qüestió va ser «*gramofon» (que *quier *dicir «tocadiscs» o «*platu [*xiradiscos]»).
+</p><p>El primer que tenim que *faer, per mor de que *nun tenim *entá *nengún paradigma, *ye crear *ún.
+</p><p>*Hai *remembrase que *tamos assumint *casu *masculín i *casu *nominativu. La forma singular del *nome *ye «*gramofon», i el plural *ye «*gramofoni». *Asina:
+</p>
+<pre>&lt;*pardef n="*gramofon__n"&gt;
+ &lt;e p&gt;
+ &lt;&gt;
+ &lt;l/&gt;
+ &lt;r&gt;&lt;s n="n"/&gt;&lt;s n="*sg"/&gt;&lt;/r&gt;
+ &lt;/p&gt;
+ &lt;/e e p&gt;
+ &lt;&gt;
+ &lt;&gt;
+ &lt;l&gt;i&lt;/l&gt;
+ &lt;r&gt;&lt;s n="n"/&gt;&lt;s n="*pl"/&gt;&lt;/r&gt;
+ &lt;/p&gt;
+ &lt;/e /*pardef.&gt;
+&lt;&gt;
+</pre>
+<p>Nota: l'etiqueta &lt;l/&gt; (*equival a &lt;l &gt;&lt;/l&gt;) i denota que *nun *hai informació extra *qu'*añedir *pal singular.
+</p><p>
+De *primeres *pue *paecer un *mou poc *claru de descriure els cuses, però *sides *pa això i la rapidesa *ye una d'eles dobles. *Tarás possiblement *naguando per saber què són els etiquetis &lt;e ,.&gt; </p><p>, &lt;l&gt; i &lt;r&gt;. Bono,
+
+</p><ul><li>e, *pa entrada.</li>
+<li>p, *pa parell.</li>
+<li>l, *pa esquerra (en.*left).</li>
+<li>r, *pa *drecha (en.*right).</li></ul><p>
+
+Per quina esquerra i *drecha? Els diccionaris *compilaranse *depués en *sistemes d'*estáu *definíu. Això *ye, compilin-se d'esquerra a *drecha p'analitzar els *pallabres i de *drecha a esquerra *pa *xenerar *pallabres *dende l'*analís. Per *exemplu.
+</p><pre>* *gramofoni (esquerra a *drecha) *gramofon&lt;n&gt;&lt;*pl&gt; (*analís)
+* *gramofon&lt;n&gt;&lt;*pl&gt; (*drecha a esquerra) *gramofoni (*xeneración)
+</pre>
+<p>*Agora que *yá definim el paradigma, tenim de *venceyalu al sota lema, *gramofon. *Ponémoslo *na *estaya que creéssim.
+</p><p>L'entrada a posar *na *estaya (
+&lt;/*dictionary&gt;
+</p>
+
+<p>Necessitem *añedir una entrada *pa la torna ens els dos *pallabres. *Daqué *asina:
+</p>
+<pre>&lt;e p&gt;&lt;&gt;&lt;l&gt;*gramofon&lt;s n="n"/&gt;&lt;/l&gt;&lt;r&gt;*gramophone&lt;s n="n"/&gt;&lt;/r&gt;&lt;/p&gt;&lt;/e&gt;
+</pre>
+<p>*Nun *diccionariu *desarrolláu *atoparemos *milenta *entraes, pol que *ye preferible escriure una per rengle per mor de facilitar la sota *llectura.
+*Because *there llauri a *lot *of *these *entries, *they're *typically *written *on *one *line *to *facilitate *easier *reading *of *the *file. Una altra volta *apaecen els etiquetis &lt;l&gt; i &lt;r&gt;, i *asina, compilem d'esquerra a *drecha *pa produir el *diccionariu *serbo-croat → anglès, i de *drecha a esquerra *pal anglès → *servo-croat.
+</p><p>En *faciendo això, *cuerri els següents comandos:
+</p>
+<pre>$ *lt-*comp *lr apertium-sh-en.sh.*dix *sh-en.*automorf.*bin
+$ *lt-*comp *rl *apertium-*sh-en.en.*dix *sh-en.*autogen.*bin
+
+$ *lt-*comp *lr *apertium-*sh-en.en.*dix en-*sh.*automorf.*bin
+$ *lt-*comp *rl apertium-sh-en.sh.*dix en-*sh.*autogen.*bin
+
+$ *lt-*comp *lr apertium-sh-en.sh-en.*dix *sh-en.*autobil.*bin
+$ *lt-*comp *rl apertium-sh-en.sh-en.*dix en-*sh.*autobil.*bin
+</pre>
+<p>*Pa *xenerar els analitzadors *morfolóxicos (*automorf), els *xeneradores *morfolóxicos (*autogen) 
+*To *generate *the *morphological *analysers (*automorf), *the *morphological *generators (*autogen) i els busquis de *pallabres (*autobil), «*bil» *vien de *billingüe.
+</p>
+<h3><span class="mw-headline" id="Regles_de_transferencia">Reglis de transferència</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=8" title="Edit section: Regles de transferencia">*edit</a><span class="mw-editsection-bracket">]</span></span></h3>
+<p>*Asina que *yá tenim dos diccionaris *morfolóxicos i *unu *billingüe. *Tolo que precisem *agora *ye una regla de transferència *pa els *nomes. Els *arquivos de reglis de transferència tenen la sota pròpia *DTD (*transfer.*dtd) que *pue topés *nel paquet Apertium. *Davezu, quan *fai falta *amestar una regla nova, *aconséyase tirar una *gueyaína als *arquivos de reglis d'altres parells de *llingües primer. *Munches reglis *puen ser *reutilizaes/*reciclaes ens *llingües. Per *exemplu la que es descriu *embaxo podria ser útil *pa els *llingües que *nun precisin *suxetu.
+</p><p>L'*entamu *faise com els *otres *vegaes amb la *cadarma bàsica:
+</p>
+<pre>&lt;?*xml *version="1.0" *encoding="*UTF-8"?&gt;
+&lt;*transfer&gt;
+
+&lt;/*transfer&gt;
+</pre>
+<p>*Pel *momentu, en desconèixer el *casu, *namás requerim crear una regla que *pañe els símbols gramaticals i els retorni una altra vegada.
+</p><p>*Pa *emprimar necessitem definir *categoríes i atributs. Tenen la fi de *permitinos agrupar símbols gramaticals. Els *categoríes *permítennos agrupar símbols col *propósitu d'*igualos de *mou que, per *exemplu, 'n.*' *sedría una referència a *tolos *nomes. Els atributs *permítennos agrupar el *repertoriu de símbols que *podríen *escoyese *dende *ehí. Per *exemplu ('*sg' *and '*pl' *podríen agrupés *nel *atributu '*númberu').
+</p><p>Anem *añedir els *estayes *necesaries:
+</p>
+<pre>&lt;*section-*def-*cats&gt;
+
+&lt;/*section-*def-*cats&gt;
+&lt;*section-*def-*attrs&gt;
+
+&lt;/*section-*def-*attrs&gt;
+</pre>
+<p>Com *namás *tamos *inflexonando *nomes en singular i plural hem *entós *amestar una categoria *pa *nomes amb un *atributu *pa *númberu. *Daqué *asemeyao a:
+</p><p>*Na *estaya -*def-*cats *añéde-i:
+</p>
+<pre>&lt;*def-*cat n="*nom"&gt;
+ &lt;*cat-*item *tags="n.*"/&gt;
+&lt;/*def-cat&gt;
+</pre>
+<p>Això *paña *tolos *nomes (*lemes *siguíos per &lt;n &gt;) i *refierse a ells amb l'etiqueta &lt;&lt;*nom&gt;&gt; (veurem el sota *emplegu més tard).
+</p><p>*Na *estaya *def-*attrs, *añede:
+</p>
+<pre>&lt;*def-*attr n="*nbr"&gt;
+ &lt;*attr-*item *tags="*sg"/&gt;
+ &lt;*attr-*item *tags="*pl"/&gt;
+&lt;/*def-*attr&gt;
+</pre>
+<p>i *llueu
+</p>
+<pre>&lt;*def-*attr n="a_*nom"&gt;
+ &lt;*attr-*item *tags="n"/&gt;
+&lt;/*def-*attr&gt;
+</pre>
+<p>El *primeru *defín l'*atributu *nbr (*númberu), que *pue ser singular (*sg) o plural (*pl).
+</p><p>El *segundu *defín l'*atributu a_*nom (*atributu *nome).
+</p><p>A continuació anem precisar *añedir una *estaya *pa els variables globals:
+</p>
+<pre>&lt;*section-*def-*vars&gt;
+
+&lt;/*section-*def-*vars&gt;
+</pre>
+<p>Esses variables *empléguense p'emmagatzemar o transferir atributs ens reglis. *Per *agora *namás precisem *ún,
+</p>
+<pre>&lt;*def-*var n="*number"/&gt;
+</pre>
+<p>*Pa finar, hem *añedir una regla, *pa *pañar el *nome i *depués poder *sacalu *na forma *correuta. Porus precisarem una *estaya de reglis...
+</p>
+<pre>&lt;*section-*rules&gt;
+
+&lt;/*section-*rules&gt;
+</pre>
+<p>*Camudando el *ritmu dels *exemplos anteriors, *amosamos a continuació aquesta regla i *darémos-i un *repás.
+</p>
+<pre>&lt;*rule&gt;
+ &lt;*pattern&gt;
+ &lt;*pattern-*item n="*nom"/&gt;
+ &lt;/*pattern&gt;
+ &lt;*action&gt;
+ &lt;out&gt;
+ &lt;dl.&gt;
+ &lt;clip post="1" *side="*tl" *part="*lem"/&gt;
+ &lt;clip post="1" *side="*tl" *part="a_*nom"/&gt;
+ &lt;clip post="1" *side="*tl" *part="*nbr"/&gt;
+ &lt;/dl.&gt;
+ &lt;/out&gt;
+ &lt;/*action&gt;
+&lt;/*rule&gt;
+</pre>
+<p>La primer etiqueta &lt;*rule&gt;, *ensin *dubia, *defín una regla. La segona &lt;*pattern&gt; bàsicament *diz &lt;&lt;aplicar aquesta regla si s'*atopa *esti patró&gt;&gt;. *Nesti *exemplu'l patró *correspuende a un *nome simple (*definíu *pola categoria "*nom"). Ha notés que els patrons *correspuenden als resulteu-vos més *llargos primer. *Asina que si tens tres reglis, la primera correspondria "&lt;*prn&gt;&lt;*vblex&gt;&lt;n&gt;", la segona a&lt;" *prn&gt;&lt;*vblex&gt;" i la tercera a&lt;" n&gt;", el patró *escoyíu i la regla *executada *sedrá la primera.
+</p><p>Cada patró *ta *venceyáu a una *aición que *produz una sortida determinada. La sortida *ye una *unidá lèxica (dl.).
+</p><p>L'etiqueta &lt;clip&gt; *permíte-i al *usuariu *escoyer i manipular atributs i parts dels elements lèxics de la *llingua *orixe (*side="*sl"), o *llingua meta (*side="*tl").
+</p><p>Anem a *compilalo i *probalo. Els reglis de transferència compilin-se amb:
+</p>
+<pre>$ *apertium-*preprocess-*transfer *apertium-*sh-en.*trules-*sh-en.*xml *trules-*sh-en.*bin
+</pre>
+<p>Això crearà un *archivu *trules-*sh-en.*bin.
+</p><p>I *nesti *momentu *tamos prepareu-vos *pa provar el *nuesu sistema de torna. *Entá ens faltaria una part *perimportante, l'etiquetador *the *part-*of-*speech (Post), però *desplicarémoslu *dientro poc. *Endagora podem *probalo com *ye:
+</p><p>*Pa *emprimar analitzarem una *pallabra, *gramofoni:
+</p>
+<pre>$ tiro "*gramofoni" | *lt-*proc *sh-en.*automorf.*bin 
+^*gramofon/*gramofon&lt;n&gt;&lt;*pl&gt;$
+</pre>
+<p>Normalment *equí l'etiquetador Post *escoyería la versió *morfolóxica *correuta basant-se *na part del *discursu *nel *qu'*apaez, però al *nun haver-hi etiquetador Post *tovía podem *emplegar *esti *pequeñu *script (*gracies a Sergio) que donarà sortida al primer *elementu *recuperáu.
+</p>
+<pre>$ tiro "*gramofoni" | *lt-*proc *sh-en.*automorf.*bin | \
+ *gawk '*BEGIN{*RS="$"; *FS="/";}{*nf=*split($1,*COMPONENTS,"^"); *for(i = 1; i&lt;*nf; i++) *printf *COMPONENTS[i]; *if($2&#160;!= "") *printf("^%s$",$2);}' | \
+^*gramofon&lt;n&gt;&lt;*pl&gt;$
+</pre>
+<p>*Agora anem a *procesalo cua regla de transferència:
+</p>
+<pre>$ tiro "*gramofoni" | *lt-*proc *sh-en.*automorf.*bin | \
+ *gawk '*BEGIN{*RS="$"; *FS="/";}{*nf=*split($1,*COMPONENTS,"^"); *for(i = 1; i&lt;*nf; i++) *printf *COMPONENTS[i]; *if($2&#160;!= "") *printf("^%s$",$2);}' | \
+ *apertium-*transfer *apertium-*sh-en.*trules-*sh-en.*xml *trules-*sh-en.*bin *sh-en.*autobil.*bin
+</pre>
+<p>Donarà la sortida:
+</p>
+<pre>^*gramophone&lt;n&gt;&lt;*pl&gt;$^@
+</pre>
+<ul><li>'*gramophone' *ye'l lema (*lem) *na posició 1 (post="1") *na *llingua meta (*side="*tl").</li>
+<li>'&lt;n&gt;' *ye'l a_*nom *na posició 1 *na *llingua meta.</li>
+<li>'&lt;*pl&gt;' *ye l'*atributu de *númberu (*nbr) *na posició 1 *na *llingua meta.</li></ul>
+<p>Perquè intentar el teu *analís una mica diferents intentant *camentar la sortida.
+</p><p>*Asina *ye que tenim la sortida de la transferència i que *namás quedaria crear els formis *inflexonaes *na *llingua meta. *Pa això *emplegamos *lt-*proc, però *nel *mou de *xeneración (-g) i senar d'*analís.
+</p>
+<pre>$ tiro "*gramofoni" | *lt-*proc *sh-en.*automorf.*bin | \
+ *gawk '*BEGIN{*RS="$"; *FS="/";}{*nf=*split($1,*COMPONENTS,"^"); *for(i = 1; i&lt;*nf; i++) *printf *COMPONENTS[i]; *if($2&#160;!= "") *printf("^%s$",$2);}' | \
+ *apertium-*transfer *apertium-*sh-en.*trules-*sh-en.*xml *trules-*sh-en.*bin *sh-en.*autobil.*bin | \
+ *lt-*proc -g *sh-en.*autogen.*bin
+
+*gramophones\@
+</pre>
+<p>I amb això ja podem *falar del *aniciu del sistema de traducció de *nomes *serbo-*croates en *nomes anglesos. *Camentarás que *nun *ye *enforma útil, però dirà complicant-se a poc a poc. I *nun et preocupis *pol *símbolu '@', *desplicarémoslu *ceo *tamién.
+</p><p>Pensa en *delles *pallabres *qu'*inflexones igual que *gramofon. *Sedría *bona *idega *amestales al *diccionariu. *Nun *fai falta *añedir *nengún paradigma, *namás els *entraes ens diccionaris *monollingüe i *billingüe.
+</p>
+<h2><span class="mw-headline" id="Atacando_los_verbos">Atacant els verbs</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=9" title="Edit section: Atacando los verbos">*edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<p>*Asina que *yá tenim un sistema que *traduz *nomes, però això *ye una mica inútil, volem traduir verbs, i frases assabentis *tamién! Què tal si *entamamos *pol *verbu "*see" (veure)? En *Serbo-Croat seria "*videti". El *Serbo-Croat *ye una *llingua que *nun precisa *suxetu *léxicu, això *ye que *nun *suel usar *pronomes personals abans de la forma *conxugada del *verbu. L'anglès sí. *Entós, per *exemplu: "I *see" n'anglès *tornaríase com "*vidim" en *Serbo-Croata.
+</p>
+<ul><li>*Vidim</li>
+<li>*see&lt;*p1&gt;&lt;*sg&gt;</li>
+<li>I *see</li></ul>
+<p>Nota: &lt;*p1&gt; denota primer persona
+</p><p>Això va ser important a la de *ponese a escriure els reglis de *tresferencia *pa els verbs. Uns altres *exemplos de *llingües *ensin *suxetu *léxicu *obligatoriu *seríen l'espanyol, *rumanu, *polacu o l'*asturianu *mesmu. Això *tien *tamién la conseqüència que *mentantu que en *Serbo-Croata *valdríanos amb *amestar el *verbu al *diccionariu *morfolóxicu n'anglès precisaríem *añedir *dambos: el *verbu i el *pronome personal. *Pa *pescancialo veurem els dos casos.
+</p><p>Els *otres formis del *verbu "*videti" són: *vidiš, *vidi, *vidimo, *vidite, *and *vide; corresponents a *you *see (singular), he *sees, *we *see, *you *see (plural), *and *they *see.
+</p><p>*Hai dos formis de "*you *see", una *ye formal singular (*vidite) i una altra *ye informal singular (*vidiš).
+</p><p>Anem intentar traduir l'oració: "*Vidim *gramofoni" a "I *see *gramophones". *Pa economitzar anem *añedir *namás informació *abondo i anem *escaecer completar el *restu de *paradigmes (el *restu de la *conxugación del *verbu) com *exerciu *pal *llector.
+</p><p>El *llector més *amañosu *camentaría *nesti *puntu que *nun podríem tornar l'oració "*vidim *gramofoni" perquè *nun *ye gramaticalment correcta en *Serbo-Croata. De *fechu, la forma *bona hi hauria ser "*vidim *gramofone", per mor de que'l *nome *pañaría la forma l'*acusativu. Tindrem *qu'*añedir aquesta forma *tamién, però crec que *nun paga la pena *metese pela informació de *casu *agora, *asina que la ficarem simplement com una altra *posibilidá més *pal plural. Porus, *namás has copiar el bloc 'e' *pa 'i' i barata 'i' per 'e' *ehí.
+</p><p>El primer que necessitem *faer *ye *añedir *dellos símbols més. *Pa *entamar un *símbolu *pa '*verbu', que anem cridar "*vblex" (que *quier *dicir "*verbu *léxicu", n'oposició als verbs modals i d'*otru *tipu). Els verbs tenen 'persona' i '*tiempu' *amás de *númberu, *asina que anem ficar un parell d'ells *tamién. Volem traduir "I *see", *asina que *pa persona hem *añedir "*p1" (primer persona) i *pa *tiempu "*pri" (present d'*indicativu).
+</p>
+<pre>&lt;*sdef n="*vblex"/&gt;
+&lt;*sdef n="*p1"/&gt;
+&lt;*sdef n="*pri"/&gt;
+</pre>
+<p>En dato això, com *colos *nomes, *amestamos el paradigma *pa la *conxugación verbal. El primer rengle serà:
+</p>
+<pre>&lt;*pardef n="vinya/*eti__*vblex"&gt;
+</pre>
+<p>El *símbolu '/' *úsase *pa marcar *onde *entama la desinència (part ens els etiquetis &lt;l&gt; i &lt;/l&gt;)
+</p><p>*Depués la *inflexón *pa la primer persona de singular:
+</p>
+<pre>&lt;e p&gt;
+ &lt;&gt;
+ &lt;l&gt;*im&lt;/l&gt;
+ &lt;r&gt;*eti&lt;s n="*vblex"/&gt;&lt;s n="*pri"/&gt;&lt;s n="*p1"/&gt;&lt;s n="*sg"/&gt;&lt;/r&gt;
+ &lt;/p&gt;
+&lt;/e&gt;
+</pre>
+<p>L'*im' denota la terminació (com en '*vidim'). Ha *añedise '*eti' a l'etiqueta &lt;r&gt; que serà *cortao *pola definició. La resta *ye *mui *cenciello, '*vblex' *ye *verbu *léxicu, '*pri' *ye *tiempu present d'*indicativu, '*p1' *ye primer persona i '*sg' *ye singular. Podem *tamién *añedir el plural, que serà igual, *esceutu '*imo' en comptes de '*im' i '*pl' en comptes de '*sg'.
+</p><p>*Depués d'això necessitem afegir un lema, com a mapa del paradigma *pa la *seición principal:
+</p>
+<pre>&lt;e *lm="*videti"&gt;&lt;i&gt;vinya&lt;/i&gt;&lt;parell n="vinya/*eti__*vblex"/&gt;&lt;/e&gt;
+</pre>
+<p>Nota: el *conteníu de ja <i>  </i> *ye l'arrel, senar el lema.
+</p><p>*Esti *ye *tol *trabayu *nel *diccionariu *Serbo-Croat *per *agora. Anem *compilalo i *prebalo.
+</p>
+<pre>$ *lt-*comp *lr apertium-sh-en.sh.*dix *sh-en.*automorf.*bin
+main@standard 23 25
+$ tiro "*vidim" | *lt-*proc *sh-en.*automorf.*bin
+^*vidim/*videti&lt;*vblex&gt;&lt;*pri&gt;&lt;*p1&gt;&lt;*sg&gt;$
+$ tiro "*vidimo" | *lt-*proc *sh-en.*automorf.*bin
+^*vidimo/*videti&lt;*vblex&gt;&lt;*pri&gt;&lt;*p1&gt;&lt;*pl&gt;$
+</pre>
+<p>*Agora tenim que *faer el *mesmo *pal *diccionariu d'Inglés (*alcuérdate d'*añedir els *mismes definicions de símbols *qu'*añediste al *Serbo-Croat).
+</p><p>El paradigma *ye:
+</p>
+<pre>&lt;*pardef n="s/*ee__*vblex"&gt;
+</pre>
+<p>perquè el *pásau *ye '*saw'. *Agora podem *faer dos cuses. Podem afegir la primera i segona persona, *magar que *seya la *mesma. De *fechu, *toles formis (*esceutu la de tercera persona de singular) del *verbu '*to *see' són '*see'. *Asina *qu'en vegada d'això anem *faer una entrada *namás *pa '*see' i *pondrémos-i *namás el *símbolu '*pri'.
+</p>
+<pre>&lt;e p&gt;
+ &lt;&gt;
+ &lt;l&gt;*ee&lt;/l&gt;
+ &lt;r&gt;*ee&lt;s n="*vblex"/&gt;&lt;s n="*pri"/&gt;&lt;/r&gt;
+ &lt;/p&gt;
+&lt;/e&gt;
+</pre>
+<p>i com sempre, una entrada *na *seición principal:
+</p>
+<pre>&lt;e *lm="*see"&gt;&lt;i&gt;s&lt;/i&gt;&lt;parell n="s/*ee__*vblex"/&gt;&lt;/e&gt;
+</pre>
+<p>Gravem, recompilem i provem:
+</p>
+
+<p>$ *lt-*comp *lr *apertium-*sh-en.en.*dix en-*sh.*automorf.*bin
+main@standard 18 19
+</p><p>$ tiro "*see" | *lt-*proc en-*sh.*automorf.*bin
+^*see/*see&lt;*vblex&gt;&lt;*pri&gt;$
+</p>
+
+<p>Queda'ns l'entrada obligatòria *nel *diccionariu *billingüe:
+</p>
+<pre>&lt;e p&gt;&lt;&gt;&lt;l&gt;*videti&lt;s n="*vblex"/&gt;&lt;/l&gt;&lt;r&gt;*see&lt;s n="*vblex"/&gt;&lt;/r&gt;&lt;/p&gt;&lt;/e&gt;
+</pre>
+<p>(una altra volta, *nun *escaezas *añedir els *sdefs d'abans)
+</p><p>I recompila:
+</p>
+<pre>$ *lt-*comp *lr apertium-sh-en.sh-en.*dix *sh-en.*autobil.*bin
+main@standard 18 18
+$ *lt-*comp *rl apertium-sh-en.sh-en.*dix en-*sh.*autobil.*bin
+main@standard 18 18
+</pre>
+<p>*Agora *prebamos l'*inventu:
+</p>
+<pre>$ tiro "*vidim" | *lt-*proc *sh-en.*automorf.*bin | \
+ *gawk '*BEGIN{*RS="$"; *FS="/";}{*nf=*split($1,*COMPONENTS,"^"); *for(i = 1; i&lt;*nf; i++) *printf *COMPONENTS[i]; *if($2&#160;!= "") *printf("^%s$",$2);}' | \
+ *apertium-*transfer *apertium-*sh-en.*trules-*sh-en.*xml *trules-*sh-en.*bin *sh-en.*autobil.*bin 
+
+^*see&lt;*vblex&gt;&lt;*pri&gt;&lt;*p1&gt;&lt;*sg&gt;$^@
+</pre>
+<p>Aconseguim passar l'*analís *correutamente, però en intentar *xenerar la forma superficial *dende *ehí, rebem un '#', com *embaxo:
+</p>
+<pre>$ tiro "*vidim" | *lt-*proc *sh-en.*automorf.*bin | \
+ *gawk '*BEGIN{*RS="$"; *FS="/";}{*nf=*split($1,*COMPONENTS,"^"); *for(i = 1; i&lt;*nf; i++) *printf *COMPONENTS[i]; *if($2&#160;!= "") *printf("^%s$",$2);}' | \
+ *apertium-*transfer *apertium-*sh-en.*trules-*sh-en.*xml *trules-*sh-en.*bin *sh-en.*autobil.*bin | \
+ *lt-*proc -g *sh-en.*autogen.*bin
+#*see\@
+</pre>
+<p>*Esti '#' *quier *dicir que'l *xenerador *nun *ye a *xenerar la forma lèxica *correuta perquè *nun la *tien. Què *ye això?
+</p><p>Bàsicament els *analises *nun casis, el '*see' *nel *diccionariu *ye *see&lt;*vblex&gt;&lt;*pri&gt;, però'l *see que *vien a buscar del *transfer *ye *see&lt;*vblex&gt;&lt;*pri&gt;&lt;*p1&gt;&lt;*sg&gt;. El *llau del *diccionariu *Serbo-Croat *tien més informació que la que'l *llau de l'Anglès precisa. Perquè *prebar *amestando els símbols *perdíos al *diccionariu Inglés, i *depués recompilant i provant una altra volta.
+</p><p>Per *embargu, una forma més encertada d'evitar això *ye escrivint una regla. *Asina que, obrim l'*archivu de reglis (*apertium-*sh-en.*trules-*sh-en.*xml).
+</p><p>Tenim *qu'*añedir una categoria nova *pa '*verbu'.
+</p>
+<pre>&lt;*def-*cat n="*vrb"&gt;
+ &lt;*cat-*item *tags="*vblex.*"/&gt;
+&lt;/*def-cat&gt;
+</pre>
+<p>Necessitem *tamién *añedir els atributs *pa persona i *tiempu. Aquesta vegada anem *faelo d'un *mou *mui simple, perquè *amestar *p2 i *p3, però p'*aforrar *espaciu jo *nun el *voi *faer.
+</p>
+<pre>&lt;*def-*attr n="*temps"&gt;
+ &lt;*attr-*item *tags="*pri"/&gt;
+&lt;/*def-*attr&gt;
+
+&lt;*def-*attr n="*pers"&gt;
+ &lt;*attr-*item *tags="*p1"/&gt;
+&lt;/*def-*attr&gt;
+</pre>
+<p>Deuríem *añedir *tamién un *atributu *pa verbs.
+</p>
+<pre>&lt;*def-*attr n="a_*verb"&gt;
+ &lt;*attr-*item *tags="*vblex"/&gt;
+&lt;/*def-*attr&gt;
+</pre>
+<p>*Agora *na regla:
+</p>
+<pre>&lt;*rule&gt;
+ &lt;*pattern&gt;
+ &lt;*pattern-*item n="*vrb"/&gt;
+ &lt;/*pattern&gt;
+ &lt;*action&gt;
+ &lt;out&gt;
+ &lt;dl.&gt;
+ &lt;clip post="1" *side="*tl" *part="*lem"/&gt;
+ &lt;clip post="1" *side="*tl" *part="a_*verb"/&gt;
+ &lt;clip post="1" *side="*tl" *part="*temps"/&gt;
+ &lt;/dl.&gt;
+ &lt;/out&gt;
+ &lt;/*action&gt;
+&lt;/*rule&gt;
+</pre>
+<p>*Alcuérdate *nel *exemplu anterior quan vas posar els etiquetis "clip" en comentaris i *desapaecieron del *módulu de *tresferencia, això *ye el que *tamos *faciendo *equí. *Garramos el *verbu col *analís *completu, però la sortida *ye un *analís parcial (lema + etiqueta *verbu + etiqueta *tiempu).
+Porus, si recompilem això, obtenim:
+</p>
+<pre>$ tiro "*vidim" | *lt-*proc *sh-en.*automorf.*bin | \
+ *gawk '*BEGIN{*RS="$"; *FS="/";}{*nf=*split($1,*COMPONENTS,"^"); *for(i = 1; i&lt;*nf; i++) *printf *COMPONENTS[i]; *if($2&#160;!= "") *printf("^%s$",$2);}' | \
+ *apertium-*transfer *apertium-*sh-en.*trules-*sh-en.*xml *trules-*sh-en.*bin *sh-en.*autobil.*bin
+^*see&lt;*vblex&gt;&lt;*pri&gt;$^@
+</pre>
+<p>*and:
+</p>
+<pre>$ tiro "*vidim" | *lt-*proc *sh-en.*automorf.*bin | \
+ *gawk '*BEGIN{*RS="$"; *FS="/";}{*nf=*split($1,*COMPONENTS,"^"); *for(i = 1; i&lt;*nf; i++) *printf *COMPONENTS[i]; *if($2&#160;!= "") *printf("^%s$",$2);}' | \
+ *apertium-*transfer *apertium-*sh-en.*trules-*sh-en.*xml *trules-*sh-en.*bin *sh-en.*autobil.*bin | \
+ *lt-*proc -g *sh-en.*autogen.*bin
+*see\@
+</pre>
+<p>*Prébalo amb '*vidimo' (veiem) *pa veure si obtens la sortida correcta.
+</p><p>*Agora *preba amb "*vidim *gramofone":
+</p>
+<pre>$ tiro "*vidim *gramofoni" | *lt-*proc *sh-en.*automorf.*bin | \
+ *gawk '*BEGIN{*RS="$"; *FS="/";}{*nf=*split($1,*COMPONENTS,"^"); *for(i = 1; i&lt;*nf; i++) *printf *COMPONENTS[i]; *if($2&#160;!= "") *printf("^%s$",$2);}' | \
+ *apertium-*transfer *apertium-*sh-en.*trules-*sh-en.*xml *trules-*sh-en.*bin *sh-en.*autobil.*bin | \
+ *lt-*proc -g *sh-en.*autogen.*bin
+*see *gramophones\@
+</pre>
+<h2><span class="mw-headline" id="See_also">*See *also</span><span class="mw-editsection"><span class="mw-editsection-bracket">[</span><a href="/w/index.php?title=Amestar_un_par_de_lling%C3%BCes_nuevu&amp;action=edit&amp;section=10" title="Edit section: See also">*edit</a><span class="mw-editsection-bracket">]</span></span></h2>
+<ul><li><a href="/wiki/Building_dictionaries" title="Building dictionaries">*Building *dictionaries</a></li>
+<li><a href="/wiki/Finding_errors_in_dictionaries" title="Finding errors in dictionaries">*Finding_*errors_*in_*dictionaries</a></li>
+<li><a href="/w/index.php?title=Cookbook&amp;action=edit&amp;redlink=1" class="new" title="Cookbook (page does not exist)">*Cookbook</a></li>
+<li><a href="/wiki/Chunking" title="Chunking">*Chunking</a></li>
+<li><a href="/wiki/Contributing_to_an_existing_pair" title="Contributing to an existing pair">*Contributing *to *an *existing *pair</a></li></ul>
+
+</html>

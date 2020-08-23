@@ -1,0 +1,11 @@
+Chunker:
+apertium-transfer -b '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/apertium-eng-spa.eng-spa.t1x'  '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.t1x.bin'
+
+Postchunk:
+apertium-postchunk '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/apertium-eng-spa.eng-spa.t3x'  '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.t3x.bin'
+
+Transfer:
+apertium-transfer -b '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/apertium-eng-spa.eng-spa.t1x'  '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.t1x.bin'< transfer-eng-spa_input.txt | apertium-interchunk '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/apertium-eng-spa.eng-spa.t2x'  '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.t2x.bin' | apertium-postchunk '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/apertium-eng-spa.eng-spa.t3x'  '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.t3x.bin'
+
+Post lt_proc:
+apertium-tagger -g $2 '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.prob' < lt_proc_out_test.in | apertium-pretransfer| apertium-transfer -n '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/apertium-eng-spa.eng-spa.genitive.t1x'  '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.genitive.bin' | lt-proc -b '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.autobil.bin' | lrx-proc -m '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.autolex.bin' | apertium-transfer -b '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/apertium-eng-spa.eng-spa.t1x'  '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.t1x.bin' | apertium-interchunk '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/apertium-eng-spa.eng-spa.t2x'  '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.t2x.bin' | apertium-postchunk '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/apertium-eng-spa.eng-spa.t3x'  '/Users/khannatanmai/Documents/GSoC/repo/main/apertium-eng-spa/eng-spa.t3x.bin'
